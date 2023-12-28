@@ -9,11 +9,20 @@ release = '1.0.0'
 
 # -- General configuration ---------------------------------------------------extensions = ['myst_parser']
 
+extensions = ['myst_parser']
+
 source_suffix = {
     '.rst': 'restructuredtext',
     '.txt': 'markdown',
     '.md': 'markdown',
 }
+
+myst_enable_extensions = [
+    "attrs_inline",
+    "colon_fence",
+    "dollarmath",
+    "html_admonition",
+]
 
 templates_path = ['_templates']
 exclude_patterns = []
