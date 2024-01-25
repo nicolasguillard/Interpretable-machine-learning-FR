@@ -1,17 +1,17 @@
 ---
 order: 0
+title: Résumé
 lang: fr
 format:
     html:
+        date-modified: 01/25/2024
         toc: false
         link-external-newwindow: true
 ---
 
-# Résumé
+> Traduction du livre en ligne [https://christophm.github.io/interpretable-ml-book/index.html](https://christophm.github.io/interpretable-ml-book/index.html)
 
-> Traduction de https://christophm.github.io/interpretable-ml-book/index.html
-
-![Couverture](../_static/images/cutout.png){w=400px align=center}
+![Couverture](../_static/images/cutout.png){width=400px align=center}
 
 L'apprentissage automatique représente un grand potentiel pour améliorer les produits, les processus et la recherche. Mais les **ordinateurs n'expliquent généralement pas leurs prédictions**, ce qui est un obstacle à l'adoption de l'apprentissage automatique. Ce livre traite de ce qui rend les modèles d'apprentissage automatique et leurs prédictions interprétables.
 
@@ -36,5 +36,8 @@ Consultez également [Modeling Mindsets](https://bookgoodies.com/a/B0BMGSF52B), 
 
 Ce livre est publié sous la licence [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-**Au sujet du traducteur (assisté de ChatGPT-4):** Mon nom est [Nicolas Guillard](https://www.linkedin.com/in/nicolasguillard/). De formation initiale Ingénieur en informatique, préalablement Analytiste Digital, je suis maintenant Ingénieur en Intelligence Artificielle.
+
+::: {.callout-note title="Note du traducteur" icon=false}
+**Au sujet du traducteur (assisté de ChatGPT-4) :** Mon nom est [Nicolas Guillard](https://www.linkedin.com/in/nicolasguillard/). De formation initiale Ingénieur en informatique, préalablement Analytiste Digital, je suis maintenant Ingénieur en Intelligence Artificielle.
 Dernière traduction réalisée entre les 27/12/2023 et **/01/2024.
+:::

@@ -1,16 +1,16 @@
 ---
 order: 00
 lang: fr
-number-depth: 4
 format:
     html:
+        number-depth: 4
         toc: false
         toc-depth: 4
         toc-expand: 4
         link-external-newwindow: true
 ---
 
-::: {.callout-note appearance="simple"}
+::: {.callout-note title="Note du traducteur" icon=false}
 ### Note du traducteur
 Ouvrages disponibles en français (au 27/12/2023)
 :::

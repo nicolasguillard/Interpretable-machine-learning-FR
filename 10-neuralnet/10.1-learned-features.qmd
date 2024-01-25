@@ -80,7 +80,7 @@ Pour les réseaux neuronaux récurrents, il est un peu plus agréable de visuali
 
 Certaines des images semblent montrer des concepts bien connus comme des museaux de chiens ou des bâtiments. Mais comment pouvons-nous en être sûrs ? La méthode de dissection de réseau relie les concepts humains avec des unités individuelles de réseau neuronal. Alerte de divulgâchage : la dissection de réseau nécessite des jeux de données supplémentaires que quelqu'un a étiquetés avec des concepts humains.
 
-### 10.1.2 Dissection d'un réseau {#network-dissection}
+### 10.1.2 Dissection d'un réseau {#sec-network_dissection}
 
 L'approche de Dissection de Réseau par Bau & Zhou et al. (2017)[^dissect] quantifie l'interprétabilité d'une unité d'un réseau neuronal convolutionnel. Elle relie les zones fortement activées des canaux de CNN avec des concepts humains (objets, parties, textures, couleurs, ...).
 
