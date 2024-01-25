@@ -1,0 +1,12 @@
+---
+order: 8
+lang: fr
+format:
+    html:
+        toc: false
+        link-external-newwindow: true
+---
+
+# 8 - Méthodes globales agnostiques au modèle
+
+Lorem ipsum

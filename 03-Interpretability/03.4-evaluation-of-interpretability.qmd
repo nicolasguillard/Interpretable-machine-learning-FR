@@ -1,0 +1,12 @@
+---
+lang: fr
+format:
+    html:
+        toc: false
+        link-external-newwindow: true
+---
+
+## 3.4 - Evaluation de l'Interprétabilité
+
+
+[^Doshi2017]: Doshi-Velez, Finale, and Been Kim. "Towards a rigorous science of interpretable machine learning," no. Ml: 1–13. http://arxiv.org/abs/1702.08608 (2017).

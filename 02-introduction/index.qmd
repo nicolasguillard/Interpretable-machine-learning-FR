@@ -1,0 +1,38 @@
+---
+order: 2
+lang: fr
+format:
+    html:
+        toc: false
+        link-external-newwindow: true
+---
+
+# 2 - Introduction
+
+Ce livre vous explique comment rendre les modèles d'apprentissage automatique (supervisé) interprétables. Les chapitres contiennent des formules mathématiques, mais vous devriez être capable de comprendre les idées derrière les méthodes même sans les formules. Ce livre n'est pas destiné aux personnes qui tentent d'apprendre l'apprentissage automatique à partir de zéro. Si vous êtes novice sur ce sujet, il existe de nombreux ouvrages et autres ressources pour apprendre les bases.
+Je recommande le livre ["The Elements of Statistical Learning" by Hastie, Tibshirani, and Friedman (2009)](https://hastie.su.domains/ElemStatLearn/) [^Hastie] et le cours en ligne [Andrew Ng's "Machine Learning" online course](https://www.coursera.org/learn/machine-learning) sur la plateforme coursera.com pour débuter en apprentissage machine.
+Les deux sont disponibles gratuitement.
+
+
+
+De nouvelles méthodes d'interprétation des modèles d'apprentissage automatique sont publiées à une vitesse vertigineuse. Suivre tout ce qui est publié serait de la folie et tout simplement impossible. C'est pourquoi vous ne trouverez pas dans ce livre les méthodes les plus récentes et les plus sophistiquées, mais des méthodes établies et des concepts de base de l'interprétabilité de l'apprentissage automatique. Ces bases vous préparent à les rendre interprétables. Internaliser les concepts de base vous permet également de mieux comprendre et évaluer tout nouvel article sur l'interprétabilité publié sur [arxiv.org](https://arxiv.org/) dans les 5 dernières minutes depuis que vous avez commencé à lire ce livre (j'exagère peut-être légèrement le taux de publication).
+
+Ce livre commence avec quelques [courtes histoires](./01.2-short-stories.md) dystopiques qui ne sont pas nécessaires pour comprendre le livre, mais qui, je l'espère, vous divertiront et sont destinées à la réflexion. Ensuite, le livre explore les concepts de [l'interprétabilité de l'apprentissage automatique](./02-interpretability.md).
+
+Nous discuterons des situations où l'interprétabilité est importante et des différents types d'explications qui existent. Les termes utilisés tout au long du livre peuvent être consultés dans la [section consacrée à Terminologie](./01.4-terminology.md).
+
+La plupart des modèles et des méthodes expliqués sont présentés en utilisant des exemples de données réelles qui sont décrites dans le [chapitre des Données](./03-datasets.md).
+
+Une façon de rendre l'apprentissage automatique interprétable est d'utiliser des [modèles réputés interprétables](./04.1-interpretable-models.md), tels que les modèles linéaires ou les arbres de décision. L'autre option est l'utilisation d'[outils d'interprétation agnostiques au modèle](./06.0-example.md) qui peuvent être appliqués à tout modèle d'apprentissage automatique supervisé.
+
+Les méthodes agnostiques au modèle peuvent être divisées en [méthodes globales](#global-methods) qui décrivent le comportement moyen du modèle, et en [méthodes locales](#local-methods) qui expliquent les prédictions individuelles.
+
+Le chapitre sur les Méthodes Agnostiques au Modèle traite de méthodes telles que les [graphiques de dépendance partielle](#pdp) et l'[importance des caractéristiques](#feature-importance). Les méthodes agnostiques au modèle fonctionnent en modifiant l'entrée du modèle d'apprentissage automatique et en mesurant les changements dans la sortie de prédiction.
+
+Le livre se termine par une perspective optimiste sur ce à quoi pourrait ressembler [l'avenir de l'apprentissage automatique interprétable](#future).
+
+Vous pouvez soit lire le livre du début à la fin, soit passer directement aux méthodes qui vous intéressent.
+
+J'espère que vous apprécierez la lecture de ce livre!
+
+[^Hastie]: Friedman, Jerome, Trevor Hastie, and Robert Tibshirani. "The elements of statistical learning". hastie.su.domains/ElemStatLearn  (2009).

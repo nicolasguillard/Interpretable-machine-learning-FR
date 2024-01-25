@@ -1,0 +1,45 @@
+---
+lang: fr
+format:
+    html:
+        toc: false
+        link-external-newwindow: true
+---
+
+## 3.3 - Portée de l'Interprétabilité
+
+Un algorithme entraîne un modèle qui produit les prédictions. Chaque étape peut être évaluée en termes de transparence ou d'interprétabilité.
+
+
+### 3.3.1 - Transparence d'un algorithme
+*Comment l'algorithme crée-t-il le modèle ?*
+
+La transparence de l'algorithme concerne la manière dont l'algorithme apprend un modèle à partir des données et le type de relations qu'il peut apprendre. Si vous utilisez des réseaux neuronaux convolutionnels pour classer des images, vous pouvez expliquer que l'algorithme apprend des détecteurs de bords et des filtres sur les couches les plus basses. Cela représente une compréhension de la façon dont l'algorithme fonctionne, mais pas pour le modèle spécifique qui est appris à la fin, ni pour la manière dont les prédictions individuelles sont faites. La transparence de l'algorithme nécessite uniquement la connaissance de l'algorithme et non des données ou du modèle appris. Ce livre se concentre sur l'interprétabilité du modèle et non sur la transparence de l'algorithme. Des algorithmes tels que la méthode des moindres carrés pour les modèles linéaires sont bien étudiés et compris. Ils se caractérisent par une grande transparence. Les approches d'apprentissage profond (poussant un gradient à travers un réseau avec des millions de poids) sont moins bien comprises et leur fonctionnement interne est l'objet de recherches en cours. Ils sont considérés comme moins transparents.
+
+
+### 3.3.2 - Interprétabilité Globale et Holistique du Modèle
+*Comment le modèle entraîné fait-il des prédictions ?*
+
+On pourrait décrire un modèle comme interprétable si vous pouvez comprendre l'ensemble du modèle d'un seul coup (Lipton 2016 [^Lipton2016]). Pour expliquer la sortie globale du modèle, vous avez besoin du modèle entraîné, de la connaissance de l'algorithme et des données. Ce niveau d'interprétabilité concerne la compréhension de la manière dont le modèle prend des décisions, basée sur une vue holistique de ses caractéristiques et de chacun des composants appris tels que les poids, d'autres paramètres et structures. Quelles caractéristiques sont importantes et quel type d'interactions se produisent entre elles ? L'interprétabilité globale du modèle aide à comprendre la distribution de votre résultat cible basé sur les caractéristiques. L'interprétabilité globale du modèle est très difficile à atteindre en pratique. Tout modèle qui dépasse quelques paramètres ou poids est peu susceptible de s'intégrer dans la mémoire à court terme de l'humain moyen. Je soutiens que vous ne pouvez pas vraiment imaginer un modèle linéaire avec 5 caractéristiques, car cela signifierait dessiner mentalement l'hyperplan estimé dans un espace à 5 dimensions. Tout espace de caractéristiques avec plus de 3 dimensions est tout simplement inconcevable pour les humains. Habituellement, lorsque les gens essaient de comprendre un modèle, ils ne considèrent que des parties de celui-ci, comme les poids dans les modèles linéaires.
+
+
+### 3.3.3 - Interprétabilité Globale du Modèle à un Niveau Modulaire
+*Comment les parties du modèle affectent-elles les prédictions ?*
+
+Un modèle Naive Bayes avec des centaines de caractéristiques serait trop volumineux pour que vous et moi le gardions dans notre mémoire de travail. Et même si nous parvenions à mémoriser tous les poids, nous ne serions pas capables de faire rapidement des prédictions pour de nouveaux points de données. De plus, vous devez avoir la distribution conjointe de toutes les caractéristiques en tête pour estimer l'importance de chaque caractéristique et comment les caractéristiques affectent les prédictions en moyenne. Une tâche impossible. Mais vous pouvez facilement comprendre un seul poids. Bien que l'interprétabilité globale du modèle soit généralement hors de portée, il y a de bonnes chances de comprendre au moins certains modèles à un niveau modulaire. Tous les modèles ne sont pas interprétables au niveau des paramètres. Pour les modèles linéaires, les parties interprétables sont les poids, pour les arbres, ce seraient les divisions (caractéristiques sélectionnées plus points de coupure) et les prédictions des nœuds feuilles. Les modèles linéaires, par exemple, semblent comme s'ils pouvaient être parfaitement interprétés à un niveau modulaire, mais l'interprétation d'un seul poids est interdépendante de tous les autres poids. L'interprétation d'un seul poids est toujours accompagnée de la note de bas de page que les autres caractéristiques d'entrée restent à la même valeur, ce qui n'est pas le cas dans de nombreuses applications réelles. Un modèle linéaire qui prédit la valeur d'une maison, qui prend en compte à la fois la taille de la maison et le nombre de pièces, peut avoir un poids négatif pour la caractéristique des pièces. Cela peut arriver parce qu'il y a déjà la caractéristique de la taille de la maison, fortement corrélée. Sur un marché où les gens préfèrent des pièces plus grandes, une maison avec moins de pièces pourrait valoir plus qu'une maison avec plus de pièces si les deux ont la même taille. Les poids n'ont de sens que dans le contexte des autres caractéristiques du modèle. Mais les poids dans un modèle linéaire peuvent encore être mieux interprétés que les poids d'un réseau neuronal profond.
+
+
+### 3.3.4 - Interprétabilité Locale pour une Prédiction Unique 
+*Pourquoi le modèle a-t-il fait une certaine prédiction pour une instance ?*
+
+Vous pouvez vous concentrer sur une seule instance et examiner ce que le modèle prédit pour cette entrée, et expliquer pourquoi. Si vous regardez une prédiction individuelle, le comportement du modèle par ailleurs complexe peut se comporter de manière plus agréable. Localement, la prédiction peut dépendre uniquement de manière linéaire ou monotone de certaines caractéristiques, plutôt que d'avoir une dépendance complexe envers elles. Par exemple, la valeur d'une maison peut dépendre de manière non linéaire de sa taille. Mais si vous ne regardez qu'une maison particulière de 100 mètres carrés, il est possible que pour ce sous-ensemble de données, votre prédiction de modèle dépende linéairement de la taille. Vous pouvez le découvrir en simulant comment le prix prédit change lorsque vous augmentez ou diminuez la taille de 10 mètres carrés. Les explications locales peuvent donc être plus précises que les explications globales. Ce livre présente des méthodes qui peuvent rendre les prédictions individuelles plus interprétables dans la [section sur les méthodes agnostiques au modèle](#sec-agnostic).
+
+
+### Interprétabilité Locale pour un Groupe de Prédictions
+*Pourquoi le modèle a-t-il fait des prédictions spécifiques pour un groupe d'instances ?*
+
+Les prédictions du modèle pour plusieurs instances peuvent être expliquées soit avec des méthodes d'interprétation globale du modèle (à un niveau modulaire), soit avec des explications d'instances individuelles. Les méthodes globales peuvent être appliquées en prenant le groupe d'instances, en les traitant comme si le groupe était l'ensemble de données complet, et en utilisant les méthodes globales avec ce sous-ensemble. Les méthodes d'explication individuelle peuvent être utilisées sur chaque instance puis listées ou agrégées pour l'ensemble du groupe.
+
+
+
+[^Lipton2016]: Lipton, Zachary C. "The mythos of model interpretability." arXiv preprint arXiv:1606.03490, (2016).

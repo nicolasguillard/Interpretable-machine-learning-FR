@@ -1,0 +1,12 @@
+---
+order: 5
+lang: fr
+format:
+    html:
+        toc: false
+        link-external-newwindow: true
+---
+
+# 5 - Model-Agnostic Methods
+
+Lorem ipsum

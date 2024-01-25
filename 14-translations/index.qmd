@@ -1,0 +1,12 @@
+---
+order: 14
+lang: fr
+format:
+    html:
+        toc: false
+        link-external-newwindow: true
+---
+
+# 14 - Traductions
+
+Lorem ipsum

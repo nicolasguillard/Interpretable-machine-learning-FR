@@ -1,0 +1,13 @@
+---
+order: 00
+lang: fr
+format:
+    html:
+        toc: false
+        link-external-newwindow: true
+---
+
+::: {.callout-note appearance="simple"}
+### Note du traducteur
+Ouvrages disponibles en français (au 27/12/2023)
+:::

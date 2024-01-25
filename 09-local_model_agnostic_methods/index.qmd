@@ -1,0 +1,12 @@
+---
+order: 9
+lang: fr
+format:
+    html:
+        toc: false
+        link-external-newwindow: true
+---
+
+# 9 - Méthodes locales agnostiques au modèle
+
+Lorem ipsum

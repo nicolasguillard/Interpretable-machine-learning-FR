@@ -1,0 +1,36 @@
+---
+lang: fr
+format:
+    html:
+        toc: false
+        link-external-newwindow: true
+---
+
+## 3.2 - Taxonomie des Méthodes d'Interprétabilité
+
+Les méthodes pour l'interprétabilité de l'apprentissage automatique peuvent être classées selon différents critères.
+
+**Intrinsèque ou a posteriori ?**
+Ce critère distingue si l'interprétabilité est obtenue en limitant la complexité du modèle d'apprentissage automatique (intrinsèque) ou en appliquant des méthodes qui analysent le modèle après l'entraînement (a posteriori). L'interprétabilité intrinsèque fait référence aux modèles d'apprentissage automatique qui sont considérés comme interprétables en raison de leur structure simple, tels que les arbres de décision courts ou les modèles linéaires éparse. L'interprétabilité a posteriori fait référence à l'application de méthodes d'interprétation après l'entraînement du modèle. L'importance des caractéristiques par permutation est, par exemple, une méthode d'interprétation a posteriori. Les méthodes a posteriori peuvent également être appliquées à des modèles intrinsèquement interprétables. Par exemple, l'importance des caractéristiques par permutation peut être calculée pour les arbres de décision. L'organisation des chapitres de ce livre est déterminée par la distinction entre les [modèles intrinsèquement interprétables](#sec-simple) et les [méthodes d'interprétation a posteriori (et agnostiques au modèle)](#sec-agnostic).
+
+**Résultat de la méthode d'interprétation**
+Les différentes méthodes d'interprétation peuvent être grossièrement différenciées selon leurs résultats :
+
+- **Statistique résumée des caractéristiques** :
+De nombreuses méthodes d'interprétation fournissent des statistiques résumées pour chaque caractéristique. Certaines méthodes renvoient un seul nombre par caractéristique, tel que l'importance des caractéristiques, ou un résultat plus complexe, tel que les forces d'interaction entre paires de caractéristiques, qui consistent en un nombre pour chaque paire de caractéristiques.
+- **Visualisation résumée des caractéristiques** :
+La plupart des statistiques résumées des caractéristiques peuvent également être visualisées. Certaines synthèses de caractéristiques sont en fait uniquement significatives si elles sont visualisées et un tableau serait un mauvais choix. La dépendance partielle d'une caractéristique est un tel cas. Les graphiques de dépendance partielle sont des courbes qui montrent une caractéristique et le résultat moyen prédit. La meilleure façon de présenter les dépendances partielles est de dessiner réellement la courbe au lieu d'imprimer les coordonnées.
+- **Internes du modèle (par exemple, les poids appris)** :
+L'interprétation des modèles intrinsèquement interprétables relève de cette catégorie. Des exemples en sont les poids dans les modèles linéaires ou la structure d'arbre apprise (les caractéristiques et les seuils utilisés pour les divisions) des arbres de décision. Les frontières sont floues entre les internes du modèle et la statistique résumée des caractéristiques, par exemple, dans les modèles linéaires, car les poids sont à la fois les internes du modèle et des statistiques résumées pour les caractéristiques en même temps. Une autre méthode qui produit des internes de modèle est la visualisation des détecteurs de caractéristiques appris dans les réseaux neuronaux convolutionnels. Les méthodes d'interprétabilité qui produisent des internes de modèle sont par définition spécifiques au modèle (voir le critère suivant).
+- **Point de données** :
+Cette catégorie comprend toutes les méthodes qui retournent des points de données (déjà existants ou nouvellement créés) pour rendre un modèle interprétable. Une méthode s'appelle les explications contrefactuelles. Pour expliquer la prédiction d'une instance de données, la méthode trouve un point de données similaire en changeant certaines des caractéristiques pour lesquelles le résultat prédit change de manière pertinente (par exemple, un changement dans la classe prédite). Un autre exemple est l'identification de prototypes des classes prédites. Pour être utiles, les méthodes d'interprétation qui produisent de nouveaux points de données nécessitent que les points de données eux-mêmes puissent être interprétés. Cela fonctionne bien pour les images et les textes, mais est moins utile pour les données tabulaires avec des centaines de caractéristiques.
+- **Modèle intrinsèquement interprétable** :
+Une solution pour interpréter les modèles boîte noire consiste à les approximer (soit globalement, soit localement) avec un modèle interprétable. Le modèle interprétable lui-même est interprété en examinant les paramètres internes du modèle ou les statistiques résumées des caractéristiques.
+
+**Spécifique au modèle ou agnostique au modèle ?**
+Les outils d'interprétation spécifiques à un modèle sont limités à des classes de modèles spécifiques. L'interprétation des poids de régression dans un modèle linéaire est une interprétation spécifique au modèle, puisque -- par définition -- l'interprétation des modèles intrinsèquement interprétables est toujours spécifique au modèle. Les outils qui fonctionnent uniquement pour l'interprétation, par exemple, des réseaux neuronaux sont spécifiques au modèle. Les outils agnostiques au modèle peuvent être utilisés sur n'importe quel modèle d'apprentissage automatique et sont appliqués après que le modèle ait été entraîné (a posteriori). Ces méthodes agnostiques fonctionnent généralement en analysant les paires d'entrée et de sortie de caractéristiques. Par définition, ces méthodes ne peuvent pas avoir accès aux internes du modèle tels que les poids ou les informations structurelles.
+
+**Local ou global ?**
+La méthode d'interprétation explique-t-elle une prédiction individuelle ou le comportement global du modèle ?
+Ou est-ce que la portée se situe quelque part entre les deux ?
+Lisez plus sur le critère de portée dans la [section suivante](#).

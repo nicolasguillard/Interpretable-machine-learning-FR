@@ -1,0 +1,12 @@
+---
+order: 13
+lang: fr
+format:
+    html:
+        toc: false
+        link-external-newwindow: true
+---
+
+# 13 - Citer ce livre
+
+Lorem ipsum

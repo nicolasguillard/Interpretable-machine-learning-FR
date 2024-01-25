@@ -1,0 +1,12 @@
+---
+order: 10
+lang: fr
+format:
+    html:
+        toc: false
+        link-external-newwindow: true
+---
+
+# 10 - Interprétation d'un réseau de neurone
+
+Lorem ipsum

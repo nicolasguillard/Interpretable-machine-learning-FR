@@ -1,0 +1,12 @@
+---
+order: 7
+lang: fr
+format:
+    html:
+        toc: false
+        link-external-newwindow: true
+---
+
+# 7 - Explications basées du l'exemple
+
+Lorem ipsum

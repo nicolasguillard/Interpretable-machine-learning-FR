@@ -1,0 +1,20 @@
+project:
+  type: website
+  render: 
+    - "*.qmd"
+    - "02.0-Introduction/*"
+    - "!source/*"
+
+website:
+  title: "Apprentissage automatique interprétable"
+  sidebar:
+    style: "docked"
+    search: true
+    contents: auto
+  page-navigation: true
+  
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
