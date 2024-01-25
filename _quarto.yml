@@ -12,6 +12,7 @@ website:
     search: true
     contents: auto
   page-navigation: true
+  back-to-top-navigation: true
   
 format:
   html:

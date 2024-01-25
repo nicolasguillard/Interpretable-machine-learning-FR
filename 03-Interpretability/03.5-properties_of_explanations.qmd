@@ -6,4 +6,4 @@ format:
         link-external-newwindow: true
 ---
 
-## Propriétés des Explications {#sec-properties}
+## 3.5 - Propriétés des Explications {#sec-properties}

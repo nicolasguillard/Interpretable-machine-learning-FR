@@ -5,3 +5,5 @@ format:
         toc: false
         link-external-newwindow: true
 ---
+
+## 10.4 - Exemples adverses {sec-adversarial_examples}

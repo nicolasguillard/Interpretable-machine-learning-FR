@@ -7,6 +7,6 @@ format:
         link-external-newwindow: true
 ---
 
-# 7 - Explications basées du l'exemple
+# 7 - Explications basées du l'exemple  {#sec-example}
 
 Lorem ipsum

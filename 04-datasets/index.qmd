@@ -7,6 +7,6 @@ format:
         link-external-newwindow: true
 ---
 
-# 4 - Jeux de données
+# 4 - Jeux de données {#sec-datasets}
 
 Lorem ipsum

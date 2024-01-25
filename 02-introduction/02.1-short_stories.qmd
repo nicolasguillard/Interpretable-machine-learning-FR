@@ -4,7 +4,7 @@ format:
     html:
         link-external-newwindow: true
 ---
-## 2.1 - Quelques histoires 
+## 2.1 - Quelques histoires {#sec-short_stories}
 
 Nous commencerons avec quelques courtes histoires. Chaque histoire est un appel volontairement exagéré pour un apprentissage automatique interprétable. Si vous êtes pressé, vous pouvez les passer. Si vous voulez être diverti et (dé)motivé, poursuivez leur lecture !
 

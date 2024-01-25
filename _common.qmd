@@ -1,9 +1,12 @@
 ---
 order: 00
 lang: fr
+number-depth: 4
 format:
     html:
         toc: false
+        toc-depth: 4
+        toc-expand: 4
         link-external-newwindow: true
 ---
 
@@ -11,3 +14,7 @@ format:
 ### Note du traducteur
 Ouvrages disponibles en français (au 27/12/2023)
 :::
+
+![hospital](../_static/images/hospital.png){width=400px align=center}
+
+![doge-stuck](../_static/images/doge-stuck.jpg){align=center fig-alt="Doge, our vacuum cleaner, got stuck. As an explanation for the accident, Doge told us that it needs to be on an even surface."}

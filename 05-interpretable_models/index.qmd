@@ -7,6 +7,6 @@ format:
         link-external-newwindow: true
 ---
 
-# 5 - Model-Agnostic Methods
+# 5 - Modèles interprétables {#sec-interpretable_models}
 
 Lorem ipsum
