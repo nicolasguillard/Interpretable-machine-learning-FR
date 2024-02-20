@@ -4,9 +4,10 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
 
 # 4 - Jeux de données {#sec-datasets}
 
-Lorem ipsum
+Tout au long du livre, des ensembles de données réels disponibles gratuitement en ligne seront exploités par les différentes modèles et techniques présentés. 
+Nous utiliserons différents ensembles de données pour différentes tâches : 
+Classification, régression et classification de textes.

@@ -4,15 +4,14 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
 
 # 3 - Interprétabilité {#sec-interpretability}
 
 Il est difficile de définir mathématiquement l'interprétabilité. Une définition non mathématique de l'interprétabilité que j'apprécie, proposée par Miller (2017)[^Miller2017], est la suivante : **L'interprétabilité est le degré selon lequel un humain peut comprendre la cause d'une décision**.
-Une autre est : **L'interprétabilité est le degré selon lequel un humain peut prédire de manière cohérente le résultat du modèle** [^Kim2016]. Plus l'interprétabilité d'un modèle d'apprentissage automatique est élevée, plus il est facile pour quelqu'un de comprendre pourquoi certaines décisions ou prédictions ont été prises. Un modèle est mieux interprétable qu'un autre si ses décisions sont plus faciles à comprendre pour un humain que celles de l'autre modèle. J'utiliserai de manière interchangeable les termes interprétable et explicable. Comme Miller (2017)[^Miller2017], je pense qu'il est judicieux de distinguer entre les termes interprétabilité/explicabilité et explication. J'utiliserai "explication" pour les explications de prédictions individuelles. Consultez la section sur les explications pour apprendre ce que nous, humains, considérons comme une bonne explication.
+Une autre est : **L'interprétabilité est le degré selon lequel un humain peut prédire de manière cohérente le résultat du modèle**[^Kim2016]. Plus l'interprétabilité d'un modèle d'apprentissage automatique est élevée, plus il est facile pour quelqu'un de comprendre pourquoi certaines décisions ou prédictions ont été prises. Un modèle est mieux interprétable qu'un autre si ses décisions sont plus faciles à comprendre pour un humain que celles de l'autre modèle. J'utiliserai de manière interchangeable les termes interprétable et explicable. Comme Miller (2017), je pense qu'il est judicieux de distinguer entre les termes interprétabilité/explicabilité et explication. J'utiliserai "explication" pour les explications de prédictions individuelles. Consultez la section sur les explications pour apprendre ce que nous, humains, considérons comme une bonne explication.
 
-L'apprentissage automatique interprétable est un terme général utile qui englobe "l'extraction de connaissances pertinentes d'un modèle d'apprentissage automatique concernant les relations contenues dans les données ou apprises par le modèle". [^Murdoch2019]
+L'apprentissage automatique interprétable est un terme général utile qui englobe "l'extraction de connaissances pertinentes d'un modèle d'apprentissage automatique concernant les relations contenues dans les données ou apprises par le modèle"[^Murdoch2019].
 
 <!-- REFERENCES -->
 

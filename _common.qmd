@@ -10,11 +10,16 @@ format:
         link-external-newwindow: true
 ---
 
-::: {.callout-note title="Note du traducteur" icon=false}
-### Note du traducteur
+::: {.callout-note title="Note du traducteur" icon=false appearance="simple"}
 Ouvrages disponibles en français (au 27/12/2023)
 :::
 
+::: {.callout-important title="Note du traducteur"}
+Vérifier et illustrer l'exemple précédent
+:::
+
 ![hospital](../_static/images/hospital.png){width=400px align=center}
+
+![hospital](../_static/images/hospital.png){align=center}
 
 ![doge-stuck](../_static/images/doge-stuck.jpg){align=center fig-alt="Doge, our vacuum cleaner, got stuck. As an explanation for the accident, Doge told us that it needs to be on an even surface."}

@@ -3,7 +3,6 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
 
 ## 2.2 - Qu'est-ce que l'apprentissage automatique ?

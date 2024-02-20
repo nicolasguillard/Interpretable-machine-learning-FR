@@ -1,9 +1,101 @@
 ---
 lang: fr
-format:
-    html:
-        toc: false
-        link-external-newwindow: true
 ---
 
-## Human-friendly Explanations {#sec-explanation}
+## 3.6 - Explications conviviales pour l'être humain
+
+Creusons plus profondément et découvrons ce que nous, humains, considérons comme de "bonnes" explications et quelles sont les implications pour l'apprentissage automatique interprétable. La recherche en sciences humaines peut nous aider à le découvrir. Miller (2017)[^Miller2017] a mené une vaste enquête sur les publications concernant les explications, et ce chapitre s'appuie sur son résumé.
+
+Dans ce chapitre, je veux vous convaincre de ce qui suit :
+En tant qu'explication d'un événement, les humains préfèrent des explications courtes (seulement 1 ou 2 causes) qui contrastent la situation actuelle avec une situation dans laquelle l'événement ne se serait pas produit. Surtout, les causes anormales fournissent de bonnes explications. Les explications sont des interactions sociales entre l'explicateur et le destinataire de l'explication, et donc le contexte social a une grande influence sur le contenu réel de l'explication.
+
+Lorsque vous avez besoin d'explications avec TOUS les facteurs pour une prédiction ou un comportement particulier, vous ne voulez pas une explication conviviale pour l'homme, mais une attribution causale complète. Vous voulez probablement une attribution causale si vous êtes légalement tenu de spécifier toutes les caractéristiques influençant ou si vous déboguez le modèle d'apprentissage automatique. Dans ce cas, ignorez les points suivants. Dans tous les autres cas, où les personnes profanes ou les personnes ayant peu de temps sont les destinataires de l'explication, les sections suivantes devraient vous intéresser.
+
+
+### 3.6.1 - Qu'est-ce qu'une explication ?
+
+Une explication est la **réponse à une question en 'pourquoi'** (Miller 2017).
+
+- Pourquoi le traitement n'a-t-il pas fonctionné sur le patient ?
+- Pourquoi mon prêt a-t-il été refusé ?
+- Pourquoi n'avons-nous pas encore été contactés par une vie extraterrestre ?
+
+Les deux premières questions peuvent être répondues avec une explication "quotidienne", tandis que la troisième provient de la catégorie "Phénomènes scientifiques généraux et questions philosophiques". Nous nous concentrons sur les explications de type "quotidien", car elles sont pertinentes pour l'apprentissage automatique interprétable. Les questions commençant par "comment" peuvent généralement être reformulées en questions en "pourquoi" : "Comment mon prêt a-t-il été refusé ?" peut être transformé en "Pourquoi mon prêt a-t-il été refusé ?".
+
+Dans la suite, le terme "explication" se réfère au processus social et cognitif d'explication, mais aussi au produit de ces processus. L'explicateur peut être un être humain ou une machine.
+
+
+### 3.6.2 - Qu'est-ce qu'une bonne explication ? {#good-explanation}
+
+Cette section condense davantage le résumé de Miller sur les "bonnes" explications et ajoute des implications concrètes pour l'apprentissage automatique interprétable.
+
+**Les explications sont contrastives** (Lipton 1990[^lipton2]).<br />
+Les humains ne demandent généralement pas pourquoi une certaine prédiction a été faite, mais pourquoi cette prédiction a été faite *au lieu d'une autre prédiction*. 
+Nous avons tendance à penser en termes de cas contrefactuels, c'est-à-dire "Comment aurait été la prédiction si l'entrée X avait été différente ?". 
+Pour une prédiction de prix de maison, le propriétaire pourrait être intéressé de savoir pourquoi le prix prédit était élevé par rapport au prix plus bas qu'il avait anticipé. 
+Si ma demande de prêt est rejetée, je ne me soucie pas d'entendre tous les facteurs qui parlent généralement pour ou contre un rejet. 
+Je suis intéressé par les facteurs dans ma demande qui devraient changer pour obtenir le prêt. 
+Je veux connaître le contraste entre ma demande et la version de ma demande qui aurait été acceptée. 
+La reconnaissance que les explications contrastives sont importantes est une découverte importante pour l'apprentissage automatique explicable. 
+À partir de la plupart des modèles interprétables, vous pouvez extraire une explication qui contraste implicitement la prédiction d'une instance avec la prédiction d'une instance de données artificielle ou d'une moyenne d'instances. 
+Les médecins pourraient demander : "Pourquoi le médicament n'a-t-il pas fonctionné pour mon patient ?". 
+Et ils pourraient vouloir une explication qui contraste leur patient avec un patient pour lequel le médicament a fonctionné et qui est similaire au patient non répondeur. 
+Les explications contrastives sont plus faciles à comprendre que les explications complètes. 
+Une explication complète de la question du médecin sur pourquoi le médicament ne fonctionne pas pourrait inclure : 
+Le patient a eu la maladie pendant 10 ans, 11 gènes sont sur-exprimés, le corps du patient décompose très rapidement le médicament en produits chimiques inefficaces, ...
+Une explication contrastive pourrait être beaucoup plus simple : 
+Contrairement au patient répondeur, le patient non répondeur a une certaine combinaison de gènes qui rendent le médicament moins efficace. 
+La meilleure explication est celle qui met en évidence la plus grande différence entre l'objet d'intérêt et l'objet de référence.
+***Ce que cela signifie pour l'apprentissage automatique interprétable*** :
+Les humains ne veulent pas d'une explication complète pour une prédiction, mais veulent comparer quelles étaient les différences par rapport à la prédiction d'une autre instance (qui peut être artificielle). Créer des explications contrastives dépend de l'application car cela nécessite un point de référence pour la comparaison. Et cela peut dépendre du point de données à expliquer, mais aussi de l'utilisateur recevant l'explication. Un utilisateur d'un site web de prédiction de prix de maison pourrait vouloir une explication de la prédiction d'un prix de maison contrastive par rapport à sa propre maison, ou peut-être par rapport à une autre maison sur le site, ou peut-être par rapport à une maison moyenne dans le quartier. La solution pour la création automatisée d'explications contrastives pourrait également impliquer la recherche de prototypes ou d'archétypes dans les données.
+
+**Les explications sont sélectionnées**.<br />
+Les gens ne s'attendent pas à des explications qui couvrent la liste complète et réelle des causes d'un événement. Nous avons l'habitude de sélectionner une ou deux causes parmi une variété de causes possibles comme L'explication. Comme preuve, allumez les actualités télévisées :
+"La baisse des prix des actions est attribuée à un mécontentement croissant contre le produit de l'entreprise en raison de problèmes avec la dernière mise à jour du logiciel."
+"Tsubasa et son équipe ont perdu le match à cause d'une défense faible : ils ont laissé trop de place à leurs adversaires pour déployer leur stratégie."
+"La méfiance croissante envers les institutions établies et notre gouvernement sont les principaux facteurs qui ont réduit la participation électorale."
+Le fait qu'un événement puisse être expliqué par diverses causes est appelé l'Effet Rashomon. Rashomon est un film japonais qui raconte des histoires alternatives et contradictoires (explications) sur la mort d'un samouraï. Pour les modèles d'apprentissage automatique, il est avantageux si une bonne prédiction peut être faite à partir de différentes caractéristiques. Les méthodes d'ensemble qui combinent plusieurs modèles avec différentes caractéristiques (différentes explications) se comportent généralement bien car la moyenne de ces "histoires" rend les prédictions plus robustes et précises. Mais cela signifie aussi qu'il y a plus d'une explication sélective pour laquelle une certaine prédiction a été faite.
+***Ce que cela signifie pour l'apprentissage automatique interprétable*** :
+Rendez l'explication très courte, donnez seulement 1 à 3 raisons, même si le monde est plus complexe. La [méthode LIME](/09-local_model_agnostic_methods/09.2-lime.qmd) fait du bon travail à cet égard.
+
+**Les explications sont sociales**.<br />
+Elles font partie d'une conversation ou interaction entre l'explicateur et le destinataire de l'explication. 
+Le contexte social détermine le contenu et la nature des explications. 
+Si je voulais expliquer à une personne technique pourquoi les cryptomonnaies numériques valent tant, je dirais des choses comme : 
+"Le registre décentralisé, distribué et basé sur la blockchain, qui ne peut être contrôlé par une entité centrale, résonne avec les personnes qui veulent sécuriser leur richesse, ce qui explique la forte demande et le prix élevé." 
+Mais à ma grand-mère, je dirais : 
+"Regarde, Mamie : les cryptomonnaies, c'est un peu comme de l'or informatique. Les gens aiment et paient cher pour l'or, et les jeunes aiment et paient cher pour l'or informatique." 
+***Ce que cela signifie pour l'apprentissage automatique interprétable*** : 
+Faites attention à l'environnement social de votre application d'apprentissage automatique et au public cible. 
+Bien cerner la partie sociale du modèle d'apprentissage automatique dépend entièrement de votre application spécifique. 
+Trouvez des experts en sciences humaines (par exemple, des psychologues et des sociologues) pour vous aider.
+
+**Les explications se concentrent sur l'anormal**.<br />
+Les gens se concentrent davantage sur les causes anormales pour expliquer les événements (Kahnemann et Tversky, 1981[^Kahnemann]). Ce sont des causes qui avaient une faible probabilité mais qui se sont néanmoins produites. L'élimination de ces causes anormales aurait grandement changé le résultat (explication contrefactuelle). Les humains considèrent ces types de causes "anormales" comme de bonnes explications. Un exemple de Štrumbelj et Kononenko (2011)[^Strumbelj2011] est : 
+supposons que nous ayons un ensemble de données de situations de test entre enseignants et étudiants. Les étudiants suivent un cours et réussissent le cours directement après avoir réussi une présentation. L'enseignant a la possibilité de poser en plus des questions à l'étudiant pour tester ses connaissances. Les étudiants qui ne peuvent pas répondre à ces questions échoueront au cours. Les étudiants peuvent avoir différents niveaux de préparation, ce qui se traduit par différentes probabilités de répondre correctement aux questions de l'enseignant (s'ils décident de tester l'étudiant). Nous voulons prédire si un étudiant réussira le cours et expliquer notre prédiction. La chance de réussir est de $100\%$ si l'enseignant ne pose aucune question supplémentaire, sinon la probabilité de réussir dépend du niveau de préparation de l'étudiant et de la probabilité résultante de répondre correctement aux questions.  
+- Scénario 1 : 
+L'enseignant pose généralement des questions supplémentaires aux étudiants (par exemple, 95 fois sur 100). Un étudiant qui n'a pas étudié ($10\%$ de chances de réussir la partie questions) n'était pas l'un des chanceux et reçoit des questions supplémentaires auxquelles il ne parvient pas à répondre correctement. Pourquoi l'étudiant a-t-il échoué au cours ? Je dirais que c'est la faute de l'étudiant de ne pas avoir étudié.  
+- Scénario 2 : 
+L'enseignant pose rarement des questions supplémentaires (par exemple, 2 fois sur 100). Pour un étudiant qui n'a pas étudié pour les questions, nous prédirions une forte probabilité de réussir le cours parce que les questions sont peu probables. Bien sûr, l'un des étudiants ne s'est pas préparé pour les questions, ce qui lui donne $10\%$ de chances de réussir les questions. Il a la malchance et l'enseignant pose des questions supplémentaires que l'étudiant ne peut pas répondre et il échoue au cours. Quelle est la raison de l'échec ? Je dirais que maintenant, la meilleure explication est "parce que l'enseignant a testé l'étudiant". Il était peu probable que l'enseignant teste, donc l'enseignant s'est comporté anormalement.  
+***Ce que cela signifie pour l'apprentissage automatique interprétable*** : 
+Si l'une des caractéristiques d'entrée pour une prédiction était anormale en quelque sorte (comme une catégorie rare d'une caractéristique catégorielle) et que la caractéristique a influencé la prédiction, elle devrait être incluse dans une explication, même si d'autres caractéristiques 'normales' ont la même influence sur la prédiction que l'anormale. Une caractéristique anormale dans notre exemple de prédiction de prix de maison pourrait être qu'une maison plutôt chère a deux balcons. Même si une méthode d'attribution trouve que les deux balcons contribuent autant à la différence de prix que la taille de la maison supérieure à la moyenne, le bon quartier ou la rénovation récente, la caractéristique anormale "deux balcons" pourrait être la meilleure explication de pourquoi la maison est si chère.
+
+**Les explications sont véridiques**.<br />
+De bonnes explications se révèlent vraies dans la réalité (c'est-à-dire dans d'autres situations). Mais de manière troublante, ce n'est pas le facteur le plus important pour une "bonne" explication. Par exemple, la sélectivité semble être plus importante que la véracité. Une explication qui ne sélectionne qu'une ou deux causes possibles couvre rarement la liste complète des causes pertinentes. La sélectivité omet une partie de la vérité. Ce n'est pas vrai que seulement un ou deux facteurs, par exemple, ont causé un krach boursier, mais la vérité est qu'il y a des millions de causes qui influencent des millions de personnes à agir de telle manière qu'au final un krach est causé.  
+***Ce que cela signifie pour l'apprentissage automatique interprétable*** :
+L'explication devrait prédire l'événement aussi fidèlement que possible, ce qui en apprentissage automatique est parfois appelé **fidélité**. Donc, si nous disons qu'un deuxième balcon augmente le prix d'une maison, cela devrait également s'appliquer à d'autres maisons (ou du moins à des maisons similaires). Pour les humains, la fidélité d'une explication n'est pas aussi importante que sa sélectivité, son contraste et son aspect social.
+
+**De bonnes explications sont générales et probables**.<br />
+Une cause qui peut expliquer de nombreux événements est très générale et pourrait être considérée comme une bonne explication. Notez que cela contredit l'affirmation selon laquelle les causes anormales constituent de bonnes explications. À mon avis, les causes anormales l'emportent sur les causes générales. Les causes anormales sont par définition rares dans le scénario donné. En l'absence d'un événement anormal, une explication générale est considérée comme une bonne explication. Rappelez-vous également que les gens ont tendance à mal juger les probabilités d'événements conjoints. (Joe est bibliothécaire. Est-il plus susceptible d'être une personne timide ou une personne timide qui aime lire des livres ?) Un bon exemple est "La maison est chère parce qu'elle est grande", qui est une explication très générale et bonne de pourquoi les maisons sont chères ou bon marché.  
+***Ce que cela signifie pour l'apprentissage automatique interprétable*** :
+La généralité peut facilement être mesurée par le support de la caractéristique, qui est le nombre d'instances auxquelles l'explication s'applique divisé par le nombre total d'instances.
+
+<!-- REFERENCES -->
+
+[^Miller2017]: Miller, Tim. "Explanation in artificial intelligence: Insights from the social sciences." arXiv Preprint arXiv:1706.07269. (2017).
+
+[^lipton2]: Lipton, Peter. "Contrastive explanation." Royal Institute of Philosophy Supplements 27 (1990): 247-266.
+
+[^Kahnemann]: Kahneman, Daniel, and Amos Tversky. "The simulation heuristic." Stanford Univ CA Dept of Psychology. (1981).
+
+[^Strumbelj2011]: Štrumbelj, Erik, and Igor Kononenko. "A general method for visualizing and explaining black-box regression models." In International Conference on Adaptive and Natural Computing Algorithms, 21–30. Springer. (2011).

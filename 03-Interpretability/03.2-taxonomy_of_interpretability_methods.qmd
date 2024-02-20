@@ -3,7 +3,6 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
 
 ## 3.2 - Taxonomie des Méthodes d'Interprétabilité
@@ -11,7 +10,7 @@ format:
 Les méthodes pour l'interprétabilité de l'apprentissage automatique peuvent être classées selon différents critères.
 
 **Intrinsèque ou a posteriori ?**
-Ce critère distingue si l'interprétabilité est obtenue en limitant la complexité du modèle d'apprentissage automatique (intrinsèque) ou en appliquant des méthodes qui analysent le modèle après l'entraînement (a posteriori). L'interprétabilité intrinsèque fait référence aux modèles d'apprentissage automatique qui sont considérés comme interprétables en raison de leur structure simple, tels que les arbres de décision courts ou les modèles linéaires éparse. L'interprétabilité a posteriori fait référence à l'application de méthodes d'interprétation après l'entraînement du modèle. L'importance des caractéristiques par permutation est, par exemple, une méthode d'interprétation a posteriori. Les méthodes a posteriori peuvent également être appliquées à des modèles intrinsèquement interprétables. Par exemple, l'importance des caractéristiques par permutation peut être calculée pour les arbres de décision. L'organisation des chapitres de ce livre est déterminée par la distinction entre les [modèles intrinsèquement interprétables](#sec-simple) et les [méthodes d'interprétation a posteriori (et agnostiques au modèle)](#sec-agnostic).
+Ce critère distingue si l'interprétabilité est obtenue en limitant la complexité du modèle d'apprentissage automatique (intrinsèque) ou en appliquant des méthodes qui analysent le modèle après l'entraînement (a posteriori). L'interprétabilité intrinsèque fait référence aux modèles d'apprentissage automatique qui sont considérés comme interprétables en raison de leur structure simple, tels que les arbres de décision courts ou les modèles linéaires éparse. L'interprétabilité a posteriori fait référence à l'application de méthodes d'interprétation après l'entraînement du modèle. L'importance des caractéristiques par permutation est, par exemple, une méthode d'interprétation a posteriori. Les méthodes a posteriori peuvent également être appliquées à des modèles intrinsèquement interprétables. Par exemple, l'importance des caractéristiques par permutation peut être calculée pour les arbres de décision. L'organisation des chapitres de ce livre est déterminée par la distinction entre les [modèles intrinsèquement interprétables](/05-interpretable_models/) et les [méthodes d'interprétation a posteriori (et agnostiques au modèle)](/06-model_agnostic_methods/).
 
 **Résultat de la méthode d'interprétation**
 Les différentes méthodes d'interprétation peuvent être grossièrement différenciées selon leurs résultats :
@@ -33,4 +32,4 @@ Les outils d'interprétation spécifiques à un modèle sont limités à des cla
 **Local ou global ?**
 La méthode d'interprétation explique-t-elle une prédiction individuelle ou le comportement global du modèle ?
 Ou est-ce que la portée se situe quelque part entre les deux ?
-Lisez plus sur le critère de portée dans la [section suivante](#).
+Lisez plus sur le critère de portée dans la [section suivante](./03.3-scope_of_interpretability.qmd).

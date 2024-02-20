@@ -3,5 +3,30 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
+
+## 5.6 - RuleFit
+
+### 5.6.1 - Interpretation and exemple
+
+**Interpretation template**
+
+### 5.6.2 - Théorie
+
+**Step 1: Rule generation**
+
+**Step 2: Sparse linear model**
+
+**Step 3 (optional): Feature importance**
+
+### 5.6.3 - Avantages
+
+### 5.6.4 - Inconvénient
+
+### 5.6.5 - Logiciels et alternatives
+
+<!-- REFERENCES -->
+
+[^Friedman2008]: Friedman, Jerome H, and Bogdan E Popescu. "Predictive learning via rule ensembles." The Annals of Applied Statistics. JSTOR, 916–54. (2008).
+
+[^Fokkema]: Fokkema, Marjolein, and Benjamin Christoffersen.  "Pre: Prediction rule ensembles". https://CRAN.R-project.org/package=pre (2017).

@@ -1,12 +1,27 @@
 ---
 order: 5
-lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
 
-# 5 - Modèles interprétables {#sec-interpretable_models}
+# 5 - Modèles interprétables
 
-Lorem ipsum
+La façon la plus simple d'atteindre l'interprétabilité est d'utiliser uniquement un sous-ensemble d'algorithmes qui créent des modèles interprétables. La régression linéaire, la régression logistique et l'arbre de décision sont des modèles couramment utilisés pour leur interprétabilité.
+
+Dans les chapitres suivants, nous parlerons de ces modèles. Pas en détail, seulement les bases, car il existe déjà une tonne de livres, vidéos, tutoriels, articles et d'autres matériaux disponibles. Nous nous concentrerons sur comment interpréter les modèles. Le livre discute en détail de la [régression linéaire](./05.1-linear-regression.qmd), de la [régression logistique](./05.2-logistic-regression.qmd), [d'autres extensions de la régression linéaire](./05.3-glm-gam-more.qmd), des [arbres de décision](./05.4-decision-tree.qmd), des [règles de décision](./05.5-decision-rules.qmd) et de [l'algorithme RuleFit](./05.6-rulefit.qmd). Il liste également [d'autres modèles interprétables](./05.7-other-interpretable-models.qmd).
+
+Tous les modèles interprétables présentés dans ce livre sont interprétables à un niveau modulaire, à l'exception de la méthode des k plus proches voisins. Le tableau suivant donne un aperçu des types de modèles interprétables et de leurs propriétés. Un modèle est linéaire si l'association entre les caractéristiques et la cible est modélisée de manière linéaire. Un modèle avec des contraintes de monotonie assure que la relation entre une caractéristique et le résultat cible va toujours dans la même direction sur toute la gamme de la caractéristique : une augmentation de la valeur de la caractéristique entraîne toujours une augmentation ou toujours une diminution du résultat cible. La monotonie est utile pour l'interprétation d'un modèle car elle rend une relation plus facile à comprendre. Certains modèles peuvent inclure automatiquement des interactions entre les caractéristiques pour prédire le résultat cible. Vous pouvez inclure des interactions dans n'importe quel type de modèle en créant manuellement des caractéristiques d'interaction. Les interactions peuvent améliorer la performance prédictive, mais trop d'interactions ou des interactions trop complexes peuvent nuire à l'interprétabilité. Certains modèles gèrent uniquement la régression, d'autres uniquement la classification, et encore d'autres les deux.
+
+À partir de ce tableau, vous pouvez sélectionner un modèle interprétable adapté à votre tâche, que ce soit pour de la régression (`regr`) ou de la classification (`class`) :
+
+| Algorithme | Linéaire | Monotone | Interaction | Tâche |
+|:--------------|:-------|:--------|:-----------|:--------|
+| Régression linéaire | Oui | Oui | Non | regr |
+| Régression logistique | Non | Oui | Non | class |
+| Arbres de décision | Non | Quelques-uns | Oui | class, regr |
+| RuleFit | Oui | Non | Oui | class, regr |
+| Naive Bayes | Non | Oui | Non | class |
+| k plus proches voisins | Non | Non | Non | class, regr |
+
+On pourrait arguer que la régression logistique et le Naive Bayes permettent des explications linéaires. Cependant, cela est vrai uniquement pour le logarithme de la cible : augmenter une caractéristique d'un point augmente le **logarithme** de la probabilité de la cible d'une certaine quantité, en supposant que toutes les autres caractéristiques restent identiques.

@@ -4,7 +4,6 @@ title: Résumé
 lang: fr
 format:
     html:
-        date-modified: 01/25/2024
         toc: false
         link-external-newwindow: true
 ---

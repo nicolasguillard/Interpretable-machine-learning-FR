@@ -4,9 +4,14 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
 
 # 12 - Contribuer à ce livre
 
-Lorem ipsum
+Merci d'avoir lu mon livre sur l'apprentissage automatique interprétable. Le livre est en développement continu. Il sera amélioré au fil du temps et d'autres chapitres seront ajoutés. Très similaire à la façon dont les logiciels sont développés.
+
+Tout le texte et le code du livre sont open source et [disponibles sur github.com](https://github.com/christophM/interpretable-ml-book). Sur la page GitHub, vous pouvez suggérer des correctifs en [ouvrant des tickets](https://github.com/christophM/interpretable-ml-book/issues) si vous trouvez une erreur ou s'il manque quelque chose.
+
+::: {.callout-note title="Note du traducteur" icon=false appearance="simple"}
+Pour cette version française, la suggestion de correctifs est possible en [ouvrant un ticket](https://github.com/nicolasguillard/Interpretable-machine-learning-FR/issues).
+:::

@@ -13,9 +13,9 @@ format:
 
 <!-- HTML only - Not in EN book-->
 
-Les réseaux neuronaux convolutionnels apprennent des caractéristiques et des concepts abstraits à partir de pixels d'images bruts. La [Visualisation de Caractéristiques](#sec-feature_visualization) visualise les caractéristiques apprises par maximisation de l'activation. La [dissection de réseau](#sec-network_dissection) étiquette les unités de réseau neuronal (par exemple, les canaux) avec des concepts humains.
+Les réseaux neuronaux convolutionnels apprennent des caractéristiques et des concepts abstraits à partir de pixels d'images bruts. La [visualisation de caractéristiques](#sec-feature_visualization) visualise les caractéristiques apprises par maximisation de l'activation. La [dissection de réseau](#sec-network_dissection) étiquette les unités de réseau neuronal (p. ex. les canaux) avec des concepts humains.
 
-Les réseaux neuronaux profonds apprennent des caractéristiques de haut niveau dans les couches cachées. C'est l'une de leurs plus grandes forces et réduit le besoin d'ingénierie des caractéristiques. Supposons que vous voulez construire un classificateur d'images avec une machine à vecteurs de support. Les matrices de pixels bruts ne sont pas le meilleur input pour entraîner votre SVM, donc vous créez de nouvelles caractéristiques basées sur la couleur, le domaine fréquentiel, les détecteurs de bords, etc. Avec les réseaux neuronaux convolutionnels, l'image est introduite dans le réseau sous sa forme brute (pixels). Le réseau transforme l'image à de nombreuses reprises. D'abord, l'image passe par de nombreuses couches convolutionnelles. Dans ces couches convolutionnelles, le réseau apprend de nouvelles caractéristiques de plus en plus complexes dans ses couches. Ensuite, l'information de l'image transformée passe à travers les couches entièrement connectées et se transforme en une classification ou prédiction.
+Les réseaux neuronaux profonds apprennent des caractéristiques de haut niveau dans les couches cachées. C'est l'une de leurs plus grandes forces et réduit le besoin d'ingénierie des caractéristiques. Supposons que vous voulez construire un classificateur d'images avec une machine à vecteurs de support. Les matrices de pixels bruts ne constituent pas la meilleure entrée pour entraîner votre SVM, donc vous créez de nouvelles caractéristiques basées sur la couleur, le domaine fréquentiel, les détecteurs de bords, etc. Avec les réseaux neuronaux convolutionnels, l'image est introduite dans le réseau sous sa forme brute (i.e. les pixels). Le réseau transforme l'image à de nombreuses reprises. D'abord, l'image passe par de plusieurs couches convolutionnelles. Dans ces couches convolutionnelles, le réseau y apprend de nouvelles caractéristiques de plus en plus complexes. Ensuite, l'information de l'image transformée passe à travers les couches entièrement connectées et se transforme en une classification ou une prédiction.
 
 <!--
 ![Architecture of Inception V1 neural network. Each enumerated unit (3a to 5b) represents a layer with differently sized convolutions and pooling. Figure from Olah, et al. (2019, CC-BY 4.0) [https://distill.pub/2017/activation-atlas/](https://distill.pub/2017/activation-atlas/).](../_static/images/inceptionv1.svg){align=center}
@@ -28,13 +28,14 @@ Les réseaux neuronaux profonds apprennent des caractéristiques de haut niveau 
 - Les dernières couches convolutionnelles apprennent des caractéristiques telles que des objets ou des parties d'objets.
 - Les couches entièrement connectées apprennent à relier les activations des caractéristiques de haut niveau aux classes individuelles à prédire.
 
-Sympathique. Mais comment obtenons-nous réellement ces images hallucinatoires ?
+Génial. Mais comment obtenons-nous réellement ces images hallucinatoires ?
+
 
 ### 10.1.1 - Visualisation des caractéristiques {#sec-feature_visualization}
 
-L'approche consistant à rendre explicites les caractéristiques apprises est appelée **Visualisation de Caractéristiques**. La visualisation de caractéristiques pour une unité d'un réseau neuronal se fait en trouvant l'entrée qui maximise l'activation de cette `unité`.
+L'approche consistant à rendre explicites les caractéristiques apprises est appelée **visualisation de caractéristiques**. La visualisation de caractéristiques pour une unité d'un réseau neuronal se fait en trouvant l'entrée qui maximise l'activation de cette "unité".
 
-`Unité` fait référence soit à des neurones individuels, des canaux (également appelés cartes de caractéristiques), des couches entières ou la probabilité de classe finale en classification (ou le neurone pré-softmax correspondant, ce qui est recommandé). Les neurones individuels sont des unités atomiques du réseau, donc nous obtiendrions le plus d'informations en créant des visualisations de caractéristiques pour chaque neurone. Mais il y a un problème : 
+"Unité" fait référence soit à des neurones individuels, des canaux (également appelés cartes de caractéristiques), des couches entières ou à la probabilité de classe finale en classification (ou le neurone pré-softmax correspondant, ce qui est recommandé). Les neurones individuels sont des unités atomiques du réseau, donc nous obtiendrions le plus d'informations en créant des visualisations de caractéristiques pour chaque neurone. Mais il y a un problème : 
 Les réseaux neuronaux contiennent souvent des millions de neurones. 
 Examiner la visualisation de caractéristiques de chaque neurone prendrait trop de temps. 
 Les canaux (parfois appelés cartes d'activation) en tant qu'unités sont un bon choix pour la visualisation de caractéristiques. 
@@ -46,6 +47,7 @@ Les couches en tant qu'unité sont utilisées pour le DeepDream de Google, qui a
 <!--
 ![Optimized images for Inception V1 (channels mixed3a, mixed4c, mixed4d and mixed5a). Images are maximized for a random direction of the activations. Figure from Olah, et al. 2017 (CC-BY 4.0) [https://distill.pub/2017/feature-visualization/](https://distill.pub/2017/feature-visualization/).](../_static/images/trippy.png){align=center fig-alt="Optimized images for Inception V1 (channels mixed3a, mixed4c, mixed4d and mixed5a). Images are maximized for a random direction of the activations. Figure from Olah, et al. 2017 (CC-BY 4.0) https://distill.pub/2017/feature-visualization/."}
 -->
+
 
 #### 10.1.1.1 Visualisation des caractéristiques par optimisation
 
@@ -69,9 +71,11 @@ Une autre approche consiste à générer de nouvelles images, en partant de brui
 
 Si vous désirez approdonfir le sujet de visualisation des caractéristiques, jetez une oeil au journal en ligne [distill.pub](https://distill.pub/), particulièrement l'article posté par Olah et al (2017)[^distill-fv], dont j'ai utilisé de nombreuses images. Je recommande également l'article sur la construction de blocs d'interprétation[^distill-blocks].
 
+
 #### 10.1.1.2 Lien avec les exemples adverses
 
 Il existe un lien entre la visualisation de caractéristiques et les [exemples adverses](./10.4-adversarial-examples.qmd) : les deux techniques maximisent l'activation d'une unité de réseau neuronal. Pour les exemples adverses, nous recherchons l'activation maximale du neurone pour la classe adverse (= incorrecte). Une différence réside dans l'image avec laquelle nous commençons : pour les exemples adverses, il s'agit de l'image pour laquelle nous voulons générer l'image adverse. Pour la visualisation de caractéristiques, c'est, selon l'approche, du bruit aléatoire.
+
 
 #### 10.1.1.3 Données textuelles et tabulaires
 
@@ -79,6 +83,7 @@ La littérature se concentre sur la visualisation des caractéristiques pour les
 Pour les réseaux neuronaux récurrents, il est un peu plus agréable de visualiser ce que le réseau a appris : Karpathy et al. (2015)[^viz-rnn] ont montré que les réseaux neuronaux récurrents ont effectivement des neurones qui apprennent des caractéristiques interprétables. Ils ont entraîné un modèle au niveau des caractères, qui prédit le prochain caractère dans la séquence à partir des caractères précédents. Une fois qu'une parenthèse ouvrante "(" survenait, l'un des neurones était fortement activé, et se désactivait lorsque la parenthèse fermante correspondante ")" survenait. D'autres neurones se déclenchaient à la fin d'une ligne. Certains neurones se déclenchaient dans les URL. La différence avec la visualisation des caractéristiques pour les CNN est que les exemples n'ont pas été trouvés par optimisation, mais en étudiant les activations des neurones dans les données d'entraînement.
 
 Certaines des images semblent montrer des concepts bien connus comme des museaux de chiens ou des bâtiments. Mais comment pouvons-nous en être sûrs ? La méthode de dissection de réseau relie les concepts humains avec des unités individuelles de réseau neuronal. Alerte de divulgâchage : la dissection de réseau nécessite des jeux de données supplémentaires que quelqu'un a étiquetés avec des concepts humains.
+
 
 ### 10.1.2 Dissection d'un réseau {#sec-network_dissection}
 
@@ -95,6 +100,7 @@ Les caractéristiques désenchevêtrées impliquent que le réseau est hautement
 
 Alerte de divulgâchage : les réseaux neuronaux convolutionnels ne sont pas parfaitement désenchevêtrés. Nous allons maintenant examiner de plus près la Dissection de Réseau pour découvrir à quel point les réseaux neuronaux sont interprétables.
 
+
 #### 10.1.2.1 - Algorithme de dissection de réseau
 
 La Dissection de Réseau comporte trois étapes :
@@ -109,20 +115,20 @@ La figure suivante visualise comment une image est transmise à un canal et asso
 
 **Étape 1 : Le jeu de données Broden** 
 
-La première étape difficile mais cruciale est la collecte de données. La dissection de réseau nécessite des images étiquetées pixel par pixel avec des concepts de différents niveaux d'abstraction (des couleurs aux scènes de rue). Bau & Zhou et al.[^dissect] ont combiné plusieurs jeux de données avec des concepts pixel par pixel. Ils ont nommé ce nouveau jeu de données `Broden`, qui signifie que les données sont largement et densément étiquetées. Le jeu de données Broden est segmenté principalement au niveau du pixel, pour certains jeux de données, toute l'image est étiquetée. Broden contient 60 000 images avec plus de 1 000 concepts visuels à différents niveaux d'abstraction : 468 scènes, 585 objets, 234 parties, 32 matériaux, 47 textures et 11 couleurs.
+La première étape difficile mais cruciale est la collecte de données. La dissection de réseau nécessite des images étiquetées pixel par pixel avec des concepts de différents niveaux d'abstraction (des couleurs aux scènes de rue). Bau & Zhou et al. ont combiné plusieurs jeux de données avec des concepts pixel par pixel. Ils ont nommé ce nouveau jeu de données `Broden`, qui signifie que les données sont largement et densément étiquetées. Le jeu de données Broden est segmenté principalement au niveau du pixel, pour certains jeux de données, toute l'image est étiquetée. Broden contient 60 000 images avec plus de 1 000 concepts visuels à différents niveaux d'abstraction : 468 scènes, 585 objets, 234 parties, 32 matériaux, 47 textures et 11 couleurs.
 
 **Étape 2 : Récupération des activations du réseau**
 
 Ensuite, nous créons les masques des zones les plus activées par canal et par image. À ce stade, les étiquettes de concept ne sont pas encore impliquées.
 
-- Pour chaque canal convolutionnel k :
-    - Pour chaque image x dans le jeu de données Broden :
-        - Propager l'image x vers la couche cible contenant le canal k.
-        - Extraire les activations de pixels du canal convolutionnel k : $A_k(x)$.
+- Pour chaque canal convolutionnel $k$ :
+    - Pour chaque image $x$ dans le jeu de données Broden :
+        - Propager l'image $x$ vers la couche cible contenant le canal $k$.
+        - Extraire les activations de pixels du canal convolutionnel $k$ : $A_k(x)$.
     - Calculer la distribution des activations de pixels $\alpha_k$ sur toutes les images.
-    - Déterminer le niveau du quantile à 0,995 de activations $\alpha_k$. Cela signifie que 0,5 % de toutes les activations du canal k pour l'image x sont supérieures à $T_k$.
+    - Déterminer le niveau du quantile à $0,995$ de activations $\alpha_k$. Cela signifie que $0,5%$ de toutes les activations du canal $k$ pour l'image $x$ sont supérieures à $T_k$.
     - Pour chaque image x dans le jeu de données Broden :
-        - Mettre à l'échelle la carte d'activation (éventuellement) de résolution inférieure $A_k(x)$ à la résolution de l'image x. Nous appelons le résultat $S_k(x)$.
+        - Mettre à l'échelle la carte d'activation (éventuellement) de résolution inférieure $A_k(x)$ à la résolution de l'image $x$. Nous appelons le résultat $S_k(x)$.
         - Binariser la carte d'activation : Un pixel est soit activé soit désactivé, selon qu'il dépasse ou non le seuil d'activation $T_k$. Le nouveau masque est $M_k(x) = S_k(x) \geq T_k(x)$.
 
 **Étape 3 : Alignement activation-concept**
@@ -131,13 +137,14 @@ Après l'étape 2, nous avons un masque d'activation par canal et par image. Ces
 
 $$IoU_{k,c} = \frac{\sum |M_k(x) \bigcap L_c(x)|}{\sum |M_k(x) \bigcup L_c(x)|}$$
 
-où $|\cdot|$ est la cardinalité d'un ensemble. L'intersection sur union compare l'alignement entre deux zones. $IoU_{k,c}$ peut être interprété comme la précision avec laquelle l'unité k détecte le concept c. Nous appelons l'unité k un détecteur du concept c lorsque $IoU_{k,c} > 0,04$. Ce seuil a été choisi par Bau & Zhou et al (2017)[^dissect].
+où $|\cdot|$ est la cardinalité d'un ensemble. L'intersection sur union compare l'alignement entre deux zones. $IoU_{k,c}$ peut être interprété comme la précision avec laquelle l'unité k détecte le concept $c$. Nous appelons l'unité $k$ un détecteur du concept c lorsque $IoU_{k,c} > 0,04$. Ce seuil a été choisi par Bau & Zhou et al (2017).
 
 La figure suivante illustre l'intersection et l'union du masque d'activation et du masque de concept pour une seule image :
 
 ![The Intersection over Union (IoU) is computed by comparing the human ground truth annotation and the top activated pixels.](../_static/images/dissection-dog-exemplary.jpg){align=center}
 
 ![Activation mask for inception - 4e channel 750 which detects dogs with $IoU=0.203$. Figure originally from [http://netdissect.csail.mit.edu/](http://netdissect.csail.mit.edu/)](../_static/images/dissection-dogs.jpeg){align=center}
+
 
 #### 10.1.2.2 - Expériences
 
@@ -157,6 +164,7 @@ Les auteurs de la dissection de réseau ont entraîné différentes architecture
 
 Les auteurs ont également utilisé la dissection de réseau pour les réseaux adverses génératifs (*Generative Adversarial Networks* : GANs). Vous pouvez trouver la dissection de réseau pour les GANs sur [le site web du projet](https://gandissect.csail.mit.edu/).
 
+
 ### 10.1.3 Avantages
 
 Les visualisations de caractéristiques offrent **un aperçu unique du fonctionnement des réseaux neuronaux**, en particulier pour la reconnaissance d'images. Étant donné la complexité et l'opacité des réseaux neuronaux, la visualisation des caractéristiques est une étape importante dans l'analyse et la description des réseaux neuronaux. Grâce à la visualisation des caractéristiques, nous avons appris que les réseaux neuronaux apprennent d'abord des détecteurs de bords et de textures simples et des détecteurs de parties et d'objets plus abstraits dans les couches supérieures. La dissection de réseau élargit ces perspectives et rend mesurable l'interprétabilité des unités de réseau.
@@ -171,6 +179,7 @@ La visualisation des caractéristiques peut être **combinée avec des [méthode
 
 Enfin, les visualisations de caractéristiques forment de **magnifiques fonds d'écran et impressions sur T-shirt**.
 
+
 ### 10.1.4 Inconvénients
 
 **De nombreuses images de visualisation de caractéristiques ne sont pas interprétables** du tout, mais contiennent certaines caractéristiques abstraites pour lesquelles nous n'avons ni mots ni concept mental. L'affichage des visualisations de caractéristiques avec des données d'entraînement peut aider. Les images pourraient toujours ne pas révéler ce à quoi le réseau neuronal a réagi et indiquer seulement quelque chose comme "peut-être doit-il y avoir du jaune dans les images". Même avec la dissection de réseau, certains canaux ne sont pas liés à un concept humain. Par exemple, la couche conv5_3 de VGG formée sur ImageNet a 193 canaux (sur 512) qui n'ont pas pu être associés à un concept humain.
@@ -183,6 +192,7 @@ Les visualisations de caractéristiques peuvent donner l'illusion que nous compr
 Pour la dissection de réseau, **vous avez besoin de jeux de données étiquetés au niveau du pixel** avec les concepts. Ces jeux de données nécessitent beaucoup d'efforts pour être collectés, car chaque pixel doit être étiqueté, ce qui se fait généralement en dessinant des segments autour des objets sur l'image.
 
 La dissection de réseau n'aligne que les concepts humains avec les activations positives mais pas avec les activations négatives des canaux. Comme l'ont montré les visualisations de caractéristiques, les activations négatives semblent être liées à des concepts. Cela pourrait être corrigé en examinant également le quantile inférieur des activations.
+
 
 ### 10.1.5 Logiciels et matériel complémentaire
 

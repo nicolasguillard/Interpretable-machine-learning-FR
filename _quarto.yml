@@ -16,15 +16,15 @@ website:
   
 format:
   html:
-    lang: fr-FR
-    theme: cosmo
     css: styles.css
-    date-modified: 01/25/2024
-    toc: true
-    toc-title: Dans cette page
-    number-depth: 4
-    toc-depth: 4
-    toc-expand: 4
-    link-external-newwindow: true
+    date-modified: 02/15/2024
     fig-align: center
     fig-cap-location: bottom
+    lang: fr-FR
+    link-external-newwindow: true
+    number-depth: 4
+    theme: cosmo
+    toc: true
+    toc-title: Dans cette page
+    toc-depth: 4
+    toc-expand: 4

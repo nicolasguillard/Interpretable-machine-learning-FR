@@ -3,5 +3,41 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
+
+## 4.1 - Location de vélo (Régression)
+
+Ce jeu de données contient les comptages quotidiens de vélos loués par la société de location de vélos [Capital-Bikeshare](https://www.capitalbikeshare.com/) à Washington D.C., ainsi que des informations météorologiques et saisonnières. 
+Les données ont été aimablement rendues publiques par Capital-Bikeshare. 
+Fanaee-T et Gama (2013)[^Fanaee] ont ajouté des données météorologiques et des informations saisonnières. 
+L'objectif est de prédire combien de vélos seront loués en fonction de la météo et du jour. 
+Les données peuvent être téléchargées depuis le dépôt [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).
+
+De nouvelles caractéristiques ont été ajoutées à l'ensemble de données et toutes les caractéristiques originales n'ont pas été utilisées pour les exemples de ce livre. 
+Voici la liste des caractéristiques qui ont été utilisées :
+
+- Compte des vélos incluant les utilisateurs occasionnels et enregistrés. 
+Le compte est utilisé comme cible dans la tâche de régression.
+- La saison, soit printemps, été, automne ou hiver.
+- Indicateur indiquant si le jour était un jour férié ou non.
+- L'année, soit 2011 ou 2012.
+- Nombre de jours depuis le 01.01.2011 (le premier jour de l'ensemble de données). 
+Cette caractéristique a été introduite pour tenir compte de la tendance au fil du temps.
+- Indicateur indiquant si le jour était un jour ouvrable ou un week-end.
+- La situation météorologique de ce jour. L'une des suivantes :
+    - clair, peu de nuages, partiellement nuageux, nuageux
+    - brume + nuages, brume + nuages brisés, brume + peu de nuages, brume
+    - neige légère, pluie légère + orage + nuages dispersés, pluie légère + nuages dispersés
+    - pluie forte + grêle + orage + brume, neige + brume
+- Température en degrés Celsius.
+- Humidité relative en pourcentage (de 0 à 100).
+- Vitesse du vent en km par heure.
+
+Pour les exemples de ce livre, les données ont été légèrement traitées. 
+Vous pouvez trouver le script R de traitement dans le [dépôt GitHub du livre](https://github.com/christophM/interpretable-ml-book/blob/master/R/get-bike-sharing-dataset.R) ainsi que le [fichier RData final](https://github.com/christophM/interpretable-ml-book/blob/master/data/bike.RData).
+
+::: {.callout-important title="Note du traducteur"}
+Version python + FR
+:::
+
+[^Fanaee]: Fanaee-T, Hadi, and Joao Gama. "Event labeling combining ensemble detectors and background knowledge." Progress in Artificial Intelligence. Springer Berlin Heidelberg, 1–15. https://doi.org/10.1007/s13748-013-0040-3. (2013).

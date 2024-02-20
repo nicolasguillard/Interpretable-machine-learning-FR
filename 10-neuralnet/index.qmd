@@ -4,7 +4,6 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
 
 # 10 - Interprétation d'un réseau de neurone
@@ -13,14 +12,15 @@ format:
 
 Les chapitres suivants se concentrent sur les méthodes d'interprétation pour les réseaux neuronaux. Ces méthodes visualisent les caractéristiques et les concepts appris par un réseau neuronal, expliquent les prédictions individuelles et simplifient les réseaux neuronaux.
 
-L'apprentissage profond a connu un très grand succès, notamment dans des tâches impliquant des images et des textes, telles que la classification d'images et la traduction de langues. L'histoire du succès des réseaux neuronaux profonds a commencé en 2012, lorsque le défi de classification d'images ImageNet [^imagenet] a été remporté par une approche d'apprentissage profond. Depuis lors, nous avons assisté à une explosion cambrienne d'architectures de réseaux neuronaux profonds, avec une tendance vers des réseaux plus profonds dotés de plus en plus de paramètres de poids.
+L'apprentissage profond a connu un très grand succès, notamment dans des tâches impliquant des images et des textes, telles que la classification d'images et la traduction de langues. L'histoire du succès des réseaux neuronaux profonds a commencé en 2012, lorsque le défi de classification d'images ImageNet[^imagenet] a été remporté par une approche d'apprentissage profond. Depuis lors, nous avons assisté à une explosion cambrienne d'architectures de réseaux neuronaux profonds, avec une tendance vers des réseaux plus profonds dotés de plus en plus de paramètres de poids.
 
 Pour faire des prédictions avec un réseau neuronal, les données en entrée sont passées à travers de nombreuses couches de multiplication avec les poids appris et à travers des transformations non linéaires. Une seule prédiction peut impliquer des millions d'opérations mathématiques, selon l'architecture du réseau neuronal. Il n'est pas possible pour nous, humains, de suivre le mappage exact des données en entrée jusqu'à la prédiction. Nous devrions considérer des millions de poids qui interagissent de manière complexe pour comprendre une prédiction faite par un réseau neuronal. Pour interpréter le comportement et les prédictions des réseaux neuronaux, nous avons besoin de méthodes d'interprétation spécifiques. Les chapitres supposent que vous êtes familier avec l'apprentissage profond, y compris les réseaux neuronaux convolutionnels.
 
-Nous pouvons certainement utiliser des [méthodes agnostiques au modèle](/06-model_agnostic_methods/), telles que les [modèles locaux](/09-local_model_agnostic_methods/) ou les [graphiques de dépendance partielle](/09-local_model_agnostic_methods/), mais il y a deux raisons pour lesquelles il est judicieux de considérer des méthodes d'interprétation développées spécifiquement pour les réseaux neuronaux : 
-Premièrement, les réseaux neuronaux apprennent des caractéristiques et des concepts dans leurs couches cachées et nous avons besoin d'outils spéciaux pour les découvrir. 
-Deuxièmement, le gradient peut être utilisé pour mettre en œuvre des méthodes d'interprétation plus efficaces en termes de calcul que les méthodes agnostiques au modèle qui examinent le modèle "de l'extérieur". 
-De plus, la plupart des autres méthodes de ce livre sont destinées à l'interprétation de modèles pour des données tabulaires. 
+Nous pouvons certainement utiliser des [méthodes agnostiques au modèle](/06-model_agnostic_methods/), telles que les [modèles locaux](/09-local_model_agnostic_methods/09.2-lime.qmd) ou les [graphiques de dépendance partielle](/08-global_model_agnostic_methods/08.1-pdp.qmd), mais il y a deux raisons pour lesquelles il est judicieux de considérer des méthodes d'interprétation développées spécifiquement pour les réseaux neuronaux : 
+
+* Premièrement, les réseaux neuronaux apprennent des caractéristiques et des concepts dans leurs couches cachées et nous avons besoin d'outils spéciaux pour les découvrir. 
+* Deuxièmement, le gradient peut être utilisé pour mettre en œuvre des méthodes d'interprétation plus efficaces en termes de calcul que les méthodes agnostiques au modèle qui examinent le modèle "de l'extérieur". 
+* De plus, la plupart des autres méthodes de ce livre sont destinées à l'interprétation de modèles pour des données tabulaires. 
 Les données de type image et de type texte nécessitent des méthodes différentes.
 
 <!-- REFERENCES -->

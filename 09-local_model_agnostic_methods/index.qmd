@@ -1,12 +1,19 @@
 ---
 order: 9
-lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
 
-# 9 - Méthodes locales agnostiques au modèle
+# 9 - Méthodes locales indépendantes du modèle
 
-Lorem ipsum
+Les méthodes d'interprétation locales expliquent les prédictions individuelles. Dans ce chapitre, vous découvrirez les méthodes d'explication locale suivantes :
+
+- [Les courbes d'espérance conditionnelle individuelles](/09-local_model_agnostic_methods/09.1-ice.qmd) sont les éléments constitutifs des [tracés de dépendance partielle](/08-global_model_agnostic_methods/08.1-pdp.qmd) et décrivent comment la modification d'une caractéristique modifie la prédiction.
+- [Les modèles de substitution locaux (LIME)](/09-local_model_agnostic_methods/09.2-lime.qmd) expliquent une prédiction en remplaçant le modèle complexe par un modèle de substitution interprétable localement.
+- [Les règles de portée (ancres)](/09-local_model_agnostic_methods/09.3-counterfactual.qmd) sont des règles qui décrivent quelles valeurs de caractéristiques ancrent une prédiction, dans le sens où elles verrouillent la prédiction en place.
+- [Les explications contrefactuelles](/09-local_model_agnostic_methods/09.4-anchors.qmd) expliquent une prédiction en examinant quelles caractéristiques devraient être modifiées pour obtenir la prédiction souhaitée.
+- [Les valeurs Shapley](/09-local_model_agnostic_methods/09.5-shapley.qmd) sont une méthode d'attribution qui attribue équitablement la prédiction à des caractéristiques individuelles.
+- [SHAP](/09-local_model_agnostic_methods/09.6-shap.qmd) est une autre méthode de calcul des valeurs de Shapley, mais propose également des méthodes d'interprétation globale basées sur des combinaisons de valeurs de Shapley à travers les données.
+
+Les valeurs LIME et Shapley sont des méthodes d'attribution, de sorte que la prédiction d'une seule instance est décrite comme la somme des effets de caractéristiques. D'autres méthodes, telles que [les explications contrefactuelles](/09-local_model_agnostic_methods/09.3-counterfactual.qmd), sont basées sur des exemples.

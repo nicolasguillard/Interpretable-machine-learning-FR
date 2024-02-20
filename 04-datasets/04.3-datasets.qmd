@@ -3,5 +3,36 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
+
+## 4.3 - Facteurs de Risque du Cancer du Col de l'Uterus (Classification)
+
+L'ensemble de données sur le cancer du col de l'utérus contient des indicateurs et des facteurs de risque pour prédire si une femme va développer un cancer du col de l'utérus. Les caractéristiques comprennent des données démographiques (telles que l'âge), le mode de vie et les antécédents médicaux. Les données peuvent être téléchargées depuis le dépôt [UCI Machine Learning repository](https://archive.ics.uci.edu/ml/datasets/Cervical+cancer+%28Risk+Factors%29) et sont décrites par Fernandes, Cardoso, et Fernandes (2017)[^Fernandes].
+
+Les caractéristiques des données utilisées dans les exemples du livre sont :
+
+- Âge en années
+- Nombre de partenaires sexuels
+- Premier rapport sexuel (âge en années)
+- Nombre de grossesses
+- Fumeur oui ou non
+- Tabagisme (en années)
+- Contraceptifs hormonaux oui ou non
+- Contraceptifs hormonaux (en années)
+- Dispositif intra-utérin oui ou non (DIU)
+- Nombre d'années avec un dispositif intra-utérin (DIU)
+- La patiente a-t-elle déjà eu une maladie sexuellement transmissible (MST) oui ou non
+- Nombre de diagnostics de MST
+- Temps depuis le premier diagnostic de MST
+- Temps depuis le dernier diagnostic de MST
+- Les résultats de la biopsie "Saine" ou "Cancer". Résultat cible.
+
+La biopsie sert de référence pour le diagnostic du cancer du col de l'utérus. Pour les exemples de ce livre, le résultat de la biopsie a été utilisé comme cible. Les valeurs manquantes pour chaque colonne ont été imputées par le mode (valeur la plus fréquente), ce qui est probablement une mauvaise solution, car la vraie réponse pourrait être corrélée avec la probabilité qu'une valeur manque. Il y a probablement un biais car les questions sont de nature très privée. Mais ce n'est pas un livre sur l'imputation des données manquantes, donc l'imputation par le mode devra suffire pour les exemples.
+
+Pour reproduire les exemples de ce livre avec cet ensemble de données, retrouvez le [script de prétraitement R](https://github.com/christophM/interpretable-ml-book/blob/master/R/get-cervical-cancer-dataset.R) et le [fichier RData final](https://github.com/christophM/interpretable-ml-book/blob/master/data/cervical.RData) dans le dépôt GitHub du livre.
+
+::: {.callout-important title="Note du traducteur"}
+Version python + FR
+:::
+
+[^Fernandes]: Fernandes, Kelwin, Jaime S Cardoso, and Jessica Fernandes. "Transfer learning with partial observability applied to cervical cancer screening." In Iberian Conference on Pattern Recognition and Image Analysis, 243–50. Springer. (2017).

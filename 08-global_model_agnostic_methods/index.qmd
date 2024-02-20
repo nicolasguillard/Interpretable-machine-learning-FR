@@ -1,12 +1,22 @@
 ---
 order: 8
-lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
 
-# 8 - Méthodes globales agnostiques au modèle
+# 8 - Méthodes globales indépendantes du modèle
 
-Lorem ipsum
+Les méthodes globales décrivent le comportement moyen d'un modèle d'apprentissage automatique. La contrepartie des méthodes globales sont [les méthodes locales](/09-local_model_agnostic_methods/index.qmd). Les méthodes globales sont souvent exprimées sous forme de valeurs attendues basées sur la distribution des données. Par exemple, le [tracé de dépendance partielle](/08-global_model_agnostic_methods/08.1-pdp.qmd), un tracé d'effet de caractéristique, est la prédiction attendue lorsque toutes les autres caractéristiques sont marginalisées. Puisque les méthodes d’interprétation globale décrivent un comportement moyen, elles sont particulièrement utiles lorsque le modélisateur souhaite comprendre les mécanismes généraux des données ou déboguer un modèle.
+
+Dans ce livre, vous découvrirez les techniques d'interprétation globale indépendantes du modèle suivantes :
+
+* [Le tracé de dépendance partielle](/08-global_model_agnostic_methods/08.1-pdp.qmd) est une méthode d’effet de caractéristique.
+* [Les tracés d'effets locaux accumulés](/08-global_model_agnostic_methods/08.2-ale.qmd) sont une autre méthode d'effet de caractéristique qui fonctionne lorsque les caractéristiques sont dépendantes.
+* [L'interaction des fonctionnalités (statistique H)](/08-global_model_agnostic_methods/08.3-feature-interaction.qmd) quantifie dans quelle mesure la prédiction est le résultat d'effets conjoints des fonctionnalités.
+* [La décomposition fonctionnelle](/08-global_model_agnostic_methods/08.4-functional-decomposition.qmd) est une idée centrale de l’interprétabilité et une technique qui décompose la fonction de prédiction complexe en parties plus petites.
+* [L'importance des fonctionnalités de permutation](/08-global_model_agnostic_methods/08.5-permutation-feature-importance.qmd) mesure l'importance d'une fonctionnalité sous la forme d'une augmentation de la perte lorsque la fonctionnalité est permutée.
+* [Les modèles de substitution globaux](/08-global_model_agnostic_methods/08.6-global-surrogate.qmd) remplacent le modèle d'origine par un modèle d'interprétation plus simple.
+* [Les prototypes et les critiques](/08-global_model_agnostic_methods/08.7-prototype-criticisms.qmd) sont des données représentatives d'une distribution et peuvent être utilisées pour améliorer l'interprétabilité.
+  
+  

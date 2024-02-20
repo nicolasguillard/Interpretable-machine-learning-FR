@@ -3,10 +3,37 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
 
-## 3.4 - Evaluation de l'Interprétabilité
+## 3.4 - Evaluation de l'interprétabilité
+
+Il n'existe pas de consensus réel sur ce qu'est l'interprétabilité en apprentissage automatique.
+Il n'est pas non plus clair comment la mesurer.
+Mais il y a des recherches initiales sur ce sujet et une tentative de formuler certaines approches pour l'évaluation, comme décrit dans la section suivante.
+
+Doshi-Velez et Kim (2017)[^Doshi2017] proposent trois niveaux principaux pour l'évaluation de l'interprétabilité :
+
+**Évaluation au niveau de l'application (tâche réelle)** :
+Intégrez l'explication dans le produit et faites-la tester par l'utilisateur final.
+Imaginez un logiciel de détection de fractures avec un composant d'apprentissage automatique qui localise et marque les fractures sur les radiographies.
+Au niveau de l'application, les radiologues testeraient directement le logiciel de détection de fractures pour évaluer le modèle.
+Cela nécessite une bonne configuration expérimentale et une compréhension de la manière d'évaluer la qualité.
+Une bonne base de comparaison est toujours de savoir comment un humain serait bon pour expliquer la même décision.
+
+**Évaluation au niveau humain (tâche simple)** est une évaluation au niveau de l'application simplifiée.
+La différence est que ces expériences ne sont pas menées avec les experts du domaine, mais avec des personnes profanes.
+Cela rend les expériences moins coûteuses (surtout si les experts du domaine sont des radiologues) et il est plus facile de trouver davantage de testeurs.
+Un exemple serait de montrer à un utilisateur différentes explications et l'utilisateur choisirait la meilleure.
+
+**Évaluation au niveau fonctionnel (tâche proxy)** ne nécessite pas d'humains.
+Cela fonctionne mieux lorsque la classe de modèle utilisée a déjà été évaluée par quelqu'un d'autre dans une évaluation au niveau humain.
+Par exemple, il se pourrait qu'on sache que les utilisateurs finaux comprennent les arbres de décision.
+Dans ce cas, un proxy pour la qualité de l'explication pourrait être la profondeur de l'arbre.
+Des arbres plus courts obtiendraient un meilleur score d'explicabilité.
+Il serait logique d'ajouter la contrainte que la performance prédictive de l'arbre reste bonne et ne diminue pas trop par rapport à un arbre plus grand.
+
+Le chapitre suivant se concentre sur l'évaluation des explications pour des prédictions individuelles au niveau fonctionnel.
+Quelles sont les propriétés pertinentes des explications que nous considérerions pour leur évaluation ?
 
 <!-- REFERENCES -->
 

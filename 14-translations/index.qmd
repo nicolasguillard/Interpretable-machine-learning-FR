@@ -1,12 +1,48 @@
 ---
 order: 14
-lang: fr
-format:
-    html:
-        toc: false
-        link-external-newwindow: true
 ---
 
-# 14 - Traductions
+## 14 - Traductions
 
-Lorem ipsum
+### Vous souhaitez traduire le livre ?
+
+Ce livre est sous licence internationale [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/). Cela signifie que vous êtes autorisé à le traduire et à le mettre en ligne. Vous devez me mentionner comme auteur original et vous n'êtes pas autorisé à vendre le livre.
+
+Si vous souhaitez traduire le livre, vous pouvez écrire un message et je peux lier votre traduction ici. Mon adresse est [christoph.molnar.ai@gmail.com](mailto:christoph.molnar.ai@gmail.com).
+
+### Liste des traductions
+
+#### Bahasa indonésien
+
+- [Une traduction complète par Hatma Suryotrisongko et Smart City & Cybersecurity Laboratory, Information Technology, ITS](https://www.its.ac.id/it/id/interpretable-machine-learning/).
+
+#### Chinois
+
+- [Traduction complète de la 2e édition](https://hacarus.github.io/interpretable-ml-book-ja/index.html) par Jiazhen de CSDN, une communauté en ligne de programmeurs.
+- [Traductions complètes](https://github.com/MingchaoZhu/InterpretableMLBook) by [Mingchao Zhu](https://github.com/MingchaoZhu) par Mingchao Zhu. [Des versions électroniques et imprimées](https://www.phei.com.cn/module/goods/wssd_content.jsp?bookid=57710) de cette traduction sont disponibles.
+- [Traduction de la plupart des chapitres](https://blog.csdn.net/wizardforcel/article/details/98992150) par CSDN.
+- [Traduction de certains chapitres](https://zhuanlan.zhihu.com/p/63408696). Le site Web comprend également des questions et réponses de divers utilisateurs.
+
+#### Japonais
+
+- [Traduction complète](https://hacarus.github.io/interpretable-ml-book-ja/index.html) par Ryuji Masui et l'équipe HACARUS.
+
+#### Coréen
+
+- [Traduction complète](https://tootouch.github.io/IML/taxonomy_of_interpretability_methods/) en coréen par [TooTouch](https://tootouch.github.io/).
+- [Traduction partielle en coréen](https://subinium.github.io/IML/) par [An Subin](https://subinium.github.io/).
+
+#### Espagnol
+
+- [Traduction espagnole complète](https://fedefliguer.github.io/AAI/) par [Federico Fliguer](https://www.linkedin.com/in/federico-fliguer/?originalSubdomain=ar).
+
+#### Vietnamien
+
+- [Une traduction complète](https://github.com/giangnguyen2412/InterpretableMLBook-Vietnamese) de Giang Nguyen, Duy-Tung Nguyen, Hung-Quang Nguyen, Tri Le et Hoang Nguyen.
+
+#### Français
+
+- Une traduction complète de [Nicolas Guillard](https://www.linkedin.com/in/nicolasguillard/).
+
+
+Si vous connaissez une autre traduction du livre ou de chapitres individuels, je serais reconnaissant d’en entendre parler et de la lister ici. Vous pouvez me joindre par e-mail : christoph.molnar.ai@gmail.com .

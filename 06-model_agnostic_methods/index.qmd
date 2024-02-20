@@ -4,9 +4,42 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
 
-# 6 - Model-Agnostic Methods
+# 6 - Méthodes indépendantes du modèle
 
-Lorem ipsum
+Séparer les explications du modèle d'apprentissage automatique (= méthodes d'interprétation indépendantes du modèle) présente certains avantages (Ribeiro, Singh et Guestrin 2016[^Ribeiro2016]). Le grand avantage des méthodes d’interprétation indépendantes du modèle par rapport aux méthodes spécifiques au modèle est leur flexibilité. Les développeurs d’apprentissage automatique sont libres d’utiliser n’importe quel modèle d’apprentissage automatique de leur choix lorsque les méthodes d’interprétation peuvent être appliquées à n’importe quel modèle. Tout ce qui s'appuie sur une interprétation d'un modèle d'apprentissage automatique, comme une interface graphique ou utilisateur, devient également indépendant du modèle d'apprentissage automatique sous-jacent. En règle générale, non pas un, mais plusieurs types de modèles d'apprentissage automatique sont évalués pour résoudre une tâche, et lorsque l'on compare des modèles en termes d'interprétabilité, il est plus facile de travailler avec des explications indépendantes du modèle, car la même méthode peut être utilisée pour n'importe quel type. de modèle.
+
+Une alternative aux méthodes d'interprétation indépendantes du modèle consiste à utiliser uniquement des [modèles interprétables](/05-interpretable_models/index.qmd) , ce qui présente souvent le gros inconvénient que les performances prédictives sont perdues par rapport aux autres modèles d'apprentissage automatique et que vous vous limitez à un seul type de modèle. L'autre alternative consiste à utiliser des méthodes d'interprétation spécifiques au modèle. L’inconvénient est que cela vous lie également à un type de modèle et qu’il sera difficile de passer à autre chose.
+
+Les aspects souhaitables d’un système d’explication indépendant du modèle sont (Ribeiro, Singh et Guestrin 2016) :
+
+- **Flexibilité du modèle**- : la méthode d'interprétation peut fonctionner avec n'importe quel modèle d'apprentissage automatique, tel que les forêts aléatoires et les réseaux de neurones profonds.
+- **Flexibilité d'explication** : Vous n'êtes pas limité à une certaine forme d'explication. Dans certains cas, il peut être utile d'avoir une formule linéaire, dans d'autres cas un graphique avec l'importance des caractéristiques.
+- **Flexibilité de la représentation** : le système d'explication doit être capable d'utiliser une représentation de caractéristiques différente de celle du modèle expliqué. Pour un classificateur de texte qui utilise des vecteurs d'intégration de mots abstraits, il peut être préférable d'utiliser la présence de mots individuels pour l'explication.
+
+**La situation dans son ensemble**
+
+Jetons un coup d'œil de haut niveau à l'interprétabilité indépendante du modèle. Nous capturons le monde en collectant des données, et l'abstrayons davantage en apprenant à prédire les données (pour la tâche) avec un modèle d'apprentissage automatique. L’interprétabilité n’est qu’une couche supplémentaire qui aide les humains à comprendre.
+
+![Vue d’ensemble de l’apprentissage automatique explicable. Le monde réel passe par de nombreuses couches avant d’atteindre l’humain sous forme d’explications.](../_static/images/big-picture.png){align=center}
+
+La couche la plus basse est le **Monde**. Cela pourrait littéralement être la nature elle-même, comme la biologie du corps humain et la façon dont il réagit aux médicaments, mais aussi des choses plus abstraites comme le marché immobilier. La couche Monde contient tout ce qui peut être observé et qui présente un intérêt. En fin de compte, nous voulons apprendre quelque chose sur le monde et interagir avec lui.
+
+La deuxième couche est la couche **de données**. Nous devons numériser le monde afin de le rendre exploitable par les ordinateurs et également de stocker des informations. La couche de données contient des images, des textes, des données tabulaires, etc.
+
+En ajustant des modèles d'apprentissage automatique basés sur la couche Données, nous obtenons la couche **Modèle Boîte Noire**. Les algorithmes d'apprentissage automatique apprennent avec des données du monde réel pour faire des prédictions ou trouver des structures.
+
+Au-dessus de la couche Black Box Model se trouve la couche **Interpretability Methods**, qui nous aide à gérer l'opacité des modèles d'apprentissage automatique. Quelles étaient les caractéristiques les plus importantes pour un diagnostic particulier ? Pourquoi une transaction financière a-t-elle été qualifiée de fraude ?
+
+La dernière couche est occupée par un **Humain**. Regarder! Celui-ci vous fait signe parce que vous lisez ce livre et contribuez à fournir de meilleures explications sur les modèles de boîtes noires ! Les humains sont en fin de compte les consommateurs des explications.
+
+Cette abstraction à plusieurs niveaux aide également à comprendre les différences d’approches entre les statisticiens et les praticiens de l’apprentissage automatique. Les statisticiens s'occupent de la couche de données, comme la planification d'essais cliniques ou la conception d'enquêtes. Ils ignorent la couche Modèle de boîte noire et accèdent directement à la couche Méthodes d’interprétabilité. Les spécialistes de l'apprentissage automatique s'occupent également de la couche de données, comme la collecte d'échantillons étiquetés d'images de cancer de la peau ou l'exploration de Wikipédia. Ensuite, ils entraînent un modèle d’apprentissage automatique en boîte noire. La couche Méthodes d’interprétabilité est ignorée et les humains s’occupent directement des prédictions du modèle de boîte noire. C'est formidable que l'apprentissage automatique interprétable fusionne le travail des statisticiens et des spécialistes de l'apprentissage automatique.
+
+Bien entendu, ce graphique ne reflète pas tout : les données peuvent provenir de simulations. Les modèles de boîtes noires génèrent également des prédictions qui pourraient même ne pas atteindre les humains, mais qui ne fourniraient que d’autres machines, et ainsi de suite. Mais dans l’ensemble, il s’agit d’une abstraction utile pour comprendre comment l’interprétabilité devient cette nouvelle couche au-dessus des modèles d’apprentissage automatique.
+
+Les méthodes d'interprétation indépendantes du modèle peuvent être distinguées en méthodes locales et globales. Le livre est également organisé selon cette distinction. [Les méthodes globales](/08-global_model_agnostic_methods/) décrivent comment les caractéristiques affectent la prédiction en moyenne . En revanche, [les méthodes locales](/09-local_model_agnostic_methods/) visent à expliquer les prédictions individuelles.
+
+
+<!-- REFERENCES -->
+[^Ribeiro2016]: Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. "Model-agnostic interpretability of machine learning." ICML Workshop on Human Interpretability in Machine Learning. (2016).

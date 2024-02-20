@@ -3,5 +3,12 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
+
+## 5.7 - Other Interpretable Models {#other-interpretable}
+
+### 5.7.1 - Naive Bayes Classifier
+
+$$P(C_k|x)=\frac{1}{Z}P(C_k)\prod_{i=1}^n{}P(x_i|C_k)$$
+
+### 5.7.2 - K-Nearest Neighbors

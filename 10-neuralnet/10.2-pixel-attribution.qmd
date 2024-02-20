@@ -39,6 +39,7 @@ Une autre catégorisation utile pour les méthodes d'attribution de pixels est l
 
 À ce stade, je donnerais normalement une explication intuitive de la manière dont ces méthodes fonctionnent, mais je pense qu'il est préférable de commencer directement par la méthode du Gradient Vanille, car elle montre très bien la recette générale que de nombreuses autres méthodes suivent.
 
+
 ### 10.2.1 - Gradient Vanille (Cartes de saillance)
 
 L'idée du Gradient Vanille, introduite par Simonyan et al. (2013)[^saliency] en tant que l'une des premières approches d'attribution de pixels, est assez simple si vous connaissez déjà la rétropropagation.
@@ -95,15 +96,17 @@ $$
 \end{pmatrix}
 $$
 
+
 #### 10.2.1.1 - Les problèmes avec Vanilla Gradient
 
 Le Gradient Vanille a un problème de saturation, comme expliqué dans Avanti et al. (2017)[^deeplift]. Lorsque ReLU est utilisé, et lorsque l'activation passe en dessous de zéro, alors l'activation est plafonnée à zéro et ne change plus. L'activation est saturée. Par exemple : l'entrée de la couche est deux neurones avec des poids $-1$ et $-1$ et un biais de $1$. Lors du passage à travers la couche ReLU, l'activation sera $neuron_1$ + $neuron_2$ si la somme des deux neurones est inférieure strictement à $1$.Si la somme des deux est supérieure à $1$, l'activation restera saturée à une activation de $1$. Aussi, le gradient à ce point sera zéro, et le Gradient Vanille dira que ce neurone n'est pas important.
 
-::: {.callout-important}
-**NdT :** Vérifier et illustrer l'exemple précédent
+::: {.callout-important title="Note du traducteur"}
+Vérifier et illustrer l'exemple précédent
 :::
 
 Et maintenant, mes chers lecteurs, apprenez une autre méthode, plus ou moins gratuitement : DeconvNet.
+
 
 ### 10.2.2 - DeconvNet
 
@@ -113,8 +116,8 @@ $$R_n = R_{n+1}\mathbb{I}(R_{n+1} > 0)$$
 
 où $R_n$ et $R_{n+1}$ sont les reconstructions des couches et $\mathbb{I}$ la fonction indicatrice. Lors de la rétropropagation de la couche $n$ à la couche $n-1$, DeconvNet "se souvient" des activations dans la couche $n$ qui ont été mises à zéro lors du passage en avant et les met à zéro dans la couche $n-1$. Les activations ayant une valeur négative dans la couche $n$ sont mises à zéro dans la couche $n-1$. Le gradient $X_n$ pour l'exemple précédent devient :
 
-::: {.callout-important}
-**NdT :** Vérifier et illustrer l'exemple précédent
+::: {.callout-important title="Note du traducteur"}
+Vérifier et illustrer l'exemple précédent
 :::
 
 $$
@@ -123,6 +126,7 @@ $$
 0 & 0  \\
 \end{pmatrix}
 $$
+
 
 ### 10.2.3 - Grad-CAM
 
@@ -150,9 +154,11 @@ Cela signifie que les gradients sont mis en commun de manière globale.
 8. Pour la visualisation : Échelonner les valeurs à l'intervalle entre $0$ et $1$. Agrandir l'image et la superposer sur l'image originale.
 9. Étape supplémentaire pour Guided Grad-CAM : Multiplier la carte thermique avec la rétropropagation guidée.
 
+
 ### 10.2.4 - Guided Grad-CAM
 
 D'après la description de Grad-CAM, vous pouvez deviner que la localisation est très grossière, car les dernières cartes de caractéristiques convolutionnelles ont une résolution beaucoup plus grossière par rapport à l'image d'entrée. En revanche, d'autres techniques d'attribution rétropropagent jusqu'aux pixels d'entrée. Elles sont donc beaucoup plus détaillées et peuvent vous montrer des bords ou des points individuels qui ont le plus contribué à une prédiction. Une fusion de ces deux méthodes est appelée Guided Grad-CAM. Et c'est super simple. Vous calculez pour une image à la fois l'explication Grad-CAM et l'explication d'une autre méthode d'attribution, telle que le Gradient Vanille. La sortie Grad-CAM est ensuite agrandie avec une interpolation bilinéaire, puis les deux cartes sont multipliées élément par élément. Grad-CAM fonctionne comme une lentille qui se concentre sur des parties spécifiques de la carte d'attribution pixel par pixel.
+
 
 ### 10.2.5 - SmoothGrad
 
@@ -171,6 +177,7 @@ La théorie est que la dérivée fluctue grandement à petite échelle. Les rés
 $$R_{sg}(x) = \frac{1}{N} \sum_{i=1}^n R(x + g_i)$$
 
 Ici, $g_i \sim N(0,\sigma^2)$ sont des vecteurs de bruit échantillonnés à partir de la distribution gaussienne. Le niveau de bruit "idéal" dépend de l'image d'entrée et du réseau. Les auteurs suggèrent un niveau de bruit de $10%$ à $20%$, ce qui signifie que $\frac{\sigma}{x_{max} - x_{min}}$ devrait être entre $0,1$ et $0,2$. Les limites $x_{min}$ et $x_{max}$ se réfèrent aux valeurs de pixels minimales et maximales de l'image. L'autre paramètre est le nombre d'échantillons n, pour lequel il a été suggéré d'utiliser $n = 50$, car il y a des rendements décroissants au-delà de cela.
+
 
 ### 10.2.6 - Exemples
 
@@ -192,6 +199,7 @@ Vous pouvez déjà voir ici les difficultés à évaluer si nous faisons confian
 
 Et c'est là le grand problème avec toutes ces méthodes. Nous n'avons pas de vérité absolue pour les explications. Nous ne pouvons que, dans un premier temps, rejeter les explications qui n'ont manifestement aucun sens (et même dans cette étape, nous n'avons pas une grande confiance. Le processus de prédiction dans le réseau neuronal est très compliqué).
 
+
 ### 10.2.7 - Avantages
 
 Les explications sont **visuelles** et nous sommes rapides à reconnaître les images. En particulier, lorsque les méthodes mettent en évidence uniquement les pixels importants, il est facile de reconnaître immédiatement les régions importantes de l'image.
@@ -199,6 +207,7 @@ Les explications sont **visuelles** et nous sommes rapides à reconnaître les i
 Les méthodes basées sur les gradients sont généralement **plus rapides à calculer que les méthodes agnostiques au modèle**. Par exemple, [LIME](/09-local_model_agnostic_methods/09.2-lime.qmd) et [SHAP](/09-local_model_agnostic_methods/09.6-shap.qmd) peuvent également être utilisés pour expliquer les classifications d'images, mais sont plus coûteux à calculer.
 
 Il existe **de nombreuses méthodes parmi lesquelles choisir**.
+
 
 ### 10.2.8 - Inconvénients
 
@@ -212,6 +221,7 @@ L'article "Sanity checks for saliency maps"[^sanity-checks] a étudié si les m�
 
 Dans l'ensemble, c'est un **état de choses très insatisfaisant**. Nous devons attendre un peu plus de recherche sur ce sujet. Et s'il vous plaît, pas plus d'invention de nouvelles méthodes de salience, mais plus de rigueur sur la façon de les évaluer.
 
+
 ### 10.2.9 - Logiciels
 
 Il existe plusieurs implémentations logicielles de méthodes d'attribution de pixels. Pour l'exemple, j'ai utilisé [tf-keras-vis](https://pypi.org/project/tf-keras-vis/). L'une des bibliothèques les plus complètes est [iNNvestigate](https://github.com/albermax/innvestigate), qui implémente le Gradient Vanille, SmoothGrad, DeconvNet, la Rétropropagation Guidée, PatternNet, LRP et plus encore. Beaucoup de ces méthodes sont implémentées dans la [Boîte à Outils DeepExplain](https://github.com/marcoancona/DeepExplain).
@@ -220,11 +230,15 @@ Il existe plusieurs implémentations logicielles de méthodes d'attribution de p
 
 [^deeplift]: Shrikumar, Avanti, Peyton Greenside, and Anshul Kundaje. "Learning important features through propagating activation differences." Proceedings of the 34th International Conference on Machine Learning-Volume 70. JMLR. org, (2017).
 
+<!--
 [^integrated-gradients]: Sundararajan, Mukund, Ankur Taly, and Qiqi Yan. "Axiomatic attribution for deep networks." Proceedings of the 34th International Conference on Machine Learning-Volume 70. JMLR. org, 2017.
+-->
 
 [^saliency]: Simonyan, Karen, Andrea Vedaldi, and Andrew Zisserman. "Deep inside convolutional networks: Visualising image classification models and saliency maps." arXiv preprint arXiv:1312.6034 (2013).
 
+<!--
 [^grad-cam]: Selvaraju, Ramprasaath R., et al. "Grad-cam: Visual explanations from deep networks via gradient-based localization." Proceedings of the IEEE international conference on computer vision. (2017).
+-->
 
 [^sanity-checks]: Adebayo, Julius, Justin Gilmer, Michael Muelly, Ian Goodfellow, Moritz Hardt, and Been Kim. "Sanity checks for saliency maps." arXiv preprint arXiv:1810.03292 (2018).
 
@@ -234,25 +248,36 @@ Il existe plusieurs implémentations logicielles de méthodes d'attribution de p
 
 [^deconvnet]: Zeiler, Matthew D., and Rob Fergus. "Visualizing and understanding convolutional networks." European conference on computer vision. Springer, Cham (2014).
 
+<!--
 [^guided-backpropagation]: Springenberg, Jost Tobias, et al. "Striving for simplicity: The all convolutional net." arXiv preprint arXiv:1412.6806 (2014).
+-->
 
+<!--
 [^lrp]: Bach, Sebastian, et al. "On pixel-wise explanations for non-linear classifier decisions by layer-wise relevance propagation." PloS one 10.7 (2015).
+-->
 
 <!-- References about problems -->
 
+<!--
 [^better-understanding]: Ancona, Marco, et al. "Towards better understanding of gradient-based attribution methods for deep neural networks." arXiv preprint arXiv:1711.06104 (2017).
+-->
 
 [^fragile-saliency]: Ghorbani, Amirata, Abubakar Abid, and James Zou. "Interpretation of neural networks is fragile." Proceedings of the AAAI Conference on Artificial Intelligence. Vol. 33. 2019.
 
 [^unreliable-saliency]: Kindermans, Pieter-Jan, Sara Hooker, Julius Adebayo, Maximilian Alber, Kristof T. Schütt, Sven Dähne, Dumitru Erhan, and Been Kim. "The (un) reliability of saliency methods." In Explainable AI: Interpreting, Explaining and Visualizing Deep Learning, pp. 267-280. Springer, Cham (2019).
 
-
+<!--
 [^perplexing-behavior]: Nie, Weili, Yang Zhang, and Ankit Patel. "A theoretical explanation for perplexing behaviors of backpropagation-based visualizations." arXiv preprint arXiv:1805.07039 (2018).
+-->
 
 <!-- Toolboxes -->
 
+<!--
 [^innvestigate]: Alber, Maximilian, Sebastian Lapuschkin, Philipp Seegerer, Miriam Hägele, Kristof T. Schütt, Grégoire Montavon, Wojciech Samek, Klaus-Robert Müller, Sven Dähne, and Pieter-Jan Kindermans. "iNNvestigate neural networks!." J. Mach. Learn. Res. 20, no. 93 (2019): 1-8.
+-->
 
 [^vgg16]: Simonyan, Karen, and Andrew Zisserman. "Very deep convolutional networks for large-scale image recognition." arXiv preprint arXiv:1409.1556 (2014).
 
+<!--
 [^human-visuals]: Linsley, Drew, et al. "What are the visual features underlying human versus machine vision?." Proceedings of the IEEE International Conference on Computer Vision Workshops. 2017.
+-->

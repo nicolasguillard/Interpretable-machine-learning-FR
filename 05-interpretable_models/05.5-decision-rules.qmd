@@ -3,5 +3,45 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
+
+## 5.5 - Règles de décision
+
+**Support or coverage of a rule**:
+
+**Accuracy or confidence of a rule**: 
+
+### 5.5.1 - Learn Rules from a Single Feature (OneR)
+
+**Example**
+
+### 5.5.2 - Sequential Covering
+
+### 5.5.3 - Bayesian Rule Lists
+
+**Pre-mining of frequent patterns**
+
+**Learning Bayesian Rule Lists**
+
+**Examples**
+
+### 5.5.4 - Avantages
+
+### 5.5.5 - Inconvénients
+
+### 5.5.6 - Logiciels et alternatives
+
+
+<!-- REFERENCES -->
+
+[^fuernkranz]: Fürnkranz, Johannes, Dragan Gamberger, and Nada Lavrač. "Foundations of rule learning." Springer Science & Business Media, (2012).
+
+[^oner]: Holte, Robert C. "Very simple classification rules perform well on most commonly used datasets." Machine learning 11.1 (1993): 63-90.
+
+[^ripper]: Cohen, William W. "Fast effective rule induction." Machine Learning Proceedings (1995). 115-123.
+
+[^brl]: Letham, Benjamin, Cynthia Rudin, Tyler H. McCormick, and David Madigan. "Interpretable classifiers using rules and Bayesian analysis: Building a better stroke prediction model." The Annals of Applied Statistics 9, no. 3 (2015): 1350-1371.
+
+[^sbrl]: Yang, Hongyu, Cynthia Rudin, and Margo Seltzer. "Scalable Bayesian rule lists." Proceedings of the 34th International Conference on Machine Learning-Volume 70. JMLR. org, 2017.
+
+[^fp-tree]: Borgelt, C. "An implementation of the FP-growth algorithm." Proceedings of the 1st International Workshop on Open Source Data Mining Frequent Pattern Mining Implementations - OSDM ’05, 1–5. http://doi.org/10.1145/1133905.1133907 (2005).

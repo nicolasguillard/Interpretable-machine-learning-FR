@@ -4,9 +4,34 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
 
-# 7 - Explications basées du l'exemple  {#sec-example}
+# 7 - Explications basées sur des exemples
 
-Lorem ipsum
+Les méthodes d'explication basées sur des exemples sélectionnent des instances particulières de l'ensemble de données pour expliquer le comportement des modèles d'apprentissage automatique ou pour expliquer la distribution des données sous-jacentes.
+
+Les explications basées sur des exemples sont pour la plupart indépendantes du modèle, car elles rendent tout modèle d'apprentissage automatique plus interprétable. La différence avec les méthodes indépendantes du modèle est que les méthodes basées sur des exemples expliquent un modèle en sélectionnant des instances de l'ensemble de données et non en créant des résumés de fonctionnalités (telles que [l'importance des fonctionnalités](/08-global_model_agnostic_methods/08.5-permutation-feature-importance.qmd) ou [la dépendance partielle](/08-global_model_agnostic_methods/08.1-pdp.qmd)). Les explications basées sur des exemples n'ont de sens que si nous pouvons représenter une instance des données d'une manière humainement compréhensible. Cela fonctionne bien pour les images, car nous pouvons les visualiser directement. En général, les méthodes basées sur des exemples fonctionnent bien si les valeurs des caractéristiques d'une instance contiennent plus de contexte, ce qui signifie que les données ont une structure, comme le font les images ou les textes. Il est plus difficile de représenter des données tabulaires de manière significative, car une instance peut être constituée de centaines ou de milliers de fonctionnalités (moins structurées). Répertorier toutes les valeurs de caractéristiques pour décrire une instance n'est généralement pas utile. Cela fonctionne bien s'il n'y a qu'une poignée de fonctionnalités ou si nous avons un moyen de résumer une instance.
+
+Les explications basées sur des exemples aident les humains à construire des modèles mentaux du modèle d'apprentissage automatique et des données sur lesquelles le modèle d'apprentissage automatique a été formé. Cela aide particulièrement à comprendre les distributions de données complexes. Mais qu’est-ce que j’entends par explications basées sur des exemples ? Nous les utilisons souvent dans notre travail et dans notre vie quotidienne. Commençons par quelques exemples[^cbr].
+
+Un médecin voit un patient présentant une toux inhabituelle et une légère fièvre. Les symptômes de la patiente lui rappellent un autre patient qu'elle a eu il y a des années et qui présentait des symptômes similaires. Elle soupçonne que son patient actuel pourrait souffrir de la même maladie et elle prélève un échantillon de sang pour tester cette maladie spécifique.
+
+Un data scientist travaille sur un nouveau projet pour un de ses clients : Analyse des facteurs de risque qui conduisent à la panne des machines de production de claviers. Le data scientist se souvient d'un projet similaire sur lequel il a travaillé et réutilise des parties du code de l'ancien projet car il pense que le client souhaite la même analyse.
+
+Un chaton est assis sur le rebord de la fenêtre d’une maison en feu et inhabitée. Les pompiers sont déjà arrivés et l'un des pompiers se demande un instant s'il peut risquer d'entrer dans le bâtiment pour sauver le chaton. Il se souvient de cas similaires dans sa vie de pompier : de vieilles maisons en bois qui brûlaient lentement depuis un certain temps étaient souvent instables et finissaient par s'effondrer. En raison de la similitude de cette affaire, il décide de ne pas entrer, car le risque d'effondrement de la maison est trop grand. Heureusement, le chat saute par la fenêtre, atterrit en toute sécurité et personne n'est blessé dans l'incendie. Fin heureuse.
+
+Ces histoires illustrent la façon dont nous, les humains, pensons par des exemples ou des analogies. Le modèle d'explications basées sur des exemples est le suivant : la chose B est similaire à la chose A et A a causé Y, donc je prédis que B provoquera également Y. Implicitement, certaines approches d’apprentissage automatique fonctionnent sur la base d’exemples. [Les arbres de décision](/05-interpretable_models/05.4-decision-tree.qmd) divisent les données en nœuds en fonction des similitudes des points de données dans les caractéristiques importantes pour prédire la cible. Un arbre de décision obtient la prédiction pour une nouvelle instance de données en recherchant les instances similaires (= dans le même nœud terminal) et en renvoyant la moyenne des résultats de ces instances comme prédiction. La méthode des k-voisins les plus proches (knn) fonctionne explicitement avec des prédictions basées sur des exemples. Pour une nouvelle instance, un modèle knn localise les k voisins les plus proches (par exemple les k = 3 instances les plus proches) et renvoie la moyenne des résultats de ces voisins sous forme de prédiction. La prédiction d’un knn peut être expliquée en renvoyant les k voisins, ce qui – encore une fois – n’a de sens que si nous disposons d’un bon moyen de représenter une seule instance.
+
+Les méthodes d’interprétation suivantes sont toutes basées sur des exemples :
+
+- [Les explications contrefactuelles](/09-local_model_agnostic_methods/09.3-counterfactual.qmd) nous indiquent comment une instance doit changer pour modifier significativement sa prédiction. En créant des instances contrefactuelles, nous apprenons comment le modèle fait ses prédictions et pouvons expliquer les prédictions individuelles.
+- [Les exemples contradictoires](/10-neuralnet/10.4-adversarial-examples.qmd) sont des contrefactuels utilisés pour tromper les modèles d’apprentissage automatique. L’accent est mis sur l’inversion de la prédiction et non sur son explication.
+- [Les prototypes](/08-global_model_agnostic_methods/08.7-prototype-criticisms.qmd) sont une sélection d'instances représentatives à partir des données et les critiques sont des instances qui ne sont pas bien représentées par ces prototypes.[^critique]
+- [Les instances influentes](/10-neuralnet/10.5-influential-instances.qmd) sont les points de données d'entraînement qui ont eu le plus d'influence sur les paramètres d'un modèle de prédiction ou sur les prédictions elles-mêmes. L'identification et l'analyse des instances influentes permettent de détecter les problèmes avec les données, de déboguer le modèle et de mieux comprendre le comportement du modèle.
+- [Modèle k-plus proches voisins](/05-interpretable_models/05.7-other-interpretable-models.qmd) : Un modèle d'apprentissage automatique (interprétable) basé sur des exemples.
+
+<!-- REFERENCES -->
+
+[^cbr]: Aamodt, Agnar, and Enric Plaza. "Case-based reasoning: Foundational issues, methodological variations, and system approaches." AI communications 7.1 (1994): 39-59.
+
+[^critique]: Kim, Been, Rajiv Khanna, and Oluwasanmi O. Koyejo. "Examples are not enough, learn to criticize! Criticism for interpretability." Advances in Neural Information Processing Systems (2016).

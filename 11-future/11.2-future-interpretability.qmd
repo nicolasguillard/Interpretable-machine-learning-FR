@@ -3,5 +3,47 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
+
+## 11.2 -  L'avenir de l'interprétabilité
+
+Jetons un coup d'œil à l'avenir possible de l'interprétabilité de l'apprentissage automatique.
+
+**L'accent sera mis sur les outils d'interprétabilité indépendants des modèles.**
+
+Il est beaucoup plus facile d’automatiser l’interprétabilité lorsqu’elle est découplée du modèle d’apprentissage automatique sous-jacent. L’avantage de l’interprétabilité indépendante du modèle réside dans sa modularité. Nous pouvons facilement remplacer le modèle d’apprentissage automatique sous-jacent. On peut tout aussi bien remplacer la méthode d’interprétation. Pour ces raisons, les méthodes indépendantes du modèle évolueront bien mieux. C’est pourquoi je pense que les méthodes indépendantes des modèles deviendront plus dominantes à long terme. Mais les méthodes intrinsèquement interprétables auront également leur place.
+
+**L’apprentissage automatique sera automatisé et, avec lui, l’interprétabilité.**
+
+Une tendance déjà visible est l’automatisation de la formation des modèles. Cela comprend l'ingénierie automatisée et la sélection de fonctionnalités, l'optimisation automatisée des hyperparamètres, la comparaison de différents modèles et l'assemblage ou l'empilement des modèles. Le résultat est le meilleur modèle de prédiction possible. Lorsque nous utilisons des méthodes d’interprétation indépendantes du modèle, nous pouvons les appliquer automatiquement à tout modèle émergeant du processus d’apprentissage automatique automatisé. D'une certaine manière, nous pouvons également automatiser cette deuxième étape : calculer automatiquement l'importance des caractéristiques, tracer la dépendance partielle, former un modèle de substitution, etc. Personne ne vous empêche de calculer automatiquement toutes ces interprétations de modèles. L'interprétation proprement dite nécessite encore des personnes. Imaginez : vous téléchargez un ensemble de données, spécifiez l'objectif de prédiction et, d'une simple pression sur un bouton, le meilleur modèle de prédiction est formé et le programme crache toutes les interprétations du modèle. Il existe déjà des premiers produits et je soutiens que pour de nombreuses applications, il suffira d'utiliser ces services d'apprentissage automatique automatisés. Aujourd’hui, n’importe qui peut créer des sites Web sans connaître HTML, CSS et Javascript, mais il existe encore de nombreux développeurs Web. De même, je pense que tout le monde pourra former des modèles d’apprentissage automatique sans savoir programmer, et qu’il y aura toujours besoin d’experts en apprentissage automatique.
+
+**Nous n'analysons pas des données, nous analysons des modèles.**
+
+Les données brutes elles-mêmes sont toujours inutiles. (J'exagère volontairement. La réalité est que vous avez besoin d'une compréhension approfondie des données pour mener une analyse significative.) Je m'en fiche des données; Je me soucie des connaissances contenues dans les données. L’apprentissage automatique interprétable est un excellent moyen de distiller des connaissances à partir de données. Vous pouvez sonder le modèle de manière approfondie, le modèle reconnaît automatiquement si et comment les caractéristiques sont pertinentes pour la prédiction (de nombreux modèles ont une sélection de caractéristiques intégrée), le modèle peut détecter automatiquement comment les relations sont représentées et, s'il est correctement entraîné, le modèle final. est une très bonne approximation de la réalité.
+
+De nombreux outils analytiques sont déjà basés sur des modèles de données (car ils reposent sur des hypothèses de distribution) :
+
+- Tests d'hypothèse simples comme le test t de Student.
+- Tests d'hypothèses avec ajustements pour les facteurs de confusion (généralement des GLM)
+- Analyse de variance (ANOVA)
+- Le coefficient de corrélation (le coefficient de régression linéaire standardisé est lié au coefficient de corrélation de Pearson)
+…
+
+Ce que je vous dis ici n’a en réalité rien de nouveau. Alors pourquoi passer de l’analyse de modèles transparents fondés sur des hypothèses à l’analyse de modèles de boîte noire sans hypothèses ? Parce que faire toutes ces hypothèses est problématique : elles sont généralement fausses (à moins que vous ne pensiez que la majeure partie du monde suit une distribution gaussienne), difficiles à vérifier, très rigides et difficiles à automatiser. Dans de nombreux domaines, les modèles basés sur des hypothèses ont généralement de moins bonnes performances prédictives sur des données de test intactes que les modèles d'apprentissage automatique en boîte noire. Cela n'est vrai que pour les grands ensembles de données, car les modèles interprétables avec de bonnes hypothèses fonctionnent souvent mieux avec de petits ensembles de données que les modèles boîte noire. L’approche d’apprentissage automatique par boîte noire nécessite beaucoup de données pour fonctionner correctement. Avec la numérisation de tout, nous disposerons d’ensembles de données toujours plus volumineux et l’approche de l’apprentissage automatique deviendra donc plus attrayante. Nous ne faisons pas d'hypothèses, nous nous rapprochons le plus possible de la réalité (tout en évitant le surajustement des données d'entraînement). Je soutiens que nous devrions développer tous les outils dont nous disposons en statistique pour répondre aux questions (tests d'hypothèses, mesures de corrélation, mesures d'interaction, outils de visualisation, intervalles de confiance, valeurs p, intervalles de prédiction, distributions de probabilité) et les réécrire pour les modèles de boîte noire. D’une certaine manière, cela se produit déjà :
+
+- Prenons un modèle linéaire classique : le coefficient de régression standardisé est déjà une mesure de l'importance des caractéristiques. Avec la [mesure de l'importance des fonctionnalités de permutation](/08-global_model_agnostic_methods/08.5-permutation-feature-importance.qmd), nous disposons d'un outil qui fonctionne avec n'importe quel modèle.
+- Dans un modèle linéaire, les coefficients mesurent l'effet d'une seule caractéristique sur le résultat prédit. La version généralisée de ceci est le [diagramme de dépendance partielle](/08-global_model_agnostic_methods/08.1-pdp.qmd).
+- Testez si A ou B est meilleur : Pour cela, nous pouvons également utiliser des fonctions de dépendance partielle. Ce que nous n’avons pas encore (à ma connaissance), ce sont des tests statistiques pour des modèles arbitraires de boîtes noires.
+Les data scientists s'automatiseront.
+
+Je pense que les data scientists finiront par s'automatiser pour de nombreuses tâches d'analyse et de prédiction. Pour que cela se produise, les tâches doivent être bien définies et il doit y avoir des processus et des routines autour d'elles. Aujourd’hui, ces routines et processus manquent, mais les data scientists et leurs collègues y travaillent. À mesure que l’apprentissage automatique devient partie intégrante de nombreuses industries et institutions, de nombreuses tâches seront automatisées.
+
+**Les robots et les programmes s'expliqueront.**
+
+Nous avons besoin d’interfaces plus intuitives pour les machines et les programmes qui font largement appel à l’apprentissage automatique. Quelques exemples : Une voiture autonome qui indique pourquoi elle s'est arrêtée brusquement ("70 % de probabilité qu'un enfant traverse la route") ; Un programme de défaut de crédit qui explique à un employé de banque pourquoi une demande de crédit a été rejetée ("Le demandeur a trop de cartes de crédit et occupe un emploi instable.") ; Un bras robotique qui explique pourquoi il a déplacé l'article du tapis roulant vers la poubelle ("L'article a un engouement en bas.").
+
+**L’interprétabilité pourrait stimuler la recherche sur l’intelligence artificielle.**
+
+J'imagine qu'en effectuant davantage de recherches sur la façon dont les programmes et les machines peuvent s'expliquer, nous pouvons améliorer notre compréhension de l'intelligence et devenir meilleurs dans la création de machines intelligentes.
+
+En fin de compte, toutes ces prédictions ne sont que des spéculations et nous devons voir ce que l’avenir nous réserve réellement. Faites-vous votre propre opinion et continuez à apprendre !

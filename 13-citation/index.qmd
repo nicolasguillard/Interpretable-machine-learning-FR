@@ -1,12 +1,31 @@
 ---
 order: 13
-lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
 
 # 13 - Citer ce livre
 
-Lorem ipsum
+Si vous avez trouvé ce livre utile pour votre article de blog, votre article de recherche ou votre produit, je vous serais reconnaissant de le citer. Vous pouvez citer le livre comme ceci :
+
+```
+Molnar, C. (2022). Interpretable Machine Learning:
+A Guide for Making Black Box Models Explainable (2nd ed.).
+christophm.github.io/interpretable-ml-book/
+```
+
+Ou utilisez l'entrée Bibtex suivante :
+
+```
+@book{molnar2022,
+  title      = {Interpretable Machine Learning},
+  author     = {Christoph Molnar},
+  year       = {2022},
+  subtitle   = {A Guide for Making Black Box Models Explainable},
+  edition    = {2},
+  url        = {https://christophm.github.io/interpretable-ml-book}
+}
+```
+
+Je suis toujours curieux de savoir où et comment les méthodes d'interprétation sont utilisées dans l'industrie et la recherche. Si vous utilisez le livre comme référence, ce serait formidable si vous m'écriviez une ligne et me disiez pourquoi. Ceci est bien entendu facultatif et ne sert qu’à satisfaire ma propre curiosité et à stimuler des échanges intéressants. Mon mail est [christoph.molnar.ai@gmail.com](christoph.molnar.ai@gmail.com).

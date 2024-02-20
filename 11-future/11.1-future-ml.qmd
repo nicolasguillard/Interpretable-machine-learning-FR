@@ -3,5 +3,35 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
+
+## 11.1 - L'avenir de l'apprentissage automatique
+
+Sans apprentissage automatique, il ne peut y avoir d’apprentissage automatique interprétable. Nous devons donc deviner où va l’apprentissage automatique avant de pouvoir parler d’interprétabilité.
+
+L’apprentissage automatique (ou « IA ») est associé à de nombreuses promesses et attentes. Mais commençons par une observation moins optimiste : alors que la science développe de nombreux outils sophistiqués d’apprentissage automatique, d’après mon expérience, il est assez difficile de les intégrer dans des processus et des produits existants. Non pas parce que ce n’est pas possible, mais simplement parce qu’il faut du temps aux entreprises et aux institutions pour rattraper leur retard. Dans la ruée vers l'or du battage médiatique actuel sur l'IA, les entreprises ouvrent des « laboratoires d'IA », des « unités d'apprentissage automatique » et embauchent des « scientifiques des données », des « experts en apprentissage automatique », des « ingénieurs en IA », etc., mais la réalité est la suivante : d'après mon expérience, plutôt frustrant. Souvent, les entreprises ne disposent même pas de données sous la forme requise et les data scientists restent inactifs pendant des mois. Parfois, les entreprises ont des attentes tellement élevées à l’égard de l’IA et de la science des données en raison des médias que les data scientists ne pourront jamais les satisfaire. Et souvent, personne ne sait comment intégrer les data scientists dans les structures existantes et dans bien d’autres problèmes. Cela m’amène à ma première prédiction.
+
+L'apprentissage automatique se développera lentement mais sûrement .
+
+La numérisation progresse et la tentation d’automatiser ne cesse de se faire sentir. Même si le chemin vers l’adoption du machine learning est lent et semé d’embûches, le machine learning passe constamment de la science aux processus métier, aux produits et aux applications du monde réel.
+
+Je pense que nous devons mieux expliquer aux non-experts quels types de problèmes peuvent être formulés comme des problèmes d'apprentissage automatique. Je connais de nombreux data scientists hautement rémunérés qui effectuent des calculs Excel ou de la business intelligence classique avec des rapports et des requêtes SQL au lieu d'appliquer l'apprentissage automatique. Mais quelques entreprises utilisent déjà avec succès l’apprentissage automatique, les grandes sociétés Internet étant en première ligne. Nous devons trouver de meilleurs moyens d’intégrer l’apprentissage automatique dans les processus et les produits, former les personnes et développer des outils d’apprentissage automatique faciles à utiliser. Je pense que le machine learning deviendra beaucoup plus facile à utiliser : nous pouvons déjà constater que le machine learning devient plus accessible, par exemple via les services cloud (« Machine Learning as a service » – juste pour lancer quelques mots à la mode). Une fois que l’apprentissage automatique aura mûri – et que ce tout-petit aura déjà fait ses premiers pas – ma prochaine prédiction est la suivante :
+
+**L’apprentissage automatique alimentera beaucoup de choses.**
+
+Basé sur le principe « Tout ce qui peut être automatisé le sera », je conclus que, dans la mesure du possible, les tâches seront formulées sous forme de problèmes de prédiction et résolues grâce à l'apprentissage automatique. L’apprentissage automatique est une forme d’automatisation ou peut du moins en faire partie. De nombreuses tâches actuellement effectuées par les humains sont remplacées par l’apprentissage automatique. Voici quelques exemples de tâches pour lesquelles l’apprentissage automatique est utilisé pour en automatiser certaines parties :
+
+- Tri / prise de décision / complétion de documents (par exemple dans les compagnies d'assurance, le secteur juridique ou les cabinets de conseil)
+- Décisions basées sur des données telles que les demandes de crédit
+- Découverte de médicament
+- Contrôles qualité dans les chaînes de montage
+- Voitures autonomes
+- Diagnostic des maladies
+- Traduction. Pour ce livre, j'ai utilisé un service de traduction appelé ( DeepL ) alimenté par des réseaux de neurones profonds pour améliorer mes phrases en les traduisant de l'anglais vers l'allemand et de nouveau vers l'anglais.
+…
+
+La percée de l’apprentissage automatique n’est pas seulement réalisée grâce à de meilleurs ordinateurs/plus de données/de meilleurs logiciels, mais aussi :
+
+**Les outils d’interprétabilité catalysent l’adoption de l’apprentissage automatique.**
+
+Partant du principe que l’objectif d’un modèle d’apprentissage automatique ne peut jamais être parfaitement spécifié, il s’ensuit qu’un apprentissage automatique interprétable est nécessaire pour combler l’écart entre l’objectif mal spécifié et l’objectif réel. Dans de nombreux domaines et secteurs, l’interprétabilité sera le catalyseur de l’adoption de l’apprentissage automatique. Quelques preuves anecdotiques : de nombreuses personnes à qui j'ai parlé n'utilisent pas l'apprentissage automatique parce qu'elles ne peuvent pas expliquer les modèles aux autres. Je pense que l’interprétabilité résoudra ce problème et rendra l’apprentissage automatique attrayant pour les organisations et les personnes qui exigent une certaine transparence. Outre la mauvaise spécification du problème, de nombreux secteurs nécessitent une interprétabilité, que ce soit pour des raisons juridiques, par aversion au risque ou pour mieux comprendre la tâche sous-jacente. L'apprentissage automatique automatise le processus de modélisation et éloigne un peu plus l'humain des données et de la tâche sous-jacente : cela augmente le risque de problèmes avec la conception expérimentale, le choix de la distribution de la formation, l'échantillonnage, le codage des données, l'ingénierie des fonctionnalités, etc. Les outils d’interprétation facilitent l’identification de ces problèmes.

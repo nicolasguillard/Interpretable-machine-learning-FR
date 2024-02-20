@@ -3,5 +3,36 @@ lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
 ---
+
+## 4.2 - Commentaires indésirables sur YouTube (Classification de Texte)
+
+En tant qu'exemple de classification de texte, nous travaillons avec 1956 commentaires provenant de 5 vidéos YouTube différentes. 
+Heureusement, les auteurs qui ont utilisé cet ensemble de données dans un article sur la classification du spam ont rendu [les données librement disponibles](https://archive.ics.uci.edu/ml/datasets/YouTube+Spam+Collection) (Alberto, Lochter et Almeida (2015)[^Alberto]).
+
+Les commentaires ont été collectés via l'API YouTube à partir de cinq des dix vidéos les plus visionnées sur YouTube au premier semestre 2015. 
+Toutes les 5 sont des clips musicaux. 
+L'une d'entre elles est "Gangnam Style" de l'artiste coréen Psy. 
+Les autres artistes étaient Katy Perry, LMFAO, Eminem et Shakira.
+
+Voyez quelques-uns des commentaires. 
+Les commentaires ont été manuellement étiquetés comme spam ou légitimes. 
+Le spam a été codé avec un "1" et les commentaires légitimes avec un "0".
+
+::: {.callout-important title="Note du traducteur"}
+TABLE 4.1: Sample of comments from the YouTube Spam dataset
+:::
+
+Vous pouvez également aller sur YouTube et jeter un œil à la section des commentaires. 
+Mais s'il vous plaît, ne vous faites pas prendre dans l'enfer de YouTube et finissez par regarder des vidéos de singes volant et buvant des cocktails à des touristes sur la plage. 
+Le détecteur de spam de Google a probablement aussi beaucoup changé depuis 2015.
+
+[Regardez la vidéo "Gangnam Style" qui a battu des records de visionnage ici](https://www.youtube.com/watch?v=9bZkp7q19f0&feature=player_embedded).
+
+Si vous voulez jouer avec les données, vous pouvez trouver le [fichier RData](https://github.com/christophM/interpretable-ml-book/blob/master/data/ycomments.RData) ainsi que le [script R](https://github.com/christophM/interpretable-ml-book/blob/master/R/get-SpamTube-dataset.R) avec quelques fonctions de commodité dans le dépôt GitHub du livre.
+
+::: {.callout-important title="Note du traducteur"}
+Version python + FR
+:::
+
+[^Alberto]: Alberto, Túlio C, Johannes V Lochter, and Tiago A Almeida. "Tubespam: comment spam filtering on YouTube." In Machine Learning and Applications (Icmla), Ieee 14th International Conference on, 138–43. IEEE. (2015).
