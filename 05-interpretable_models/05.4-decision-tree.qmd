@@ -57,7 +57,7 @@ La prédiction d'une instance individuelle est la moyenne du résultat cible plu
 
 Examinons à nouveau les [données sur la location de vélos](/04-datasets/04.1-datasets.qmd). Nous voulons prédire le nombre de vélos loués un certain jour avec un arbre de décision. L’arbre appris ressemble à ceci :
 
-![Arbre de régression ajusté sur les données de location de vélos. La profondeur maximale autorisée pour l'arbre a été fixée à 2. La fonction de tendance (jours depuis 2011) et la température (temp) ont été sélectionnées pour les divisions. Les boîtes à moustaches montrent la distribution du nombre de vélos dans le nœud terminal.](../_static/images2/5_4_2_importance.png){align=center}
+![Arbre de régression ajusté sur les données de location de vélos. La profondeur maximale autorisée pour l'arbre a été fixée à 2. La fonction de tendance (jours depuis 2011) et la température (temp) ont été sélectionnées pour les divisions. Les boîtes à moustaches montrent la distribution du nombre de vélos dans le nœud terminal.](../_static/images2/5_4_2_example.png){align=center}
 
 La première division et l'une des deuxièmes divisions ont été réalisées avec la fonction de tendance, qui compte les jours depuis le début de la collecte de données et couvre la tendance selon laquelle le service de location de vélos est devenu plus populaire au fil du temps. Pour les jours précédant le 105ème jour, le nombre prévu de vélos est d'environ 1800, entre le 106ème et le 430ème jour, il est d'environ 3900. Pour les jours après le 430ème jour, la prévision est soit de 4600 (si la température est inférieure à 12 degrés), soit de 6600. (si la température est supérieure à 12 degrés).
 
@@ -95,6 +95,11 @@ Les arbres de décision sont très interprétables – à condition qu’ils soi
 ### 5.4.5 - Logiciels
 
 Pour les exemples de ce chapitre, j'ai utilisé le module R `rpart` qui implémente CART (arbres de classification et de régression). CART est implémenté dans de nombreux langages de programmation, dont [Python](https://scikit-learn.org/stable/modules/tree.html). On peut soutenir que CART est un algorithme assez ancien et quelque peu obsolète et il existe de nouveaux algorithmes intéressants pour ajuster les arbres. Vous pouvez trouver un aperçu de certains modiles R pour les arbres de décision dans la [vue des tâches CRAN d'apprentissage automatique et d'apprentissage statistique](https://scikit-learn.org/stable/modules/tree.html) sous le mot-clé « Partitionnement récursif ». En Python, le [module `imodels`](https://github.com/csinva/imodels) fournit divers algorithmes pour faire croître les arbres de décision (par exemple, ajustement gourmand ou optimal), élaguer les arbres et régulariser les arbres.
+
+
+::: {.callout-note title="Note du traducteur" icon=false appearance="simple"}
+La version en Python des exemples de ce chapitre sont accessibles [ici]().
+:::
 
 <!-- REFERENCES -->
 

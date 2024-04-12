@@ -1,14 +1,25 @@
 ---
 lang: fr
-format:
-    html:
-        toc: false
 ---
 
-## 5.7 - Other Interpretable Models {#other-interpretable}
+## 5.7 - Autres modèles interprétables
 
-### 5.7.1 - Naive Bayes Classifier
+La liste des modèles interprétables ne cesse de s’allonger et est de taille inconnue. Il comprend des modèles simples tels que des modèles linéaires, des arbres de décision et des Bayes naïfs, mais aussi des modèles plus complexes qui combinent ou modifient des modèles d'apprentissage automatique non interprétables pour les rendre plus interprétables. En particulier, les publications sur ce dernier type de modèles sont actuellement produites à une fréquence élevée et il est difficile de suivre les évolutions. Le livre ne présente que le classificateur Naive Bayes et les k-voisins les plus proches dans ce chapitre.
+
+
+### 5.7.1 - Classificateur naïf de Bayes
+
+Le classificateur Naive Bayes utilise le théorème des probabilités conditionnelles de Bayes. Pour chaque fonctionnalité, il calcule la probabilité d'une classe en fonction de la valeur de la fonctionnalité. Le classificateur Naive Bayes calcule indépendamment les probabilités de classe pour chaque caractéristique, ce qui équivaut à une hypothèse forte (= naïve) d'indépendance conditionnelle des caractéristiques. Naive Bayes est un modèle de probabilité conditionnelle et modélise la probabilité d'une classe $C_k$ comme suit:
 
 $$P(C_k|x)=\frac{1}{Z}P(C_k)\prod_{i=1}^n{}P(x_i|C_k)$$
 
+Le terme Z est un paramètre d'échelle qui garantit que la somme des probabilités pour toutes les classes est égale à 1 (sinon, ce ne seraient pas des probabilités). La probabilité conditionnelle d'une classe est la probabilité de classe multipliée par la probabilité de chaque caractéristique étant donné la classe, normalisée par Z. Cette formule peut être dérivée en utilisant le théorème de Bayes.
+
+Naive Bayes est un modèle interprétable en raison de l’hypothèse d’indépendance. Il peut être interprété au niveau modulaire. Il est très clair pour chaque caractéristique dans quelle mesure elle contribue à une certaine prédiction de classe, puisque nous pouvons interpréter la probabilité conditionnelle.
+
+
 ### 5.7.2 - K-Nearest Neighbors
+
+La méthode des k-voisins les plus proches peut être utilisée pour la régression et la classification et utilise les voisins les plus proches d'un point de données à des fins de prédiction. Pour la classification, la méthode des k-voisins les plus proches attribue la classe la plus courante des voisins les plus proches d'une instance. Pour la régression, on prend la moyenne des résultats des voisins. Les parties délicates consistent à trouver le bon k et à décider comment mesurer la distance entre les instances, ce qui définit finalement le quartier.
+
+Le modèle du k-voisin le plus proche diffère des autres modèles interprétables présentés dans ce livre car il s'agit d'un algorithme d'apprentissage basé sur les instances. Comment interpréter les k-voisins les plus proches ? Tout d’abord, il n’y a pas de paramètres à apprendre, donc il n’y a pas d’interprétabilité au niveau modulaire. De plus, il existe un manque d’interprétabilité du modèle global car le modèle est intrinsèquement local et aucun poids ou structure global n’est explicitement appris. Peut-être est-ce interprétable au niveau local ? Pour expliquer une prédiction, vous pouvez toujours récupérer les k voisins qui ont été utilisés pour la prédiction. La question de savoir si le modèle est interprétable dépend uniquement de la question de savoir si vous pouvez « interpréter » une seule instance de l'ensemble de données. Si une instance comprend des centaines ou des milliers de fonctionnalités, elle n’est alors pas interprétable, dirais-je. Mais si vous avez peu de fonctionnalités ou un moyen de réduire votre instance aux fonctionnalités les plus importantes, présenter les k voisins les plus proches peut vous donner de bonnes explications.
