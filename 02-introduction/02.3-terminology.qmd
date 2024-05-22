@@ -42,4 +42,4 @@ La **Prédiction** est ce que le modèle d'apprentissage automatique "devine" qu
 
 <!-- REFERENCES -->
 
-[^algorithm]: "Definition of Algorithm."  https://www.merriam-webster.com/dictionary/algorithm. (2017).
+[^algorithm]: "Definition of Algorithm."  [https://www.merriam-webster.com/dictionary/algorithm](https://www.merriam-webster.com/dictionary/algorithm). (2017).

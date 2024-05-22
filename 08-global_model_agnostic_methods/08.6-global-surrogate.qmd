@@ -1,7 +1,87 @@
 ---
 lang: fr
-format:
-    html:
-        toc: false
-        link-external-newwindow: true
 ---
+
+## 8.6 - Substitut global
+
+Un modèle de substitution global est un modèle interprétable qui est entraîné pour se rapprocher des prédictions d'un modèle de boîte noire. Nous pouvons tirer des conclusions sur le modèle de la boîte noire en interprétant le modèle de substitution. Résoudre l’interprétabilité du machine learning en utilisant davantage de machine learning !
+
+
+## 8.6.1 - Théorie
+
+Les modèles de substitution sont également utilisés en ingénierie : si un résultat intéressant est coûteux, prend du temps ou est difficile à mesurer (par exemple parce qu'il provient d'une simulation informatique complexe), un modèle de substitution bon marché et rapide du résultat peut être utilisé à la place. La différence entre les modèles de substitution utilisés en ingénierie et dans l'apprentissage automatique interprétable réside dans le fait que le modèle sous-jacent est un modèle d'apprentissage automatique (et non une simulation) et que le modèle de substitution doit être interprétable. Le but des modèles de substitution (interprétables) est de se rapprocher le plus précisément possible des prédictions du modèle sous-jacent tout en étant interprétables. L’idée des modèles de substitution peut se retrouver sous différents noms : modèle d’approximation, métamodèle, modèle de surface de réponse, émulateur, …
+
+À propos de la théorie : il n'y a en fait pas besoin de beaucoup de théorie pour comprendre les modèles de substitution. Nous voulons nous rapprocher le plus possible de notre fonction de prédiction de boîte noire f avec la fonction de prédiction du modèle de substitution g, sous la contrainte que g soit interprétable. Pour la fonction g n'importe quel modèle interprétable – par exemple du [chapitre sur les modèles interprétables](/05-interpretable_models/index.qmd) – peut être utilisé.
+
+Par exemple un modèle linéaire :
+$$g(x)=\beta_0+\beta_1{}x_1{}+\ldots+\beta_p{}x_p$$
+
+Ou un arbre de décision :
+$$g(x)=\sum_{m=1}^Mc_m{}I\{x\in{}R_m\}$$
+
+La formation d'un modèle de substitution est une méthode indépendante du modèle, car elle ne nécessite aucune information sur le fonctionnement interne du modèle de boîte noire, seul l'accès aux données et à la fonction de prédiction est nécessaire. Si le modèle d’apprentissage automatique sous-jacent était remplacé par un autre, vous pouvez toujours utiliser la méthode de substitution. Le choix du type de modèle boîte noire et du type de modèle de substitution est découplé.
+
+Effectuez les étapes suivantes pour obtenir un modèle de substitution :
+
+1. Sélectionnez un ensemble de données X. Il peut s'agir du même ensemble de données que celui utilisé pour entraîner le modèle de boîte noire ou d'un nouvel ensemble de données de la même distribution. Vous pouvez même sélectionner un sous-ensemble de données ou une grille de points, en fonction de votre application.
+2. Pour l'ensemble de données X sélectionné, obtenez les prédictions du modèle de boîte noire.
+3. Sélectionnez un type de modèle interprétable (modèle linéaire, arbre de décision, …)
+4. Entraînez le modèle interprétable sur l'ensemble de données X et ses prédictions.
+5. Toutes nos félicitations! Vous disposez désormais d'un modèle de substitution.
+6. Mesurez dans quelle mesure le modèle de substitution reproduit les prédictions du modèle de boîte noire.
+7. Interprétez le modèle de substitution.
+
+Vous pouvez trouver des approches pour les modèles de substitution qui comportent des étapes supplémentaires ou diffèrent légèrement, mais l'idée générale est généralement celle décrite ici.
+
+Une façon de mesurer dans quelle mesure le substitut reproduit le modèle de la boîte noire est la mesure du R carré :
+$$R^2=1-\frac{SSE}{SST}=1-\frac{\sum_{i=1}^n(\hat{y}_*^{(i)}-\hat{y}^{(i)})^2}{\sum_{i=1}^n(\hat{y}^{(i)}-\bar{\hat{y}})^2}$$
+
+où $\hat{y}_*^{(i)}$ est la prédiction pour la i-ième instance du modèle de substitution, $\hat{y}^{(i)}$ la prédiction du modèle de la boîte noire et $\bar{\hat{y}}$ la moyenne des prédictions du modèle boîte noire. SSE signifie erreur de somme des carrés et SST pour somme des carrés total. La mesure R au carré peut être interprétée comme le pourcentage de variance capturé par le modèle de substitution. Si R-carré est proche de 1 (= SSE faible), alors le modèle interprétable se rapproche très bien du comportement du modèle boîte noire. Si le modèle interprétable est très proche, vous souhaiterez peut-être remplacer le modèle complexe par le modèle interprétable. Si le R au carré est proche de 0 (= SSE élevé), alors le modèle interprétable ne parvient pas à expliquer le modèle de la boîte noire.
+
+Notez que nous n'avons pas parlé des performances du modèle de boîte noire sous-jacent, c'est-à-dire de sa bonne ou de sa mauvaise performance dans la prédiction du résultat réel. Les performances du modèle boîte noire ne jouent aucun rôle dans la formation du modèle de substitution. L’interprétation du modèle de substitution est toujours valable car elle fait des déclarations sur le modèle et non sur le monde réel. Mais bien sûr, l’interprétation du modèle de substitution n’a plus d’importance si le modèle de la boîte noire est mauvais, car alors le modèle de la boîte noire lui-même n’est plus pertinent.
+
+Nous pourrions également créer un modèle de substitution basé sur un sous-ensemble des données d'origine ou repondérer les instances. De cette façon, nous modifions la distribution des entrées du modèle de substitution, ce qui modifie l'orientation de l'interprétation (elle n'est alors plus vraiment globale). Si nous pondérons les données localement en fonction d'une instance spécifique des données (plus les instances sont proches de l'instance sélectionnée, plus leur poids est élevé), nous obtenons un modèle de substitution local qui peut expliquer la prédiction individuelle de l'instance. Apprenez-en davantage sur les modèles locaux dans le [chapitre suivant](/09-local_model_agnostic_methods/09.2-lime.qmd).
+
+
+### 8.6.2 - Exemple
+
+Pour démontrer les modèles de substitution, nous considérons un exemple de régression et de classification.
+
+Tout d’abord, nous formons une machine à vecteurs de support pour prédire le [nombre quotidien de vélos loués](/04-datasets/04.1-datasets.qmd) en fonction des informations météorologiques et du calendrier. La machine à vecteurs de support n'est pas très interprétable, nous formons donc un substitut avec un arbre de décision CART comme modèle interprétable pour approximer le comportement de la machine à vecteurs de support.
+
+![Les noeuds terminaux d'un arbre de substitution qui se rapproche des prédictions d'une machine à vecteurs de support entraînée sur l'ensemble de données de location de vélos. Les distributions dans les nœuds montrent que l'arbre de substitution prédit un nombre plus élevé de vélos loués lorsque la température est supérieure à 13 degrés Celsius et lorsque le jour est plus tardif sur la période de 2 ans (point de coupure à 435 jours).](../_static/images2/8_6_2_fig_1.png){align=center}
+
+Le modèle de substitution a un R au carré (variance expliquée) de 0,77, ce qui signifie qu'il se rapproche assez bien du comportement sous-jacent de la boîte noire, mais pas parfaitement. Si l’ajustement était parfait, nous pourrions jeter la machine à vecteurs de support et utiliser l’arbre à la place.
+
+Dans notre deuxième exemple, nous prédisons la probabilité de [cancer du col de l'utérus](/04-datasets/04.3-datasets.qmd) avec une forêt aléatoire. Encore une fois, nous formons un arbre de décision avec l'ensemble de données d'origine, mais avec la prédiction de la forêt aléatoire comme résultat, au lieu des classes réelles (saines ou cancer) à partir des données.
+
+![Les nœuds terminaux d'un arbre de substitution qui se rapproche des prédictions d'une forêt aléatoire formée sur l'ensemble de données sur le cancer du col de l'utérus. Les décomptes dans les nœuds montrent la fréquence des classifications des modèles de boîte noire dans les nœuds.).](../_static/images2/8_6_2_fig_2.png){align=center}
+
+Le modèle de substitution a un R au carré (variance expliquée) de 0,19, ce qui signifie qu'il ne se rapproche pas bien de la forêt aléatoire et que nous ne devons pas surinterpréter l'arbre lorsque nous tirons des conclusions sur le modèle complexe.
+
+
+### 8.6.3 - Avantages
+
+La méthode du modèle de substitution est **flexible** : n'importe quel modèle du [chapitre sur les modèles interprétables](/05-interpretable_models/index.qmd) peut être utilisé. Cela signifie également que vous pouvez échanger non seulement le modèle interprétable, mais également le modèle de boîte noire sous-jacent. Supposons que vous créiez un modèle complexe et que vous l'expliquiez aux différentes équipes de votre entreprise. Une équipe est familiarisée avec les modèles linéaires, l’autre équipe peut comprendre les arbres de décision. Vous pouvez former deux modèles de substitution (modèle linéaire et arbre de décision) pour le modèle de boîte noire d'origine et proposer deux types d'explications. Si vous trouvez un modèle de boîte noire plus performant, vous n’êtes pas obligé de modifier votre méthode d’interprétation, car vous pouvez utiliser la même classe de modèles de substitution.
+
+Je dirais que l’approche est très **intuitive** et simple. Cela signifie qu’il est facile à mettre en œuvre, mais également facile à expliquer aux personnes non familiarisées avec la science des données ou l’apprentissage automatique.
+
+Avec la **mesure R au carré**, nous pouvons facilement mesurer la capacité de nos modèles de substitution à se rapprocher des prédictions de la boîte noire.
+
+
+### 8.6.4 - Inconvénients
+
+Vous devez être conscient que vous tirez **des conclusions sur le modèle et non sur les données**, puisque le modèle de substitution ne voit jamais le résultat réel.
+
+Il n’est pas clair quel est le meilleur **seuil pour le R-carré** afin d’être sûr que le modèle de substitution est suffisamment proche du modèle de la boîte noire. $80%$ de la variance expliquée ? $50%$ ? $99%$ ?
+
+Nous pouvons mesurer à quel point le modèle de substitution est proche du modèle de la boîte noire. Supposons que nous ne soyons pas très proches, mais suffisamment proches. Il peut arriver que le modèle interprétable soit très **proche pour un sous-ensemble de l'ensemble de données, mais très divergent pour un autre sous-ensemble**. Dans ce cas, l’interprétation du modèle simple ne serait pas aussi bonne pour tous les points de données.
+
+Le modèle interprétable que vous choisissez comme substitut **présente tous ses avantages et ses inconvénients**.
+
+Certains soutiennent qu’il n’existe, en général, **pas de modèles intrinsèquement interprétables** (y compris même les modèles linéaires et les arbres de décision) et qu’il serait même dangereux d’avoir une illusion d’interprétabilité. Si vous partagez cet avis, alors bien entendu cette méthode n’est pas pour vous.
+
+
+### 8.6.5 - Logiciel
+
+J'ai utilisé le `iml` package R pour les exemples. Si vous pouvez former un modèle d'apprentissage automatique, vous devriez alors pouvoir implémenter vous-même des modèles de substitution. Entraînez simplement un modèle interprétable pour prédire les prédictions du modèle boîte noire.

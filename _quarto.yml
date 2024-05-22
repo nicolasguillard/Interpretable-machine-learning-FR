@@ -17,7 +17,7 @@ website:
 format:
   html:
     css: styles.css
-    date-modified: 02/27/2024
+    date-modified: 05/10/2024
     fig-align: center
     fig-cap-location: bottom
     lang: fr-FR

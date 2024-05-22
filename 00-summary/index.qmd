@@ -10,7 +10,7 @@ format:
 
 > Traduction du livre en ligne [https://christophm.github.io/interpretable-ml-book/index.html](https://christophm.github.io/interpretable-ml-book/index.html)
 
-![Couverture](../_static/images/cutout.png){width=400px align=center}
+![Couverture](../_static/images/cutout.png){width=400px align="center"}
 
 L'apprentissage automatique représente un grand potentiel pour améliorer les produits, les processus et la recherche. Mais les **ordinateurs n'expliquent généralement pas leurs prédictions**, ce qui est un obstacle à l'adoption de l'apprentissage automatique. Ce livre traite de ce qui rend les modèles d'apprentissage automatique et leurs prédictions interprétables.
 
@@ -38,5 +38,5 @@ Ce livre est publié sous la licence [Creative Commons Attribution-NonCommercial
 
 ::: {.callout-note title="Note du traducteur" icon=false}
 **Au sujet du traducteur (assisté de ChatGPT-4) :** Mon nom est [Nicolas Guillard](https://www.linkedin.com/in/nicolasguillard/). De formation initiale Ingénieur en informatique, préalablement Analytiste Digital, je suis maintenant Ingénieur en Intelligence Artificielle.
-Dernière traduction réalisée entre les 27/12/2023 et **/01/2024.
+Dernière traduction réalisée entre les 27/12/2023 et 15/05/2024.
 :::
