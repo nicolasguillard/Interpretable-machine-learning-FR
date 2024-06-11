@@ -5,6 +5,8 @@ format:
         toc: false
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 3.5 - Propriétés des Explications
 
 Nous voulons expliquer les prédictions d'un modèle d'apprentissage automatique. Pour cela, nous nous appuyons sur une méthode d'explication, qui est un algorithme générant des explications. **Une explication relie généralement les valeurs des caractéristiques d'une instance à sa prédiction par le modèle d'une manière compréhensible par l'humain.** D'autres types d'explications consistent en un ensemble d'instances de données (par exemple dans le cas du modèle des k-plus proches voisins). Par exemple, nous pourrions prédire le risque de cancer en utilisant une machine à vecteurs de support et expliquer les prédictions en utilisant la [méthode des modèles locaux substituts](/09-local_model_agnostic_methods/09.2-lime.qmd), qui génère des arbres de décision comme explications. Ou nous pourrions utiliser un modèle de régression linéaire au lieu d'une machine à vecteurs de support. Le modèle de régression linéaire est déjà équipé d'une méthode d'explication (interprétation des poids).

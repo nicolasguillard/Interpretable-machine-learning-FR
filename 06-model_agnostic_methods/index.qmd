@@ -6,6 +6,8 @@ format:
         toc: false
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 # 6 - Méthodes indépendantes du modèle
 
 Séparer les explications du modèle d'apprentissage automatique (= méthodes d'interprétation indépendantes du modèle) présente certains avantages (Ribeiro, Singh et Guestrin 2016[^Ribeiro2016]). Le grand avantage des méthodes d’interprétation indépendantes du modèle par rapport aux méthodes spécifiques au modèle est leur flexibilité. Les développeurs d’apprentissage automatique sont libres d’utiliser n’importe quel modèle d’apprentissage automatique de leur choix lorsque les méthodes d’interprétation peuvent être appliquées à n’importe quel modèle. Tout ce qui s'appuie sur une interprétation d'un modèle d'apprentissage automatique, comme une interface graphique ou utilisateur, devient également indépendant du modèle d'apprentissage automatique sous-jacent. En règle générale, non pas un, mais plusieurs types de modèles d'apprentissage automatique sont évalués pour résoudre une tâche, et lorsque l'on compare des modèles en termes d'interprétabilité, il est plus facile de travailler avec des explications indépendantes du modèle, car la même méthode peut être utilisée pour n'importe quel type. de modèle.
@@ -22,7 +24,7 @@ Les aspects souhaitables d’un système d’explication indépendant du modèle
 
 Jetons un coup d'œil de haut niveau à l'interprétabilité indépendante du modèle. Nous capturons le monde en collectant des données, et l'abstrayons davantage en apprenant à prédire les données (pour la tâche) avec un modèle d'apprentissage automatique. L’interprétabilité n’est qu’une couche supplémentaire qui aide les humains à comprendre.
 
-![Vue d’ensemble de l’apprentissage automatique explicable. Le monde réel passe par de nombreuses couches avant d’atteindre l’humain sous forme d’explications.](../_static/images/big-picture.png){align=center}
+![Vue d’ensemble de l’apprentissage automatique explicable. Le monde réel passe par de nombreuses couches avant d’atteindre l’humain sous forme d’explications.](../images/big-picture.png){align=center}
 
 La couche la plus basse est le **Monde**. Cela pourrait littéralement être la nature elle-même, comme la biologie du corps humain et la façon dont il réagit aux médicaments, mais aussi des choses plus abstraites comme le marché immobilier. La couche Monde contient tout ce qui peut être observé et qui présente un intérêt. En fin de compte, nous voulons apprendre quelque chose sur le monde et interagir avec lui.
 

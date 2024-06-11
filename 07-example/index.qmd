@@ -6,6 +6,8 @@ format:
         toc: false
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 # 7 - Explications basées sur des exemples
 
 Les méthodes d'explication basées sur des exemples sélectionnent des instances particulières de l'ensemble de données pour expliquer le comportement des modèles d'apprentissage automatique ou pour expliquer la distribution des données sous-jacentes.

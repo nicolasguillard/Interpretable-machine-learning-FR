@@ -6,6 +6,8 @@ format:
         toc: false
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 # 10 - Interprétation d'un réseau de neurone
 
 <!-- HTML only - Not in EN book-->

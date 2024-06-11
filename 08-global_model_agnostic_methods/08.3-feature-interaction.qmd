@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 8.3 - Interactions avec les fonctionnalités
 Lorsque des fonctionnalités interagissent les unes avec les autres dans un modèle de prédiction, la prédiction ne peut pas être exprimée comme la somme des effets des fonctionnalités, car l'effet d'une fonctionnalité dépend de la valeur de l'autre fonctionnalité. Le prédicat d'Aristote « Le tout est plus grand que la somme de ses parties » s'applique en présence d'interactions.
 
@@ -73,15 +75,15 @@ La statistique de force d'interaction peut également être appliquée dans un c
 
 Voyons à quoi ressemblent les interactions entre fonctionnalités dans la pratique ! Nous mesurons la force d'interaction des caractéristiques dans une machine à vecteurs de support qui prédit le nombre de [vélos loués](/04-datasets/04.1-datasets.qmd) en fonction des caractéristiques météorologiques et calendaires. Le graphique suivant montre la statistique H de l'interaction des fonctionnalités :
 
-![La force d'interaction (statistique H) pour chaque caractéristique avec toutes les autres caractéristiques pour une machine à vecteurs de support prédisant la location de vélos. Globalement, les effets d’interaction entre les caractéristiques sont très faibles (inférieurs à 10 % de variance expliquée par caractéristique).](../_static/images2/8_3_3_figure_1.png){align=center}
+![La force d'interaction (statistique H) pour chaque caractéristique avec toutes les autres caractéristiques pour une machine à vecteurs de support prédisant la location de vélos. Globalement, les effets d’interaction entre les caractéristiques sont très faibles (inférieurs à 10 % de variance expliquée par caractéristique).](../images2/8_3_3_figure_1.png){align=center}
 
 Dans l’exemple suivant, nous calculons la statistique d’interaction pour un problème de classification. Nous analysons les interactions entre les caractéristiques d'une forêt aléatoire formée pour prédire [le cancer du col de l'utérus](/04-datasets/04.3-datasets.qmd), compte tenu de certains facteurs de risque.
 
-![Force d'interaction \(statistique H\) pour chaque caractéristique avec toutes les autres caractéristiques pour une forêt aléatoire prédisant la probabilité de cancer du col de l'utérus. Les années sous contraceptifs hormonaux ont l'effet d'interaction relatif le plus élevé avec toutes les autres caractéristiques, suivies par le nombre de grossesses.](../_static/images2/8_3_3_figure_2.png){align=center}
+![Force d'interaction \(statistique H\) pour chaque caractéristique avec toutes les autres caractéristiques pour une forêt aléatoire prédisant la probabilité de cancer du col de l'utérus. Les années sous contraceptifs hormonaux ont l'effet d'interaction relatif le plus élevé avec toutes les autres caractéristiques, suivies par le nombre de grossesses.](../images2/8_3_3_figure_2.png){align=center}
 
 Après avoir examiné les interactions de chaque fonctionnalité avec toutes les autres fonctionnalités, nous pouvons sélectionner l'une des fonctionnalités et approfondir toutes les interactions bidirectionnelles entre la fonctionnalité sélectionnée et les autres fonctionnalités.
 
-![Les forces d'interaction bidirectionnelle (statistique H) entre le nombre de grossesses et chaque autre caractéristique. Il existe une forte interaction entre le nombre de grossesses et l’âge.](../_static/images2/8_3_3_figure_3.png){align=center}
+![Les forces d'interaction bidirectionnelle (statistique H) entre le nombre de grossesses et chaque autre caractéristique. Il existe une forte interaction entre le nombre de grossesses et l’âge.](../images2/8_3_3_figure_3.png){align=center}
 
 
 ### 8.3.4 - Avantages

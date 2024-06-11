@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 5.2 - Régéression logistique
 
 La régression logistique modélise les probabilités pour les problèmes de classification avec deux issues possibles. C'est une extension du modèle de régression linéaire pour les problèmes de classification.
@@ -22,7 +24,7 @@ Un modèle linéaire extrapole également et vous donne des valeurs en dessous d
 
 Les modèles linéaires ne s'étendent pas aux problèmes de classification avec plusieurs classes. Vous devriez commencer à étiqueter la classe suivante avec 2, puis 3, et ainsi de suite. Les classes pourraient ne pas avoir d'ordre significatif, mais le modèle linéaire forcerait une structure étrange sur la relation entre les caractéristiques et vos prédictions de classe. Plus la valeur d'une caractéristique avec un poids positif est élevée, plus elle contribue à la prédiction d'une classe avec un numéro plus élevé, même si les classes qui se trouvent avoir un numéro similaire ne sont pas plus proches que d'autres classes.
 
-![A linear model classifies tumors as malignant (1) or benign (0) given their size. The lines show the prediction of the linear model. For the data on the left, we can use 0.5 as classification threshold. After introducing a few more malignant tumor cases, the regression line shifts and a threshold of 0.5 no longer separates the classes. Points are slightly jittered to reduce over-plotting.](../_static/images2/5_2_1_logistic_regression.png){align=center}
+![A linear model classifies tumors as malignant (1) or benign (0) given their size. The lines show the prediction of the linear model. For the data on the left, we can use 0.5 as classification threshold. After introducing a few more malignant tumor cases, the regression line shifts and a threshold of 0.5 no longer separates the classes. Points are slightly jittered to reduce over-plotting.](../images2/5_2_1_logistic_regression.png){align=center}
 
 
 ### 5.2.2 - Théorie
@@ -33,7 +35,7 @@ $$\text{logistic}(\eta)=\frac{1}{1+exp(-\eta)}$$
 
 Et cela ressemble à :
 
-![The logistic function. It outputs numbers between 0 and 1. At input 0, it outputs 0.5.](../_static/images2/5_2_2_logistic_function.png){align=center}
+![The logistic function. It outputs numbers between 0 and 1. At input 0, it outputs 0.5.](../images2/5_2_2_logistic_function.png){align=center}
 
 Le passage de la régression linéaire à la régression logistique est assez direct. Dans le modèle de régression linéaire, nous avons modélisé la relation entre le résultat et les caractéristiques par une équation linéaire :
 
@@ -45,7 +47,7 @@ $$P(y^{(i)} = 1) = \frac{1}{1 + \exp(-(\beta_{0} + \beta_{1}x^{(i)}_{1} + \ldots
 
 Revenons à l'exemple de la taille de la tumeur. Mais au lieu du modèle de régression linéaire, utilisons le modèle de régression logistique :
 
-![The logistic regression model finds the correct decision boundary between malignant and benign depending on tumor size. The line is the logistic function shifted and squeezed to fit the data.](../_static/images2/5_2_2_tumor_size.png){align=center}
+![The logistic regression model finds the correct decision boundary between malignant and benign depending on tumor size. The line is the logistic function shifted and squeezed to fit the data.](../images2/5_2_2_tumor_size.png){align=center}
 
 La classification fonctionne mieux avec la régression logistique et nous pouvons utiliser 0,5 comme seuil dans les deux cas. L'ajout de points supplémentaires n'affecte pas vraiment la courbe estimée de manière significative.
 
@@ -96,7 +98,7 @@ Lorsque toutes les caractéristiques numériques sont à zéro et les caractéri
 
 Nous utilisons le modèle de régression logistique pour prédire le [cancer du col de l'utérus](#cervical) en fonction de certains facteurs de risque. Le tableau suivant montre les poids estimés, les rapports des odds associés et l'erreur standard des estimations.
 
-![The results of fitting a logistic regression model on the cervical cancer dataset. Shown are the features used in the model, their estimated weights and corresponding odds ratios, and the standard errors of the estimated weights.](../_static/images2/5_2_4_example_table.png){align=center}
+![The results of fitting a logistic regression model on the cervical cancer dataset. Shown are the features used in the model, their estimated weights and corresponding odds ratios, and the standard errors of the estimated weights.](../images2/5_2_4_example_table.png){align=center}
 
 Interprétation d'une caractéristique numérique (« Nombre de MST diagnostiquées ») : Une augmentation du nombre de MST (maladies sexuellement transmissibles) diagnostiquées change (augmente) les odds de cancer par rapport à l'absence de cancer par un facteur de `r sprintf('%.2f', coef.table['Num. of diagnosed STDs', 'Odds ratio'])`, lorsque toutes les autres caractéristiques restent les mêmes. Gardez à l'esprit que la corrélation n'implique pas la causalité.
 

@@ -1,0 +1,3 @@
+::: {.callout-tip title="Version original (en)" icon="false"}
+[{{< meta original >}}]({{< meta original >}})
+:::

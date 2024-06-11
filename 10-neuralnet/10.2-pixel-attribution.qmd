@@ -9,13 +9,15 @@ format:
         link-external-newwindow: true
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 10.2 - Attribution de pixel
 
 <!-- HTML only - Not in EN book-->
 
 Les méthodes d'attribution de pixels mettent en évidence les pixels qui étaient pertinents pour une certaine classification d'image par un réseau neuronal. L'image suivante est un exemple d'explication :
 
-![A saliency map in which pixels are colored by their contribution to the classification.](../_static/images/vanilla.png){align=center}
+![A saliency map in which pixels are colored by their contribution to the classification.](../images/vanilla.png){align=center}
 
 Les méthodes d'attribution de pixels mettent en lumière les pixels qui ont été pertinents pour une certaine classification d'image effectuée par un réseau neuronal. Vous verrez plus tard dans ce chapitre ce qui se passe dans cette image particulière. Les méthodes d'attribution de pixels peuvent être trouvées sous divers noms : carte de sensibilité, carte de saillance, carte d'attribution de pixels, méthodes d'attribution basées sur les gradients, pertinence des caractéristiques, attribution des caractéristiques et contribution des caractéristiques.
 
@@ -185,13 +187,13 @@ Voyons quelques exemples de l'apparence de ces cartes et comment les méthodes s
 
 Voici les images et leur classification par le réseau neuronal :
 
-![Images of a dog classified as greyhound, a ramen soup classified as soup bowl, and an octopus classified as eel.](../_static/images/original-images-classification.png){align=center}
+![Images of a dog classified as greyhound, a ramen soup classified as soup bowl, and an octopus classified as eel.](../images/original-images-classification.png){align=center}
 
 L'image à gauche avec le chien honorable gardant le livre "Interpretable Machine Learning" a été classifiée comme "Lévrier" avec une probabilité de $35%$ (il semble que "Livre Interpretable Machine Learning" n'était pas l'une des $20 000$ classes). L'image au milieu montre un bol de délicieuse soupe de ramen et est correctement classifiée comme "Bol de soupe" avec une probabilité de $50%$. La troisième image montre un poulpe sur le fond de l'océan, qui est incorrectement classifié comme "Anguille" avec une forte probabilité de $70%$.
 
 Et voici les attributions de pixels qui visent à expliquer la classification :
 
-![Pixel attributions or saliency maps for the Vanilla Gradient method, SmoothGrad and Grad-CAM.](../_static/images/smoothgrad.png){align=center}
+![Pixel attributions or saliency maps for the Vanilla Gradient method, SmoothGrad and Grad-CAM.](../images/smoothgrad.png){align=center}
 
 Malheureusement, c'est un peu confus. Mais examinons les explications individuelles, en commençant par le chien. Le Gradient Vanille et le Gradient Vanille + SmoothGrad mettent tous deux en évidence le chien, ce qui a du sens. Mais ils mettent aussi en évidence certaines zones autour du livre, ce qui est étrange. Grad-CAM met en évidence uniquement la zone du livre, ce qui n'a aucun sens. Et à partir de là, cela devient un peu plus compliqué. La méthode du Gradient Vanille semble échouer pour le bol de soupe et le poulpe (ou, comme le réseau le pense, anguille). Les deux images ressemblent à des images résiduelles de regarder le soleil trop longtemps. (S'il vous plaît, ne regardez pas directement le soleil). SmoothGrad aide beaucoup, au moins les zones sont plus définies. Dans l'exemple de la soupe, certains ingrédients sont mis en évidence, tels que les œufs et la viande, mais aussi la zone autour des baguettes. Dans l'image du poulpe, l'animal lui-même est principalement mis en évidence. Pour le bol de soupe, Grad-CAM met en évidence la partie œuf et, pour une raison quelconque, la partie supérieure du bol. Les explications du poulpe par Grad-CAM sont encore plus désordonnées.
 

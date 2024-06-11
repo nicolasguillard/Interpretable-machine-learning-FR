@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 10.5 - Instances Influentes
 
 Les modèles d'apprentissage automatique sont finalement le produit des données d'entraînement et la suppression d'une des instances d'entraînement peut affecter le modèle résultant. 
@@ -33,7 +35,7 @@ Dans un ensemble de données de nouveau-nés, un nouveau-né pesant 6 kg serait 
 Dans un ensemble de données de comptes bancaires comprenant principalement des comptes courants, un compte de prêt dédié (solde négatif important, peu de transactions) serait considéré comme une valeur aberrante. 
 La figure suivante montre une valeur aberrante pour une distribution unidimensionnelle.
 
-![Feature x follows a Gaussian distribution with an outlier at x=8.](../_static/images2/outlier.png){align=center}
+![Feature x follows a Gaussian distribution with an outlier at x=8.](../images2/outlier.png){align=center}
 
 Les valeurs extrêmes peuvent représenter des points intéressants (p. ex. [critiques](/08-global_model_agnostic_methods/08.7-prototype-criticisms.qmd)). Quand une valeur extrême influence le modèle, elle peut être une instance influente.
 
@@ -44,7 +46,7 @@ Plus les paramètres ou les prédictions du modèle changent lorsque le modèle 
 Le fait qu'une instance soit influente pour un modèle entraîné dépend également de sa valeur pour la cible y. 
 La figure suivante montre une instance influente pour un modèle de régression linéaire.
 
-![A linear model with one feature. Trained once on the full data and once without the influential instance. Removing the influential instance changes the fitted slope (weight/coefficient) drastically.](../_static/images2/influential_instance.png){align=center}
+![A linear model with one feature. Trained once on the full data and once without the influential instance. Removing the influential instance changes the fitted slope (weight/coefficient) drastically.](../images2/influential_instance.png){align=center}
 
 **Pourquoi les instances influentes aident-elles à comprendre le modèle ?**
 
@@ -53,7 +55,7 @@ Un apprenant, c'est-à-dire l'algorithme qui génère le modèle d'apprentissage
 Par exemple, l'apprenant d'un arbre de décision est un algorithme qui sélectionne les caractéristiques de division et les valeurs auxquelles diviser. 
 Un apprenant pour un réseau neuronal utilise la rétropropagation pour trouver les meilleurs poids.
 
-![A learner learns a model from training data (features plus target). The model makes predictions for new data.](../_static/images/learner.png){width=200px align=center}
+![A learner learns a model from training data (features plus target). The model makes predictions for new data.](../images/learner.png){width=200px align=center}
 
 Nous nous demandons comment les paramètres du modèle ou les prédictions changeraient si nous retirions des instances des données d'entraînement dans le processus de formation. 
 Cela contraste avec d'autres approches d'interprétabilité qui analysent comment la prédiction change lorsque nous manipulons les caractéristiques des instances à prédire, telles que les [graphiques de dépendance partielle](/08-global_model_agnostic_methods/08.1-pdp.qmd) ou l'[importance des caractéristiques](/08-global_model_agnostic_methods/08.5-permutation-feature-importance.qmd). 
@@ -151,7 +153,7 @@ L'analyse de l'influence nous dit que le modèle devient de plus en plus instabl
 Cela en soi est une information précieuse. 
 Cela signifie que les erreurs dans ces instances peuvent avoir un fort effet sur le modèle.
 
-![A decision tree that models the relationship between the influence of the instances and their features. The maximum depth of the tree is set to 2.](../_static/images2/deletion_diagnostics_1.png){align=center}
+![A decision tree that models the relationship between the influence of the instances and their features. The maximum depth of the tree is set to 2.](../images2/deletion_diagnostics_1.png){align=center}
 
 Cette première analyse d'influence a révélé l'instance la plus influente *dans l'ensemble*. 
 Maintenant, nous sélectionnons l'une des instances, à savoir l'instance `r i`, pour laquelle nous voulons expliquer la prédiction en trouvant les instances de données d'entraînement les plus influentes. 
@@ -166,7 +168,7 @@ Encore une fois, il est plus logique de découvrir ce qui distingue les instance
 Nous utilisons un arbre de décision formé pour prédire l'influence étant donné les caractéristiques, mais en réalité, nous le détournons seulement pour trouver une structure et non pour prédire réellement quelque chose. 
 L'arbre de décision suivant montre quel type d'instances d'entraînement était le plus influent pour prédire la `r i` instance.
 
-![Decision tree that explains which instances were most influential for predicting the 7-th instance. Data from women who smoked for 18.5 years or longer had a large influence on the prediction of the 7-th instance, with an average change in absolute prediction by 11.7 percentage points of cancer probability.](../_static/images2/deletion_diagnostics_2.png){align=center}
+![Decision tree that explains which instances were most influential for predicting the 7-th instance. Data from women who smoked for 18.5 years or longer had a large influence on the prediction of the 7-th instance, with an average change in absolute prediction by 11.7 percentage points of cancer probability.](../images2/deletion_diagnostics_2.png){align=center}
 
 Les instances de données de femmes qui ont fumé ou fument depuis 18,5 ans ou plus ont une forte influence sur la prédiction de l'instance `r i`. 
 La femme derrière l'instance `r i` a fumé pendant `r cervical$Smokes..years.[i]` ans. 
@@ -263,7 +265,7 @@ Le paramètre du modèle est unidimensionnel à des fins de démonstration, mais
 Nous ne nous déplaçons que de $1/n$ dans la direction de l'amélioration de la perte pour l'instance $z$.
 Nous ne savons pas comment la perte changerait réellement lorsque nous supprimons $z$, mais avec la première et la deuxième dérivée de la perte, nous créons cette approximation quadratique autour de notre paramètre de modèle actuel et prétendons que c'est ainsi que la perte réelle se comporterait.
 
-![Updating the model parameter (x-axis) by forming a quadratic expansion of the loss around the current model parameter, and moving 1/n into the direction in which the loss with upweighted instance z (y-axis) improves most. This upweighting of instance z in the loss approximates the parameter changes if we delete z and train the model on the reduced data.](../_static/images2/math_behind_influence_functions.png){align=center}
+![Updating the model parameter (x-axis) by forming a quadratic expansion of the loss around the current model parameter, and moving 1/n into the direction in which the loss with upweighted instance z (y-axis) improves most. This upweighting of instance z in the loss approximates the parameter changes if we delete z and train the model on the reduced data.](../images2/math_behind_influence_functions.png){align=center}
 
 Nous n'avons pas réellement besoin de calculer les nouveaux paramètres, mais nous pouvons utiliser la fonction d'influence comme mesure de l'influence de $z$ sur les paramètres.
 

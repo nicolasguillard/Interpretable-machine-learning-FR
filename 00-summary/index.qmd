@@ -1,35 +1,38 @@
 ---
 order: 0
-title: Résumé
-lang: fr
 format:
     html:
         toc: false
-        link-external-newwindow: true
+original: https://christophm.github.io/interpretable-ml-book/index.html
 ---
 
-> Traduction du livre en ligne [https://christophm.github.io/interpretable-ml-book/index.html](https://christophm.github.io/interpretable-ml-book/index.html)
+<!-- {{< include ../_in_progress.qmd >}} -->
+{{< include ../_original.qmd >}}
 
-![Couverture](../_static/images/cutout.png){width=400px align="center"}
+# Résumé
+
+> Traduction du livre en ligne [https://christophm.github.io/interpretable-ml-book/](https://christophm.github.io/interpretable-ml-book/)
+
+![&nbsp;](../images/cutout.png){width=400px align="center"}
 
 L'apprentissage automatique représente un grand potentiel pour améliorer les produits, les processus et la recherche. Mais les **ordinateurs n'expliquent généralement pas leurs prédictions**, ce qui est un obstacle à l'adoption de l'apprentissage automatique. Ce livre traite de ce qui rend les modèles d'apprentissage automatique et leurs prédictions interprétables.
 
-Après avoir exploré les concepts d'interprétabilité, vous découvrirez des **modèles simples et interprétables** tels que les arbres de décision, les règles de décision et la régression linéaire. Le livre met l'accent sur les méthodes agnostiques aux modèles pour interpréter **les boîtes noires que sont ces modèles**, tels que l'importance des caractéristiques et les effets locaux accumulés, et pour expliquer les prédictions individuelles avec les valeurs de Shapley et LIME. De plus, le livre présente des méthodes spécifiques aux réseaux de neurones profonds.
+Après avoir exploré les concepts d'interprétabilité, vous découvrirez des **modèles simples et interprétables** tels que les arbres de décision, les règles de décision et la régression linéaire. Le livre met l'accent sur les méthodes agnostiques aux modèles pour interpréter **les boîtes noires que sont ces modèles**, tels que l'importance des caractéristiques et les effets locaux accumulés, et pour expliquer les prédictions individuelles avec les valeurs de Shapley et LIME. De plus, ce livre présente des méthodes spécifiques aux réseaux de neurones profonds.
 
 Toutes les méthodes d'interprétation sont expliquées en profondeur et discutées de manière critique. Comment fonctionnent-elles sous le capot ? Quelles sont leurs forces et leurs faiblesses ? Comment leurs résultats peuvent-ils être interprétés ? Ce livre vous permettra de sélectionner et d'appliquer correctement la méthode d'interprétation la plus adaptée à votre projet d'apprentissage automatique. La lecture du livre est recommandée aux praticiens de l'apprentissage automatique, aux _experts en mégadonnées_, aux statisticiens et à toute autre personne intéressée à rendre des modèles d'apprentissage automatique interprétables.
 
-Vous pouvez acheter les versions PDF ou e-book (epub, mobi) [sur leanpub.com](https://leanpub.com/interpretable-machine-learning).
+Vous pouvez acheter les versions PDF ou e-book (epub, mobi) *en langue anglaise* [sur leanpub.com](https://leanpub.com/interpretable-machine-learning).
 
-Vous pouvez acheter la version imprimée [sur Amazon](https://www.amazon.fr/dp/B09TMWHVB4).
+Vous pouvez acheter la version imprimée *en langue anglaise* [sur Amazon](https://www.amazon.fr/dp/B09TMWHVB4).
 
 **Au sujet de l'auteur:** Il s'appelle Christoph Molnar, il est statisticien et spécialiste en apprentissage machine.
-My goal is to make machine learning interpretable.
+Son but est de rendre l'apprentissage profond interprétable.
 
 Suivez-le sur X(ex-Twitter)! [\@ChristophMolnar](https://twitter.com/ChristophMolnar)
 
-Couverture de [\@YvonneDoinel](https://twitter.com/YvonneDoinel)
+Couverture réalisée par [\@YvonneDoinel](https://twitter.com/YvonneDoinel)
 
-![licence BY-NC-SA](../_static/images/by-nc-sa.png)
+![licence BY-NC-SA](../images/by-nc-sa.png)
 
 Consultez également [Modeling Mindsets](https://bookgoodies.com/a/B0BMGSF52B), son second livre.
 
@@ -37,6 +40,6 @@ Ce livre est publié sous la licence [Creative Commons Attribution-NonCommercial
 
 
 ::: {.callout-note title="Note du traducteur" icon=false}
-**Au sujet du traducteur (assisté de ChatGPT-4) :** Mon nom est [Nicolas Guillard](https://www.linkedin.com/in/nicolasguillard/). De formation initiale Ingénieur en informatique, préalablement Analytiste Digital, je suis maintenant Ingénieur en Intelligence Artificielle.
-Dernière traduction réalisée entre les 27/12/2023 et 15/05/2024.
+**Au sujet du traducteur (assisté de ChatGPT-4 et Google translate) :** [Nicolas Guillard](https://www.linkedin.com/in/nicolasguillard/). De formation initiale d'ingénieur en informatique, en passant par les sciences de l'information géographique et l'analyse e-marketing, il est maintenant ingénieur en Intelligence Artificielle.
+Dernière traduction réalisée le **06/10/2024**.
 :::

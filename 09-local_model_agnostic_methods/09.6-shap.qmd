@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 9.6 - SHAP (SHapley Additive exPlanations)
 
 SHAP (SHapley Additive exPlanations) de Lundberg et Lee (2017)[^lundberg2017] est une méthode pour expliquer les prédictions individuelles. SHAP est basé sur les valeurs de Shapley théoriquement optimales du jeu.
@@ -70,7 +72,7 @@ KernelSHAP estime pour une instance $x$ les contributions de chaque valeur de fo
 Nous pouvons créer une coalition aléatoire en lançant des pièces de monnaie à plusieurs reprises jusqu'à ce que nous obtenions une chaîne de 0 et de 1. Par exemple, le vecteur $(1, 0, 1, 0)$ signifie que nous avons une coalition des première et troisième caractéristiques. Les $K$ coalitions échantillonnées deviennent l'ensemble de données pour le modèle de régression. La cible du modèle de régression est la prédiction d’une coalition. (« Attendez ! », dites-vous. « Le modèle n'a pas été formé sur ces données de coalition binaires et ne peut pas faire de prédictions à leur sujet. ») Pour passer des coalitions de valeurs de caractéristiques à des instances de données valides, nous avons besoin d'une fonction $h_x(z')=z$ où $h_x:\{0,1\}^M\rightarrow\mathbb{R}^p$.
 La fonction $h_x$ met en relation les $1$ à la valeur correspondante de l'instance x que nous voulons expliquer. Pour les données tabulaires, elle met en relation les $0$ aux valeurs d'une autre instance que nous échantillonnons à partir des données. Cela signifie que nous assimilons « la valeur de caractéristique est absente » à « la valeur de caractéristique est remplacée par une valeur de caractéristique aléatoire à partir des données ». Pour les données tabulaires, la figure suivante visualise le mappage des coalitions aux valeurs de caractéristiques :
 
-![La fonction $h_x$ met en relation une coalition à une instance valide. Pour les fonctionnalités actuelles (1), $h_x$ fait correspondre aux valeurs des caractéristiques de $x$. Pour les fonctionnalités absentes (0), $h_x$ fait correspondre aux valeurs d’une instance de données échantillonnées de manière aléatoire.](../_static/images/shap-simplified-features.jpg){align=center}
+![La fonction $h_x$ met en relation une coalition à une instance valide. Pour les fonctionnalités actuelles (1), $h_x$ fait correspondre aux valeurs des caractéristiques de $x$. Pour les fonctionnalités absentes (0), $h_x$ fait correspondre aux valeurs d’une instance de données échantillonnées de manière aléatoire.](../images/shap-simplified-features.jpg){align=center}
 
 $h_x$ pour la fonctionnalité de traitement des données tabulaires $X_j$ et $X_{-j}$ (les autres caractéristiques) comme indépendantes et s'intègre sur la distribution marginale :
 
@@ -81,7 +83,7 @@ $$\hat{f}(h_x(z')) = E_{X_{-j}}[\hat{f}(x)]$$
 Pour les images, la figure suivante décrit une fonction de mappage possible :
 
 ![Fonction $h_x$ mappe des coalitions de superpixels (sp) en images. Les superpixels sont des groupes de pixels. Pour les fonctionnalités actuelles (1), $h_x$ renvoie la partie correspondante de l'image originale. Pour les fonctionnalités absentes (0), $h_x$
-grise la zone correspondante. L'attribution de la couleur moyenne des pixels environnants ou similaire serait également une option.](../_static/images/shap-superpixel.jpg){align=center}
+grise la zone correspondante. L'attribution de la couleur moyenne des pixels environnants ou similaire serait également une option.](../images/shap-superpixel.jpg){align=center}
 
 La grande différence avec LIME réside dans la pondération des instances dans le modèle de régression. LIME pondère les instances en fonction de leur proximité avec l'instance d'origine. Plus il y a de $0$ dans le vecteur coalition, plus le poids dans LIME est petit. SHAP pondère les instances échantillonnées en fonction du poids que la coalition obtiendrait dans l'estimation de la valeur de Shapley. Les petites coalitions (quelques 1) et les grandes coalitions (c'est-à-dire plusieurs 1) obtiennent les pondérations les plus élevées. L’intuition derrière cela est la suivante : nous en apprenons davantage sur les caractéristiques individuelles si nous pouvons étudier leurs effets de manière isolée. Si une coalition est constituée d'une seule caractéristique, nous pouvons en apprendre davantage sur l'effet principal isolé de cette caractéristique sur la prédiction. Si une coalition comprend toutes les fonctionnalités sauf une, nous pouvons en apprendre davantage sur l'effet total de cette fonctionnalité (effet principal plus interactions entre fonctionnalités). Si une coalition est composée de la moitié des fonctionnalités, nous en apprenons peu sur la contribution d'une fonctionnalité individuelle, car il existe de nombreuses coalitions possibles avec la moitié des fonctionnalités. Pour obtenir une pondération conforme à Shapley, Lundberg et al. propose le noyau SHAP :
 
@@ -126,9 +128,9 @@ Parce que nous utilisons ici la distribution marginale, l'interprétation est la
 
 La figure suivante montre les tracés de force d'explication SHAP pour deux femmes de l'ensemble de données sur le cancer du col de l'utérus :
 
-![](../_static/images/shap-explain-1.png){align=center}
+![](../images/shap-explain-1.png){align=center}
 
-![Valeurs SHAP pour expliquer les probabilités prédites de cancer de deux individus. La ligne de base – la probabilité moyenne prédite – est de 0,066. La première femme a un risque prédit faible de 0,06. Les effets augmentant le risque, comme les MST, sont compensés par des effets décroissants, comme l’âge. La deuxième femme a un risque prédit élevé de 0,71. L'âge de 51 ans et 34 ans de tabagisme augmentent son risque prévu de cancer.](../_static/images/shap-explain-2.png){align=center}
+![Valeurs SHAP pour expliquer les probabilités prédites de cancer de deux individus. La ligne de base – la probabilité moyenne prédite – est de 0,066. La première femme a un risque prédit faible de 0,06. Les effets augmentant le risque, comme les MST, sont compensés par des effets décroissants, comme l’âge. La deuxième femme a un risque prédit élevé de 0,71. L'âge de 51 ans et 34 ans de tabagisme augmentent son risque prévu de cancer.](../images/shap-explain-2.png){align=center}
 
 C’étaient des explications pour des prédictions individuelles.
 
@@ -145,7 +147,7 @@ $$I_j=\frac{1}{n}\sum_{i=1}^n{}|\phi_j^{(i)}|$$
 
 Ensuite, nous trions les caractéristiques par importance décroissante et les traçons. La figure suivante montre l'importance de la fonctionnalité SHAP pour la forêt aléatoire formée auparavant pour prédire le cancer du col de l'utérus.
 
-![Importance des caractéristiques SHAP mesurée en tant que valeurs absolues moyennes de Shapley. Le nombre d’années d’utilisation de contraceptifs hormonaux était la caractéristique la plus importante, modifiant en moyenne la probabilité absolue prédite de cancer de 2,4 points de pourcentage (0,024 sur l’axe des x).](../_static/images/shap-importance.png){align=center}
+![Importance des caractéristiques SHAP mesurée en tant que valeurs absolues moyennes de Shapley. Le nombre d’années d’utilisation de contraceptifs hormonaux était la caractéristique la plus importante, modifiant en moyenne la probabilité absolue prédite de cancer de 2,4 points de pourcentage (0,024 sur l’axe des x).](../images/shap-importance.png){align=center}
 
 L'importance des fonctionnalités SHAP est une alternative à l'[importance des fonctionnalités de permutation](/08-global_model_agnostic_methods/08.5-permutation-feature-importance.qmd). Il existe une grande différence entre les deux mesures d'importance : l'importance des caractéristiques de permutation est basée sur la diminution des performances du modèle. SHAP est basé sur l'ampleur des attributions de fonctionnalités.
 
@@ -156,7 +158,7 @@ Le graphique de l'importance des fonctionnalités est utile, mais ne contient au
 
 Le tracé récapitulatif combine l’importance des fonctionnalités avec les effets des fonctionnalités. Chaque point du tracé récapitulatif est une valeur Shapley pour une fonctionnalité et une instance. La position sur l'axe des y est déterminée par la caractéristique et sur l'axe des x par la valeur de Shapley. La couleur représente la valeur de la fonctionnalité de faible à élevée. Les points qui se chevauchent sont instables dans la direction de l'axe y, nous avons donc une idée de la distribution des valeurs Shapley par entité. Les fonctionnalités sont classées selon leur importance.
 
-![Graphique récapitulatif SHAP. Un faible nombre d’années sous contraceptif hormonal réduit le risque prévu de cancer, un grand nombre d’années augmente le risque. Votre rappel régulier : tous les effets décrivent le comportement du modèle et ne sont pas nécessairement causals dans le monde réel.](../_static/images/shap-importance-extended.png){align=center}
+![Graphique récapitulatif SHAP. Un faible nombre d’années sous contraceptif hormonal réduit le risque prévu de cancer, un grand nombre d’années augmente le risque. Votre rappel régulier : tous les effets décrivent le comportement du modèle et ne sont pas nécessairement causals dans le monde réel.](../images/shap-importance-extended.png){align=center}
 
 Dans le graphique récapitulatif, nous voyons les premières indications de la relation entre la valeur d'une caractéristique et l'impact sur la prédiction. Mais pour voir la forme exacte de la relation, nous devons examiner les diagrammes de dépendance SHAP.
 
@@ -169,7 +171,7 @@ Mathématiquement, l'intrigue contient les points suivants : $\{(x_j^{(i)},\phi_
 
 La figure suivante montre la dépendance de la fonction SHAP aux contraceptifs hormonaux pendant des années :
 
-![Graphique de dépendance SHAP pendant des années aux contraceptifs hormonaux. Par rapport à 0 an, quelques années diminuent la probabilité prédite et un nombre élevé d’années augmente la probabilité prédite de cancer.](../_static/images/shap-dependence.png){align=center}
+![Graphique de dépendance SHAP pendant des années aux contraceptifs hormonaux. Par rapport à 0 an, quelques années diminuent la probabilité prédite et un nombre élevé d’années augmente la probabilité prédite de cancer.](../images/shap-dependence.png){align=center}
 
 Les diagrammes de dépendance SHAP sont une alternative aux [diagrammes de dépendance partielle](/08-global_model_agnostic_methods/08.1-pdp.qmd) et aux [effets locaux accumulés](/08-global_model_agnostic_methods/08.2-ale.qmd). Alors que les tracés PDP et ALE montrent les effets moyens, la dépendance SHAP montre également la variance sur l'axe des y. Surtout en cas d'interactions, le tracé de dépendance SHAP sera beaucoup plus dispersé sur l'axe des y. Le tracé des dépendances peut être amélioré en mettant en évidence ces interactions de fonctionnalités.
 
@@ -188,7 +190,7 @@ Cette formule soustrait l'effet principal des caractéristiques afin que nous ob
 
 Comment pouvons-nous utiliser l’indice d’interaction ? Par exemple, pour colorer automatiquement le tracé de dépendance des fonctionnalités SHAP avec l'interaction la plus forte :
 
-![Graphique de dépendance des fonctionnalités SHAP avec visualisation des interactions. Les années passées sous contraceptifs hormonaux interagissent avec les MST. Dans les cas proches de 0 ans, la survenue d’une MST augmente le risque prévu de cancer. Pendant plusieurs années sous contraceptif, la survenue d’une MST réduit le risque prévu. Encore une fois, il ne s’agit pas d’un modèle causal. Les effets pourraient être dus à des facteurs de confusion (par exemple, les MST et un risque moindre de cancer pourraient être corrélés à un plus grand nombre de visites chez le médecin).](../_static/images/shap-dependence-interaction.png){align=center}
+![Graphique de dépendance des fonctionnalités SHAP avec visualisation des interactions. Les années passées sous contraceptifs hormonaux interagissent avec les MST. Dans les cas proches de 0 ans, la survenue d’une MST augmente le risque prévu de cancer. Pendant plusieurs années sous contraceptif, la survenue d’une MST réduit le risque prévu. Encore une fois, il ne s’agit pas d’un modèle causal. Les effets pourraient être dus à des facteurs de confusion (par exemple, les MST et un risque moindre de cancer pourraient être corrélés à un plus grand nombre de visites chez le médecin).](../images/shap-dependence-interaction.png){align=center}
 
 
 ### 9.6.9 - Regroupement des valeurs Shapley
@@ -199,7 +201,7 @@ Le clustering SHAP fonctionne en regroupant les valeurs Shapley de chaque instan
 
 Le tracé se compose de nombreux tracés de force, chacun expliquant la prédiction d'une instance. Nous faisons pivoter les tracés de force verticalement et les plaçons côte à côte en fonction de leur similarité de regroupement.
 
-![Explications SHAP empilées regroupées par similarité d'explication. Chaque position sur l'axe des X est une instance des données. Les valeurs SHAP rouges augmentent la prédiction, les valeurs bleues la diminuent. Un groupe se démarque : à droite se trouve un groupe avec un risque de cancer prévu élevé.](../_static/images/shap-clustering.png){align=center}
+![Explications SHAP empilées regroupées par similarité d'explication. Chaque position sur l'axe des X est une instance des données. Les valeurs SHAP rouges augmentent la prédiction, les valeurs bleues la diminuent. Un groupe se démarque : à droite se trouve un groupe avec un risque de cancer prévu élevé.](../images/shap-clustering.png){align=center}
 
 
 ### 9.6.10 - Avantages

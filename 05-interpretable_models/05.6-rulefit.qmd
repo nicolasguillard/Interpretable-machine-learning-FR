@@ -2,13 +2,15 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 5.6 - Ajustement des règles
 
 L'algorithme RuleFit de Friedman et Popescu (2008)[^Friedman2008] apprend des modèles linéaires clairsemés qui incluent des effets d'interaction automatiquement détectés sous la forme de règles de décision.
 
 Le modèle de régression linéaire ne tient pas compte des interactions entre les caractéristiques. Ne serait-il pas pratique d'avoir un modèle aussi simple et interprétable que les modèles linéaires, mais intégrant également des interactions de fonctionnalités ? RuleFit comble cette lacune. RuleFit apprend un modèle linéaire clairsemé avec les fonctionnalités d'origine ainsi qu'un certain nombre de nouvelles fonctionnalités qui sont des règles de décision. Ces nouvelles fonctionnalités capturent les interactions entre les fonctionnalités d'origine. RuleFit génère automatiquement ces fonctionnalités à partir d'arbres de décision. Chaque chemin à travers un arbre peut être transformé en règle de décision en combinant les décisions fractionnées en une règle. Les prédictions de nœuds sont ignorées et seules les divisions sont utilisées dans les règles de décision :
 
-![4 règles peuvent être générées à partir d'un arbre à 3 nœuds terminaux.](../_static/images/rulefit.jpg){align=center}
+![4 règles peuvent être générées à partir d'un arbre à 3 nœuds terminaux.](../images/rulefit.jpg){align=center}
 
 D’où viennent ces arbres de décision ? Les arbres sont dressés pour prédire le résultat qui nous intéresse. Cela garantit que les divisions sont significatives pour la tâche de prédiction. Tout algorithme générant de nombreux arbres peut être utilisé pour RuleFit, par exemple une forêt aléatoire. Chaque arbre est décomposé en règles de décision qui sont utilisées comme fonctionnalités supplémentaires dans un modèle de régression linéaire clairsemé (Lasso).
 
@@ -25,13 +27,13 @@ Puisque RuleFit estime finalement un modèle linéaire, l'interprétation est la
 
 Dans cet exemple, nous utilisons RuleFit pour prédire le nombre de [vélos loués](/04-datasets/04.1-datasets.qmd) un jour donné. Le tableau présente cinq des règles générées par RuleFit, ainsi que leurs poids et importances Lasso. Le calcul est expliqué plus loin dans le chapitre.
 
-![](../_static/images2/5_6_1_table_1.png){align=center}
+![](../images2/5_6_1_table_1.png){align=center}
 
 La règle la plus importante était : « jours_depuis_2011 > 111 & temps de repos (« GOOD », « MISTY ») » et le poids correspondant est 795. L'interprétation est : Si jours_depuis_2011 > 111 & temps de repos (« GOOD », « MISTY ») , le nombre prévu de vélos augmente de 795, lorsque toutes les autres valeurs de caractéristiques restent fixes. Au total, 278 règles de ce type ont été créées à partir des 8 fonctionnalités originales. Beaucoup! Mais grâce au Lasso, seuls 59 des 278 ont un poids différent de 0.
 
 Le calcul de l'importance des caractéristiques globales révèle que la tendance de la température et du temps sont les caractéristiques les plus importantes :
 
-![Mesures d'importance des caractéristiques pour un modèle RuleFit prédisant le nombre de vélos. Les caractéristiques les plus importantes pour les prévisions étaient la température et la tendance temporelle.](../_static/images2/5_6_1_figure_1.png){align=center}
+![Mesures d'importance des caractéristiques pour un modèle RuleFit prédisant le nombre de vélos. Les caractéristiques les plus importantes pour les prévisions étaient la température et la tendance temporelle.](../images2/5_6_1_figure_1.png){align=center}
 
 La mesure de l'importance de la fonctionnalité inclut l'importance du terme brut de la fonctionnalité et toutes les règles de décision dans lesquelles la fonctionnalité apparaît.
 

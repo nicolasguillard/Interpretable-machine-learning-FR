@@ -5,6 +5,8 @@ format:
         toc: false
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 3.4 - Evaluation de l'interprétabilité
 
 Il n'existe pas de consensus réel sur ce qu'est l'interprétabilité en apprentissage automatique.

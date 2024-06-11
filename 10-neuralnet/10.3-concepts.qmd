@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 10.3 - Détecter les concepts
 
 <!-- HTML only - Not in EN book-->
@@ -80,7 +82,7 @@ Il est également suggéré d'appliquer une méthode de correction de tests mult
 
 Voyons un exemple disponible sur le [dépôt GitHub de TCAV](https://github.com/tensorflow/tcav/blob/master/Run_TCAV.ipynb). En suivant l'exemple de la classe "zèbre" que nous avons utilisé précédemment, on constate le résultat des scores TCAV des concepts "rayé", "zigzag" et "à pois". Le classificateur d'images que nous utilisons est InceptionV3[^inception], un réseau neuronal convolutif formé en utilisant les données ImageNet. Chaque ensemble de données concept ou aléatoire contient $50$ images, et nous utilisons $10$ ensembles de données aléatoires pour le test de signification statistique avec un niveau de signification de $0,05$. Nous n'utilisons pas la correction de Bonferroni, car nous n'avons que quelques ensembles de données aléatoires, mais il est recommandé d'ajouter la correction en pratique pour éviter les fausses découvertes.
 
-![L'exemple de mesure des scores TCAV de trois concepts pour le modèle prédisant “zèbre”. Le goulot d'étranglement ciblé est une couche appelée “mixed4c”. Un signe étoile au-dessus de “à pois” indique que “à pois” n'a pas passé le test de signification statistique, c'est-à-dire ayant une valeur p supérieure à 0,05. Tant “rayé” que “zigzag” ont passé le test, et les deux concepts sont utiles pour le modèle pour identifier les images de “zèbre” selon TCAV. Figure originalement du GitHub de TCAV.](../_static/images/tcav.png){align=center}
+![L'exemple de mesure des scores TCAV de trois concepts pour le modèle prédisant “zèbre”. Le goulot d'étranglement ciblé est une couche appelée “mixed4c”. Un signe étoile au-dessus de “à pois” indique que “à pois” n'a pas passé le test de signification statistique, c'est-à-dire ayant une valeur p supérieure à 0,05. Tant “rayé” que “zigzag” ont passé le test, et les deux concepts sont utiles pour le modèle pour identifier les images de “zèbre” selon TCAV. Figure originalement du GitHub de TCAV.](../images/tcav.png){align=center}
 
 En pratique, vous pouvez vouloir utiliser plus de 50 images dans chaque ensemble de données pour former de meilleurs VACs. Vous pouvez également vouloir utiliser plus de 10 ensembles de données aléatoires pour effectuer de meilleurs tests de signification statistique. Vous pouvez également appliquer TCAV à plusieurs goulots d'étranglement pour avoir une observation plus approfondie.
 

@@ -6,6 +6,8 @@ format:
         toc: false
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 # 4 - Jeux de données {#sec-datasets}
 
 Tout au long du livre, des ensembles de données réels disponibles gratuitement en ligne seront exploités par les différentes modèles et techniques présentés. 

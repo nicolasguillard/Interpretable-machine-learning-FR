@@ -5,6 +5,8 @@ format:
         toc: false
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 3.2 - Taxonomie des Méthodes d'Interprétabilité
 
 Les méthodes pour l'interprétabilité de l'apprentissage automatique peuvent être classées selon différents critères.

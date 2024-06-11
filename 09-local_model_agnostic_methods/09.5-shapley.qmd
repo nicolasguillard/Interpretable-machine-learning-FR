@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 9.5 - Valeurs de Shapley
 
 Une prédiction peut être expliquée en supposant que chaque valeur de caractéristique de l'instance est un « joueur » dans un jeu où la prédiction est le paiement. Les valeurs de Shapley – une méthode issue de la théorie des jeux coalitionnels – nous indiquent comment répartir équitablement le « paiement » entre les fonctionnalités.
@@ -17,7 +19,7 @@ Supposons le scénario suivant :
 
 Vous avez entraîné un modèle d'apprentissage automatique pour prédire les prix des appartements. Pour un certain appartement, il prévoit 300 000 € et vous devez expliquer cette prévision. L'appartement a une superficie de 50 m 2 , est situé au 2ème étage, dispose d'un parc à proximité et les chats sont interdits :
 
-![Le prix prévu pour un appartement de $50 m$2$ au 2ème étage avec un parc à proximité et une interdiction de chat est de 300 000 €. Notre objectif est d'expliquer comment chacune de ces valeurs de caractéristiques a contribué à la prédiction.](../_static/images/shapley-instance.png){align=center}
+![Le prix prévu pour un appartement de $50 m$2$ au 2ème étage avec un parc à proximité et une interdiction de chat est de 300 000 €. Notre objectif est d'expliquer comment chacune de ces valeurs de caractéristiques a contribué à la prédiction.](../images/shapley-instance.png){align=center}
 
 La prévision moyenne pour tous les appartements est de 310 000 €. Dans quelle mesure chaque valeur de caractéristique a-t-elle contribué à la prédiction par rapport à la prédiction moyenne ?
 
@@ -33,7 +35,7 @@ La valeur de Shapley est la contribution marginale moyenne d'une valeur de carac
 
 Dans la figure suivante, nous évaluons la contribution de la `cat-banned` valeur de la caractéristique lorsqu'elle est ajoutée à une coalition de `park-nearby` et `area-50`. Nous simulons cela uniquement `park-nearby`, `cat-banned` et `area-50` sont une coalition en tirant au hasard un autre appartement à partir des données et en utilisant sa valeur pour la caractéristique d'étage La valeur `floor-2nd` a été remplacée par celle tirée au hasard floor-1st. On prédit ensuite le prix de l'appartement avec cette combinaison (310 000 €). Dans un deuxième temps, nous retirons cat-bannedde la coalition en la remplaçant par une valeur aléatoire de la caractéristique chat autorisé/banni de l'appartement tiré au sort. Dans l'exemple, c'était `cat-allowed`, mais cela aurait pu être `cat-banned` à nouveau. Nous prévoyons le prix de l'appartement pour la coalition des `park-nearby` et `area-50` (320 000 €). La contribution de `cat-banned` était de 310 000 € - 320 000 € = -10 000 €. Cette estimation dépend des valeurs de l'appartement tiré au hasard qui a servi de « donneur » pour les valeurs des caractéristiques du chat et de l'étage. Nous obtiendrons de meilleures estimations si nous répétons cette étape d’échantillonnage et faisons la moyenne des contributions.
 
-![Un échantillon de répétition pour estimer la contribution de cat-bannedà la prédiction lorsqu'il est ajouté à la coalition de `park-nearby` et `area-50`.](../_static/images/shapley-instance-intervention.png){align=center}
+![Un échantillon de répétition pour estimer la contribution de cat-bannedà la prédiction lorsqu'il est ajouté à la coalition de `park-nearby` et `area-50`.](../images/shapley-instance-intervention.png){align=center}
 
 Nous répétons ce calcul pour toutes les coalitions possibles. La valeur de Shapley est la moyenne de toutes les contributions marginales à toutes les coalitions possibles. Le temps de calcul augmente de façon exponentielle avec le nombre de fonctionnalités. Une solution pour conserver un temps de calcul gérable consiste à calculer les contributions pour seulement quelques échantillons des coalitions possibles.
 
@@ -50,7 +52,7 @@ La figure suivante montre toutes les coalitions de valeurs de caractéristiques 
 
 Pour chacune de ces coalitions, nous calculons le prix prévu de l'appartement avec et sans la valeur caractéristique `cat-banned` et prenons la différence pour obtenir la contribution marginale. La valeur Shapley est la moyenne (pondérée) des contributions marginales. Nous remplaçons les valeurs des caractéristiques qui ne font pas partie d'une coalition par des valeurs de caractéristiques aléatoires de l'ensemble de données d'appartement pour obtenir une prédiction du modèle d'apprentissage automatique.
 
-![Les 8 coalitions nécessaires pour calculer la valeur Shapley exacte de la `cat-banned` valeur de la caractéristique.](../_static/images/shapley-coalitions.png){align=center}
+![Les 8 coalitions nécessaires pour calculer la valeur Shapley exacte de la `cat-banned` valeur de la caractéristique.](../images/shapley-coalitions.png){align=center}
 
 Si nous estimons les valeurs de Shapley pour toutes les valeurs de caractéristiques, nous obtenons la distribution complète de la prédiction (moins la moyenne) parmi les valeurs de caractéristiques.
 
@@ -63,11 +65,11 @@ La valeur de Shapley fonctionne à la fois pour la classification (si nous avons
 
 Nous utilisons la valeur de Shapley pour analyser les prédictions d'un modèle forestier aléatoire prédisant [le cancer du col de l'utérus](/04-datasets/04.3-datasets.qmd) :
 
-![Valeurs Shapley pour une femme dans l'ensemble de données sur le cancer du col de l'utérus. Avec une prédiction de 0,57, la probabilité de cancer de cette femme est de 0,54 supérieure à la prédiction moyenne de 0,03. Le nombre de MST diagnostiquées augmente le plus la probabilité. La somme des contributions donne la différence entre la prévision réelle et moyenne (0,54).](../_static/images2/9_5_2_fig_1.png){align=center}
+![Valeurs Shapley pour une femme dans l'ensemble de données sur le cancer du col de l'utérus. Avec une prédiction de 0,57, la probabilité de cancer de cette femme est de 0,54 supérieure à la prédiction moyenne de 0,03. Le nombre de MST diagnostiquées augmente le plus la probabilité. La somme des contributions donne la différence entre la prévision réelle et moyenne (0,54).](../images2/9_5_2_fig_1.png){align=center}
 
 Pour l'[ensemble de données de location de vélos](/04-datasets/04.1-datasets.qmd), nous formons également une forêt aléatoire pour prédire le nombre de vélos loués pour une journée, en fonction des informations météorologiques et du calendrier. Les explications créées pour la prédiction aléatoire de la forêt d'un jour particulier :
 
-![Valeurs Shapley pour le jour 285. Avec une prévision de 2409 vélos de location, ce jour est de -2108 en dessous de la prévision moyenne de 4518. La situation météorologique et l'humidité ont eu les contributions négatives les plus importantes. La température de cette journée a eu une contribution positive. La somme des valeurs de Shapley donne la différence entre les prévisions réelles et moyennes (-2 108).](../_static/images2/9_5_2_fig_2.png){align=center}
+![Valeurs Shapley pour le jour 285. Avec une prévision de 2409 vélos de location, ce jour est de -2108 en dessous de la prévision moyenne de 4518. La situation météorologique et l'humidité ont eu les contributions négatives les plus importantes. La température de cette journée a eu une contribution positive. La somme des valeurs de Shapley donne la différence entre les prévisions réelles et moyennes (-2 108).](../images2/9_5_2_fig_2.png){align=center}
 
 Attention à interpréter correctement la valeur de Shapley : la valeur de Shapley est la contribution moyenne d'une valeur de caractéristique à la prédiction dans différentes coalitions. La valeur de Shapley n'est PAS la différence de prédiction lorsque nous supprimerions la fonctionnalité du modèle.
 

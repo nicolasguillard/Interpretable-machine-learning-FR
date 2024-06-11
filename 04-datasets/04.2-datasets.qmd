@@ -5,6 +5,8 @@ format:
         toc: false
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 4.2 - Commentaires indésirables sur YouTube (Classification de Texte)
 
 En tant qu'exemple de classification de texte, nous travaillons avec 1956 commentaires provenant de 5 vidéos YouTube différentes. 

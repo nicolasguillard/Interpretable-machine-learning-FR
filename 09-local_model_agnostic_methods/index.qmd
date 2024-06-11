@@ -5,6 +5,8 @@ format:
         toc: false
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 # 9 - Méthodes locales indépendantes du modèle
 
 Les méthodes d'interprétation locales expliquent les prédictions individuelles. Dans ce chapitre, vous découvrirez les méthodes d'explication locale suivantes :

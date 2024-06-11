@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 8.1 - Diagramme de dépendance partielle (PDP)
 
 Le tracé de dépendance partielle (court PDP ou PD plot) montre l'effet marginal d'une ou deux caractéristiques sur le résultat prédit d'un modèle d'apprentissage automatique (JH Friedman 2001[^Friedman2001]). Un diagramme de dépendance partielle peut montrer si la relation entre la cible et une entité est linéaire, monotone ou plus complexe. Par exemple, lorsqu'ils sont appliqués à un modèle de régression linéaire, les diagrammes de dépendance partielle montrent toujours une relation linéaire.
@@ -48,21 +50,21 @@ En pratique, l'ensemble de fonctionnalités S ne contient généralement qu'une 
 
 Revenons à l'exemple de régression, dans lequel on prédit le nombre de [vélos qui seront loués un jour donné](/04-datasets/04.1-datasets.qmd). Nous ajustons d’abord un modèle d’apprentissage automatique, puis nous analysons les dépendances partielles. Dans ce cas, nous avons ajusté une forêt aléatoire pour prédire le nombre de vélos et utilisé le diagramme de dépendance partielle pour visualiser les relations apprises par le modèle. L'influence des caractéristiques météorologiques sur le nombre de vélos prévu est visualisée dans la figure suivante.
 
-![PDP pour le modèle de prévision du nombre de vélos et la température, l'humidité et la vitesse du vent. Les plus grandes différences peuvent être observées au niveau de la température. Plus il fait chaud, plus on loue de vélos. Cette tendance monte jusqu'à 20 degrés Celsius, puis s'aplatit et diminue légèrement à 30. Les marques sur l'axe des X indiquent la distribution des données.](../_static/images2/8_1_2_figure_1.png){align=center}
+![PDP pour le modèle de prévision du nombre de vélos et la température, l'humidité et la vitesse du vent. Les plus grandes différences peuvent être observées au niveau de la température. Plus il fait chaud, plus on loue de vélos. Cette tendance monte jusqu'à 20 degrés Celsius, puis s'aplatit et diminue légèrement à 30. Les marques sur l'axe des X indiquent la distribution des données.](../images2/8_1_2_figure_1.png){align=center}
 
 Par temps chaud mais pas trop chaud, le modèle prévoit en moyenne un nombre élevé de vélos loués. Les motards potentiels sont de plus en plus réticents à louer un vélo lorsque l'humidité dépasse 60 %. De plus, plus il y a de vent, moins les gens aiment faire du vélo, ce qui est logique. Il est intéressant de noter que le nombre prévu de locations de vélos ne diminue pas lorsque la vitesse du vent augmente de 25 à 35 km/h, mais il n'existe pas beaucoup de données d'entraînement, de sorte que le modèle d'apprentissage automatique ne pourrait probablement pas apprendre une prédiction significative pour cette plage. Au moins intuitivement, je m'attendrais à ce que le nombre de vélos diminue avec l'augmentation de la vitesse du vent, surtout lorsque la vitesse du vent est très élevée.
 
 Pour illustrer un graphique de dépendance partielle avec une caractéristique catégorielle, nous examinons l'effet de la caractéristique saisonnière sur les locations de vélos prévues.
 
-![PDP pour le modèle de prédiction du comptage de vélos et la saison. De manière inattendue, toutes les saisons montrent un effet similaire sur les prévisions du modèle, mais pour l'hiver seulement, le modèle prédit moins de locations de vélos.](../_static/images2/8_1_2_figure_2.png){align=center}
+![PDP pour le modèle de prédiction du comptage de vélos et la saison. De manière inattendue, toutes les saisons montrent un effet similaire sur les prévisions du modèle, mais pour l'hiver seulement, le modèle prédit moins de locations de vélos.](../images2/8_1_2_figure_2.png){align=center}
 
 Nous calculons également la dépendance partielle pour [la classification du cancer du col de l'utérus](/04-datasets/04.3-datasets.qmd). Cette fois, nous avons ajusté une forêt aléatoire pour prédire si une femme pourrait souffrir d'un cancer du col de l'utérus en fonction de facteurs de risque. Nous calculons et visualisons la dépendance partielle de la probabilité de cancer sur différentes caractéristiques de la forêt aléatoire :
 
-![PDP de probabilité de cancer en fonction de l'âge et du nombre d'années d'utilisation de contraceptifs hormonaux. Pour l’âge, le PDP montre que la probabilité est faible jusqu’à 40 ans et augmente après. Plus le nombre d’années passées sous contraceptifs hormonaux est élevé, plus le risque de cancer est élevé, surtout après 10 ans. Pour les deux caractéristiques, peu de points de données avec des valeurs élevées étaient disponibles, de sorte que les estimations de PD sont moins fiables dans ces régions.](../_static/images2/8_1_2_figure_3.png){align=center}
+![PDP de probabilité de cancer en fonction de l'âge et du nombre d'années d'utilisation de contraceptifs hormonaux. Pour l’âge, le PDP montre que la probabilité est faible jusqu’à 40 ans et augmente après. Plus le nombre d’années passées sous contraceptifs hormonaux est élevé, plus le risque de cancer est élevé, surtout après 10 ans. Pour les deux caractéristiques, peu de points de données avec des valeurs élevées étaient disponibles, de sorte que les estimations de PD sont moins fiables dans ces régions.](../images2/8_1_2_figure_3.png){align=center}
 
 Nous pouvons également visualiser la dépendance partielle de deux caractéristiques à la fois :
 
-![PDP de la probabilité de cancer et interaction entre l'âge et le nombre de grossesses. Le graphique montre l'augmentation de la probabilité de cancer à 45 ans. Pour les âges inférieurs à 25 ans, les femmes qui ont eu 1 ou 2 grossesses ont un risque de cancer prédit plus faible, par rapport aux femmes qui ont eu 0 ou plus de 2 grossesses. Mais soyez prudent lorsque vous tirez des conclusions : il pourrait s’agir simplement d’une corrélation et non d’une causalité !](../_static/images2/8_1_2_figure_4.png){align=center}
+![PDP de la probabilité de cancer et interaction entre l'âge et le nombre de grossesses. Le graphique montre l'augmentation de la probabilité de cancer à 45 ans. Pour les âges inférieurs à 25 ans, les femmes qui ont eu 1 ou 2 grossesses ont un risque de cancer prédit plus faible, par rapport aux femmes qui ont eu 0 ou plus de 2 grossesses. Mais soyez prudent lorsque vous tirez des conclusions : il pourrait s’agir simplement d’une corrélation et non d’une causalité !](../images2/8_1_2_figure_4.png){align=center}
 
 
 ## 8.1.3 - Avantages

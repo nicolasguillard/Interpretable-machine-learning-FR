@@ -1,9 +1,10 @@
 ---
-lang: fr
 format:
     html:
         toc: false
 ---
+
+{{< include ../_in_progress.qmd >}}
 
 ## 2.2 - Qu'est-ce que l'apprentissage automatique ?
 

@@ -3,11 +3,15 @@ order: 13
 format:
     html:
         toc: false
+original: https://christophm.github.io/interpretable-ml-book/cite.html
 ---
+
+<!-- {{< include ../_in_progress.qmd >}} -->
+{{< include ../_original.qmd >}}
 
 # 13 - Citer ce livre
 
-Si vous avez trouvé ce livre utile pour votre article de blog, votre article de recherche ou votre produit, je vous serais reconnaissant de le citer. Vous pouvez citer le livre comme ceci :
+Si vous avez trouvé ce livre utile pour votre article de blog, article de recherche ou produit, je vous serais reconnaissant de le citer. Vous pouvez citer le livre comme ceci :
 
 ```
 Molnar, C. (2022). Interpretable Machine Learning:
@@ -28,4 +32,31 @@ Ou utilisez l'entrée Bibtex suivante :
 }
 ```
 
-Je suis toujours curieux de savoir où et comment les méthodes d'interprétation sont utilisées dans l'industrie et la recherche. Si vous utilisez le livre comme référence, ce serait formidable si vous m'écriviez une ligne et me disiez pourquoi. Ceci est bien entendu facultatif et ne sert qu’à satisfaire ma propre curiosité et à stimuler des échanges intéressants. Mon mail est [christoph.molnar.ai@gmail.com](christoph.molnar.ai@gmail.com).
+Je suis toujours curieux de savoir où et comment les méthodes d'interprétation sont utilisées dans l'industrie et la recherche. Si vous utilisez le livre comme référence, ce serait formidable de m'écrire une ligne et me dire pourquoi l'avoir utilisé. Ceci est bien entendu facultatif et ne sert qu’à satisfaire ma propre curiosité et à stimuler des échanges intéressants. Mon mail est [christoph.molnar.ai@gmail.com](christoph.molnar.ai@gmail.com).
+
+
+::: {.callout-note title="Note du traducteur" icon=false}
+Pour une citation de la version française :
+
+```
+Molnar, C. (2024). Apprentissage automatique interprétable:
+Un guide pour rendre les boîtes noires exploitables (2nd ed.).
+Traduction : Nicolas Guillard
+nicolasguillard.github.io/interpretable-ml-book-fr/
+```
+
+et bibtex
+
+```
+@book{molnar2024,
+  title      = {Interpretable Machine Learning},
+  author     = {Christoph Molnar},
+  translator = {Nicolas Guillard},
+  language   = {french},
+  year       = {2024},
+  subtitle   = {Un guide pour rendre les boîtes noires exploitables},
+  edition    = {2},
+  url        = {https:nicolasguillard.github.io/interpretable-ml-book-fr/}
+}
+```
+:::

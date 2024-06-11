@@ -3,13 +3,17 @@ order: 15
 format:
     html:
         toc: false
+original: https://christophm.github.io/interpretable-ml-book/acknowledgements.html
 ---
+
+<!-- {{< include ../_in_progress.qmd >}} -->
+{{< include ../_original.qmd >}}
 
 # 15 - Remerciements
 
 Écrire ce livre était (et continue à être) très amusant. Mais c’est aussi beaucoup de travail et je suis très heureux du soutien que j’ai reçu.
 
-Mon plus grand merci va à Katrin qui a fait le travail le plus dur en termes d'heures et d'efforts : elle a relu le livre du début à la fin et a découvert de nombreuses fautes d'orthographe et incohérences que je n'aurais jamais trouvées. Je suis très reconnaissant pour son soutien.
+Mon plus grand merci va à Katrin qui a fait le travail le plus dur en termes d'heures et d'efforts : elle a relu le livre du début à la fin et a découvert de nombreuses fautes d'orthographe et incohérences que je n'aurais jamais trouvées. Je lui suis très reconnaissant pour son soutien.
 
 Un grand merci à tous les auteurs invités. J'ai été vraiment surpris d'apprendre que les gens étaient intéressés à contribuer au livre. Et grâce à leurs efforts, le contenu du livre a pu être amélioré ! Tobias Goerke et Magdalena Lang ont écrit le chapitre sur les règles de portée (ancres). Fangzhou Li a contribué au chapitre sur la détection des concepts. Et Susanne Dandl a grandement amélioré le chapitre sur les exemples contrefactuels. Enfin, [Verena Haunschmid](https://twitter.com/ExpectAPatronum) a écrit la section sur les explications LIME pour les images. Je tiens également à remercier tous les lecteurs qui ont fourni des commentaires et contribué aux corrections directement [sur GitHub](https://github.com/christophM/interpretable-ml-book/graphs/contributors)!
 
@@ -18,10 +22,10 @@ Verena Haunschmid a créé le graphique dans le [chapitre Algorithme RuleFit](/0
 
 Je tiens également à remercier mon épouse et ma famille qui m'ont toujours soutenu. Ma femme, en particulier, a dû m'écouter beaucoup parler du livre. Elle m'a aidé à prendre de nombreuses décisions concernant l'écriture du livre.
 
-La façon dont j'ai publié ce livre est un peu non conventionnelle. Premièrement, il n'est pas seulement disponible sous forme de livre de poche et d'ebook, mais également sous forme de site Web, entièrement gratuit. Le logiciel que j'ai utilisé pour créer ce livre s'appelle `bookdown`, écrit par [Yihui Xie](https://yihui.name/), qui a créé de nombreux packages R facilitant la combinaison de code R et de texte. Merci beaucoup! J'ai publié le livre en tant que livre en cours, ce qui m'a énormément aidé à obtenir des retours et à le monétiser en cours de route. Je voudrais également vous remercier, cher lecteur, d'avoir lu ce livre sans un grand nom d'éditeur derrière lui.
+La façon dont j'ai publié ce livre est un peu non conventionnelle. Premièrement, il n'est pas seulement disponible sous forme de livre de poche et d'ebook, mais également sous forme de site Web, entièrement gratuit. Le logiciel que j'ai utilisé pour créer ce livre s'appelle `bookdown`, écrit par [Yihui Xie](https://yihui.name/), qui a créé de nombreux packages R facilitant la combinaison de code R et de texte. Merci beaucoup! J'ai publié le livre en tant que travail en cours, ce qui m'a énormément aidé à obtenir des retours et à le monétiser au fur et à mesure. Je voudrais également vous remercier, cher lecteur, d'avoir lu ce livre sans un grand nom d'éditeur derrière lui.
 
 Je suis reconnaissant pour le financement de mes recherches sur l'apprentissage automatique interprétable par le ministère bavarois des Sciences et des Arts dans le cadre du Centre Digitisation.Bavaria (ZD.B) et par l'Institut bavarois de recherche pour la transformation numérique (bidt).
 
-::: {.callout-note title="Note du traducteur" icon=false appearance="simple"}
+::: {.callout-note title="Note du traducteur" icon=false}
 Différemment à l'auteur, le traducteur a utilisé l'outil [quarto](https://quarto.org/) pour composer les pages dont les parties dynamiques ont été réécrites en Python à partir du code R original.
 :::

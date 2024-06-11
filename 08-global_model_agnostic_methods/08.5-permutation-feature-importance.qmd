@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 8.5 - Décomposition fonctionnelle
 
 L'importance des caractéristiques de permutation mesure l'augmentation de l'erreur de prédiction du modèle après la permutation des valeurs de la caractéristique, ce qui rompt la relation entre la caractéristique et le résultat réel.
@@ -31,7 +33,7 @@ Fisher, Rudin et Dominici (2018) suggèrent dans leur article de diviser l'ensem
 
 Répondre à la question sur les données de formation ou de test touche à la question fondamentale de savoir quelle est l'importance des fonctionnalités. La meilleure façon de comprendre la différence entre l'importance des fonctionnalités basée sur la formation et celle basée sur les données de test est un exemple « extrême ». J'ai entraîné une machine à vecteurs de support pour prédire un résultat cible continu et aléatoire étant donné 50 caractéristiques aléatoires (200 instances). Par « aléatoire », j'entends que le résultat cible est indépendant des 50 caractéristiques. C'est comme prédire la température de demain à partir des derniers chiffres de loterie. Si le modèle « apprend » des relations, il est alors surajusté. Et en fait, le SVM a surajusté les données d'entraînement. L'erreur absolue moyenne (abréviation : mae) pour les données d'entraînement est de 0,29 et pour les données de test de 0,82, ce qui est également l'erreur du meilleur modèle possible qui prédit toujours le résultat moyen de 0 (mae de 0,78). En d’autres termes, le modèle SVM est une poubelle. Quelles valeurs d'importance des fonctionnalités attendez-vous pour les 50 fonctionnalités de ce SVM suréquipé ? Zéro parce qu’aucune des fonctionnalités ne contribue à améliorer les performances sur des données de test invisibles ? Ou les importances devraient-elles refléter dans quelle mesure le modèle dépend de chacune des caractéristiques, que les relations apprises se généralisent ou non à des données invisibles ? Voyons en quoi les distributions des importances des fonctionnalités pour les données de formation et de test diffèrent.
 
-![Distributions des valeurs d'importance des caractéristiques par type de données. Un SVM a été formé sur un ensemble de données de régression avec 50 fonctionnalités aléatoires et 200 instances. Le SVM surajuste les données : l'importance des fonctionnalités basée sur les données d'entraînement montre de nombreuses fonctionnalités importantes. Calculées sur des données de test invisibles, les importances des fonctionnalités sont proches d'un rapport de un (= sans importance).](../_static/images2/8_5_2_fig_1.png){align=center}
+![Distributions des valeurs d'importance des caractéristiques par type de données. Un SVM a été formé sur un ensemble de données de régression avec 50 fonctionnalités aléatoires et 200 instances. Le SVM surajuste les données : l'importance des fonctionnalités basée sur les données d'entraînement montre de nombreuses fonctionnalités importantes. Calculées sur des données de test invisibles, les importances des fonctionnalités sont proches d'un rapport de un (= sans importance).](../images2/8_5_2_fig_1.png){align=center}
 
 Je ne sais pas lequel des deux résultats est le plus souhaitable. Je vais donc essayer de défendre les deux versions.
 
@@ -43,7 +45,7 @@ Il s'agit d'un cas simple : les estimations d'erreurs de modèle basées sur les
 
 Les arguments en faveur de l'utilisation des données de formation sont un peu plus difficiles à formuler, mais à mon humble avis, ils sont tout aussi convaincants que les arguments en faveur de l'utilisation des données de test. Nous jetons un autre regard sur notre SVM poubelle. D'après les données d'entraînement, la fonctionnalité la plus importante était X42. Regardons un tracé de dépendance partielle de la fonctionnalité X42. Le tracé de dépendance partielle montre comment la sortie du modèle change en fonction des modifications de la fonctionnalité et ne repose pas sur l'erreur de généralisation. Peu importe que le PDP soit calculé avec des données d'entraînement ou de test.
 
-![PDP de la fonctionnalité X42, qui est la fonctionnalité la plus importante selon l'importance de la fonctionnalité basée sur les données d'entraînement. Le graphique montre comment le SVM dépend de cette fonctionnalité pour faire des prédictions.](../_static/images2/8_5_2_fig_2.png){align=center}
+![PDP de la fonctionnalité X42, qui est la fonctionnalité la plus importante selon l'importance de la fonctionnalité basée sur les données d'entraînement. Le graphique montre comment le SVM dépend de cette fonctionnalité pour faire des prédictions.](../images2/8_5_2_fig_2.png){align=center}
 
 Le graphique montre clairement que le SVM a appris à s'appuyer sur la fonctionnalité X42 pour ses prédictions, mais selon l'importance de la fonctionnalité basée sur les données de test (1), ce n'est pas important. Sur la base des données de formation, l'importance est de 1,19, ce qui reflète que le modèle a appris à utiliser cette fonctionnalité. L'importance des fonctionnalités basée sur les données d'entraînement nous indique quelles fonctionnalités sont importantes pour le modèle dans le sens où il en dépend pour faire des prédictions.
 
@@ -62,7 +64,7 @@ Je montre des exemples de classification et de régression.
 
 Nous ajustons un modèle forestier aléatoire pour prédire [le cancer du col de l'utérus](/04-datasets/04.3-datasets.qmd). Nous mesurons l'augmentation de l'erreur de 1-AUC (1 moins l'aire sous la courbe ROC). Les caractéristiques associées à une erreur de modèle augmentée d'un facteur 1 (= aucun changement) n'étaient pas importantes pour prédire le cancer du col de l'utérus.
 
-![Importance de chacune des caractéristiques pour prédire le cancer du col de l'utérus avec une forêt aléatoire. La caractéristique la plus importante était les contraceptifs hormonaux..années.. Les contraceptifs.hormonaux.permutants..années. a entraîné une augmentation de l'ASC-1 d'un facteur 6,13.](../_static/images2/8_5_3_fig_1.png){align=center}
+![Importance de chacune des caractéristiques pour prédire le cancer du col de l'utérus avec une forêt aléatoire. La caractéristique la plus importante était les contraceptifs hormonaux..années.. Les contraceptifs.hormonaux.permutants..années. a entraîné une augmentation de l'ASC-1 d'un facteur 6,13.](../images2/8_5_3_fig_1.png){align=center}
 
 La caractéristique la plus importante était celle des contraceptifs hormonaux..années. associé à une augmentation d’erreur de 6,13 après permutation.
 
@@ -70,7 +72,7 @@ La caractéristique la plus importante était celle des contraceptifs hormonaux.
 
 Nous ajustons un modèle de machine à vecteurs de support pour prédire [le nombre de vélos loués](/04-datasets/04.1-datasets.qmd), en fonction des conditions météorologiques et des informations du calendrier. Comme mesure d’erreur, nous utilisons l’erreur absolue moyenne.
 
-![L'importance de chacune des caractéristiques dans la prévision du nombre de vélos avec une machine à vecteurs de support. La caractéristique la plus importante était la température, la moins importante était les vacances.](../_static/images2/8_5_3_fig_2.png){align=center}
+![L'importance de chacune des caractéristiques dans la prévision du nombre de vélos avec une machine à vecteurs de support. La caractéristique la plus importante était la température, la moins importante était les vacances.](../images2/8_5_3_fig_2.png){align=center}
 
 
 ### 8.5.4 Avantages

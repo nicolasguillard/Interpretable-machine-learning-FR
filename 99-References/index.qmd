@@ -1,0 +1,15 @@
+---
+order: 99
+title: References
+format:
+    html:
+        toc: false
+original: https://christophm.github.io/interpretable-ml-book/references.html
+---
+
+{{< include ../_in_progress.qmd >}}
+{{< include ../_original.qmd >}}
+
+<!-- Section 2.0 -->
+Friedman, Jerome, Trevor Hastie, and Robert Tibshirani. "The elements of statistical learning". hastie.su.domains/ElemStatLearn (2009).
+

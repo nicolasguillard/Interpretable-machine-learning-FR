@@ -1,7 +1,42 @@
 ---
-title: "Traduction"
+order: 0
+title: Résumé
+lang: fr
+format:
+    html:
+        toc: false
+        link-external-newwindow: true
 ---
 
-This is a Quarto website.
+> Traduction du livre en ligne [https://christophm.github.io/interpretable-ml-book/index.html](https://christophm.github.io/interpretable-ml-book/index.html)
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+![Couverture](./images/cutout.png){width=400px align="center"}
+
+L'apprentissage automatique représente un grand potentiel pour améliorer les produits, les processus et la recherche. Mais les **ordinateurs n'expliquent généralement pas leurs prédictions**, ce qui est un obstacle à l'adoption de l'apprentissage automatique. Ce livre traite de ce qui rend les modèles d'apprentissage automatique et leurs prédictions interprétables.
+
+Après avoir exploré les concepts d'interprétabilité, vous découvrirez des **modèles simples et interprétables** tels que les arbres de décision, les règles de décision et la régression linéaire. Le livre met l'accent sur les méthodes agnostiques aux modèles pour interpréter **les boîtes noires que sont ces modèles**, tels que l'importance des caractéristiques et les effets locaux accumulés, et pour expliquer les prédictions individuelles avec les valeurs de Shapley et LIME. De plus, le livre présente des méthodes spécifiques aux réseaux de neurones profonds.
+
+Toutes les méthodes d'interprétation sont expliquées en profondeur et discutées de manière critique. Comment fonctionnent-elles sous le capot ? Quelles sont leurs forces et leurs faiblesses ? Comment leurs résultats peuvent-ils être interprétés ? Ce livre vous permettra de sélectionner et d'appliquer correctement la méthode d'interprétation la plus adaptée à votre projet d'apprentissage automatique. La lecture du livre est recommandée aux praticiens de l'apprentissage automatique, aux _experts en mégadonnées_, aux statisticiens et à toute autre personne intéressée à rendre des modèles d'apprentissage automatique interprétables.
+
+Vous pouvez acheter les versions PDF ou e-book (epub, mobi) [sur leanpub.com](https://leanpub.com/interpretable-machine-learning).
+
+Vous pouvez acheter la version imprimée [sur Amazon](https://www.amazon.fr/dp/B09TMWHVB4).
+
+**Au sujet de l'auteur:** Il s'appelle Christoph Molnar, il est statisticien et spécialiste en apprentissage machine.
+My goal is to make machine learning interpretable.
+
+Suivez-le sur X(ex-Twitter)! [\@ChristophMolnar](https://twitter.com/ChristophMolnar)
+
+Couverture de [\@YvonneDoinel](https://twitter.com/YvonneDoinel)
+
+![licence BY-NC-SA](./images/by-nc-sa.png)
+
+Consultez également [Modeling Mindsets](https://bookgoodies.com/a/B0BMGSF52B), son second livre.
+
+Ce livre est publié sous la licence [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+
+::: {.callout-note title="Note du traducteur" icon=false}
+**Au sujet du traducteur (assisté de ChatGPT-4) :** Mon nom est [Nicolas Guillard](https://www.linkedin.com/in/nicolasguillard/). De formation initiale Ingénieur en informatique, préalablement Analytiste Digital, je suis maintenant Ingénieur en Intelligence Artificielle.
+Dernière traduction réalisée entre les 27/12/2023 et 15/05/2024.
+:::

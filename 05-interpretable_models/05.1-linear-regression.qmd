@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 5.1 - Régéression linéaire
 
 Un modèle de régression linéaire prédit la cible comme une somme pondérée des entrées de caractéristiques. La linéarité de la relation apprise facilite l'interprétation. Les modèles de régression linéaire sont utilisés depuis longtemps par les statisticiens, les informaticiens et d'autres personnes qui abordent des problèmes quantitatifs.
@@ -97,7 +99,7 @@ Examinons ce que cette formule nous indique : L'importance d'une caractéristiqu
 
 Dans cet exemple, nous utilisons le modèle de régression linéaire pour prédire le [nombre de vélos loués](#bike-data) un jour donné, en fonction des informations météorologiques et calendaires. Pour l'interprétation, nous examinons les poids de régression estimés. Les caractéristiques sont composées de caractéristiques numériques et catégorielles. Pour chaque caractéristique, le tableau montre le poids estimé, l'erreur standard de l'estimation ($SE$) et la valeur absolue de la statistique t ($|t|$).
 
-![Interpretation of a numerical feature (temperature): An increase of the temperature by 1 degree Celsius increases the predicted number of bicycles by 110.7, when all other features remain fixed.](../_static/images2/5_1_2_linear_regression_example.png){align=center}
+![Interpretation of a numerical feature (temperature): An increase of the temperature by 1 degree Celsius increases the predicted number of bicycles by 110.7, when all other features remain fixed.](../images2/5_1_2_linear_regression_example.png){align=center}
 
 Interprétation d'une caractéristique numérique (température) : Une augmentation de la température de 1 degré Celsius augmente le nombre prévu de vélos de `r sprintf('%.1f', lm_summary_print['temp', 'Estimate'])`, lorsque toutes les autres caractéristiques restent fixes.
 
@@ -114,7 +116,7 @@ Diverses visualisations rendent le modèle de régression linéaire facile et ra
 #### 5.1.3.1 - Graphique des poids
 Les informations du tableau des poids (estimation des poids et de la variance) peuvent être visualisées dans un graphique des poids. Le graphique suivant montre les résultats du précédent modèle de régression linéaire.
 
-![Weights are displayed as points and the 95% confidence intervals as lines.](../_static/images2/5_1_3_1_weight_plot.png){align=center}
+![Weights are displayed as points and the 95% confidence intervals as lines.](../images2/5_1_3_1_weight_plot.png){align=center}
 
 Le graphique des poids montre que le temps pluvieux/neigeux/tempétueux a un fort effet négatif sur le nombre prévu de vélos. Le poids de la caractéristique du jour ouvrable est proche de zéro et zéro est inclus dans l'intervalle de 95 %, ce qui signifie que l'effet n'est pas statistiquement significatif. Certains intervalles de confiance sont très courts et les estimations sont proches de zéro, mais les effets des caractéristiques étaient statistiquement significatifs. La température est un tel candidat. Le problème avec le graphique des poids est que les caractéristiques sont mesurées à différentes échelles. Alors que pour le temps, le poids estimé reflète la différence entre un temps clément et pluvieux/tempétueux/neigeux, pour la température, il reflète uniquement une augmentation de 1 degré Celsius. Vous pouvez rendre les poids estimés plus comparables en mettant à l'échelle les caractéristiques (moyenne nulle et écart-type de un) avant d'ajuster le modèle linéaire.
 
@@ -129,7 +131,7 @@ Les effets peuvent être visualisés avec des [diagrammes à boîtes](https://gg
 
 Les effets des caractéristiques catégorielles peuvent être résumés dans un seul diagramme à boîtes, par rapport au graphique des poids, où chaque catégorie a sa propre ligne.
 
-![The feature effect plot shows the distribution of effects (= feature value times feature weight) across the data per feature.](../_static/images2/5_1_3_2_effect_plot.png){align=center}
+![The feature effect plot shows the distribution of effects (= feature value times feature weight) across the data per feature.](../images2/5_1_3_2_effect_plot.png){align=center}
 
 Si nous moyennons les prédictions pour les instances des données d'entraînement, nous obtenons une moyenne de `r round(predictions_mean, 0)`. En comparaison, la prédiction de l'instance `r i`-ème est faible, puisque seulement `r round(pred_i, 0)` locations de vélos sont prédites. Le graphique des effets révèle la raison. Les diagrammes à boîtes montrent les distributions des effets pour toutes les instances du jeu de données, les croix montrent les effets pour l'instance `r i`-ème. L'instance `r i`-ème a un faible effet de température car ce jour-là la température était de `r round(X[i, 'temp'],0)` degrés, ce qui est faible par rapport à la plupart des autres jours (et rappelons que le poids de la caractéristique de température est positif). De plus, l'effet de la caractéristique de tendance "jours_depuis_2011" est petit par rapport aux autres instances de données car cette instance date du début de 2011 (`r X[i, 'days_since_2011']` jours) et la caractéristique de tendance a également un poids positif.
 
@@ -138,11 +140,11 @@ Si nous moyennons les prédictions pour les instances des données d'entraîneme
 
 De combien chaque caractéristique d'une instance a-t-elle contribuée à la prédiction ? La contribution spécifique de chaque caractéristique d'une instance à la prédiction peut être évaluée en calculant les effets pour cette instance. Une interprétation des effets spécifiques à l'instance n'a de sens qu'en comparaison avec la distribution de l'effet pour chaque caractéristique. Nous souhaitons expliquer la prédiction du modèle linéaire pour l'instance `r i`-ème du jeu de données sur les locations de vélos. L'instance présente les valeurs de caractéristiques suivantes.
 
-![Table](../_static/images2/5_1_4_explain_indiv_predict.png){align=center}
+![Table](../images2/5_1_4_explain_indiv_predict.png){align=center}
 
 Pour obtenir les effets des caractéristiques de cette instance, nous devons multiplier ses valeurs de caractéristiques par les poids correspondants du modèle de régression linéaire. Pour la valeur "`r df["workingday", "value"]`" de la caractéristique "`r df["workingday", "feature"]`", l'effet est `r round(lm_summary_print[paste(df["workingday", "feature"], df["workingday", "value"], sep = ""), "Estimate"], 1)`. Pour une température de `r round(as.numeric(as.character(df["temp", "value"])), 1)` degrés Celsius, l'effet est `r round(as.numeric(as.character(df["temp", "value"])) * lm_summary_print[as.character(df["temp", "feature"]), "Estimate"], 1)`. Nous ajoutons ces effets individuels sous forme de croix au graphique des effets, ce qui nous montre la distribution des effets dans les données. Cela nous permet de comparer les effets individuels à la distribution des effets dans les données.
 
-![The effect plot for one instance shows the effect distribution and highlights the effects of the instance of interest.](../_static/images2/5_1_4_explain_indiv_predict_fig.png){align=center}
+![The effect plot for one instance shows the effect distribution and highlights the effects of the instance of interest.](../images2/5_1_4_explain_indiv_predict_fig.png){align=center}
 
 Si nous moyennons les prédictions pour les instances des données d'entraînement, nous obtenons une moyenne de `r round(predictions_mean, 0)`. En comparaison, la prédiction de l'instance `r i`-ème est faible, puisque seulement `r round(pred_i, 0)` locations de vélos sont prédites. Le graphique des effets révèle la raison. Les diagrammes à boîtes montrent les distributions des effets pour toutes les instances du jeu de données, les croix montrent les effets pour l'instance `r i`-ème. L'instance `r i`-ème a un faible effet de température car ce jour-là la température était de `r round(X[i, 'temp'],0)` degrés, ce qui est faible par rapport à la plupart des autres jours (et rappelons que le poids de la caractéristique de température est positif). De plus, l'effet de la caractéristique de tendance "jours_depuis_2011" est petit par rapport aux autres instances de données car cette instance date du début de 2011 (`r X[i, 'days_since_2011']` jours) et la caractéristique de tendance a également un poids positif.
 
@@ -196,7 +198,7 @@ $$min_{\boldsymbol{\beta}}\left(\frac{1}{n}\sum_{i=1}^n(y^{(i)}-x_{i}^T\boldsymb
 
 Le terme $\|\boldsymbol{\beta}\|_1$, la norme L1 du vecteur de caractéristiques, conduit à une pénalisation des poids importants. Comme la norme L1 est utilisée, de nombreux poids reçoivent une estimation de 0 et les autres sont réduits. Le paramètre lambda $(\lambda)$ contrôle la force de l'effet de régularisation et est généralement ajusté par validation croisée. Surtout lorsque lambda est grand, de nombreux poids deviennent 0. Les poids des caractéristiques peuvent être visualisés en fonction du terme de pénalité lambda. Chaque poids de caractéristique est représenté par une courbe dans la figure suivante.
 
-![With increasing penalty of the weights, fewer and fewer features receive a non-zero weight estimate. These curves are also called regularization paths. The number above the plot is the number of non-zero weights.](../_static/images2/5_1_7_1_lasso.png){align=center}
+![With increasing penalty of the weights, fewer and fewer features receive a non-zero weight estimate. These curves are also called regularization paths. The number above the plot is the number of non-zero weights.](../images2/5_1_7_1_lasso.png){align=center}
 
 Quelle valeur devrions-nous choisir pour lambda ? Si vous voyez le terme de pénalisation comme un paramètre de réglage, alors vous pouvez trouver le lambda qui minimise l'erreur du modèle avec une validation croisée. Vous pouvez également considérer lambda comme un paramètre pour contrôler l'interprétabilité du modèle. Plus la pénalisation est grande, moins il y a de caractéristiques présentes dans le modèle (car leurs poids sont nuls) et mieux le modèle peut être interprété.
 
@@ -204,13 +206,13 @@ Quelle valeur devrions-nous choisir pour lambda ? Si vous voyez le terme de pén
 
 Nous allons prédire les locations de vélos en utilisant Lasso. Nous fixons le nombre de caractéristiques que nous voulons avoir dans le modèle à l'avance. Commençons d'abord par fixer le nombre à 2 caractéristiques :
 
-![Table](../_static/images2/5_1_7_1_lasso_table_1.png){align=center}
+![Table](../images2/5_1_7_1_lasso_table_1.png){align=center}
 
 Les deux premières caractéristiques avec des poids non nuls dans le chemin Lasso sont la température ("temp") et la tendance temporelle ("days_since_2011").
 
 Maintenant, sélectionnons 5 caractéristiques :
 
-![Table](../_static/images2/5_1_7_1_lasso_table_2.png){align=center}
+![Table](../images2/5_1_7_1_lasso_table_2.png){align=center}
 
 Notez que les poids pour "temp" et "days_since_2011" diffèrent du modèle avec deux caractéristiques. La raison en est qu'en diminuant lambda, même les caractéristiques qui sont déjà "dans" le modèle sont moins pénalisées et peuvent obtenir un poids absolu plus grand. L'interprétation des poids Lasso correspond à l'interprétation des poids dans le modèle de régression linéaire. Vous devez seulement faire attention à savoir si les caractéristiques sont standardisées ou non, car cela affecte les poids. Dans cet exemple, les caractéristiques ont été standardisées par le logiciel, mais les poids ont été automatiquement retransformés pour nous afin de correspondre aux échelles des caractéristiques originales.
 

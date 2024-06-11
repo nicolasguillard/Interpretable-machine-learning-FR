@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 9.1 - Attente Conditionnelle Individuelle (*Individual Conditional Expectation - ICE*)
 
 Les tracés ICE (Individual Conditional Expectation) affichent une ligne par instance qui montre comment la prédiction de l'instance change lorsqu'une fonctionnalité change.
@@ -17,11 +19,11 @@ Une définition plus formelle : dans les tracés ICE, pour chaque instance de $\
 
 Revenons à l'[ensemble de données sur le cancer du col de l'utérus](/04-datasets/04.3-datasets.qmd) et voyons comment la prédiction de chaque instance est associée à la fonctionnalité « Âge ». Nous analyserons une forêt aléatoire qui prédit la probabilité de cancer pour une femme compte tenu des facteurs de risque. Dans le [graphique de dépendance partielle](/08-global_model_agnostic_methods/08.1-pdp.qmd), nous avons vu que la probabilité de cancer augmente vers l’âge de 50 ans, mais est-ce vrai pour chaque femme de l’ensemble de données ? Le graphique ICE révèle que pour la plupart des femmes, l'effet de l'âge suit la tendance moyenne d'augmentation à 50 ans, à quelques exceptions près : pour les quelques femmes qui ont une probabilité prédite élevée à un jeune âge, la probabilité prédite de cancer ne change pas. beaucoup avec l'âge.
 
-![Graphique ICE de la probabilité de cancer du col de l'utérus par âge. Chaque ligne représente une femme. Pour la plupart des femmes, la probabilité prévue de cancer augmente avec l’âge. Pour certaines femmes dont la probabilité prédite de cancer est supérieure à 0,4, la prédiction ne change pas beaucoup à un âge plus avancé.](../_static/images2/9_1_1_fig_1.png){align=center}
+![Graphique ICE de la probabilité de cancer du col de l'utérus par âge. Chaque ligne représente une femme. Pour la plupart des femmes, la probabilité prévue de cancer augmente avec l’âge. Pour certaines femmes dont la probabilité prédite de cancer est supérieure à 0,4, la prédiction ne change pas beaucoup à un âge plus avancé.](../images2/9_1_1_fig_1.png){align=center}
 
 La figure suivante montre les tracés ICE pour la [prévision de la location de vélos](/04-datasets/04.1-datasets.qmd). Le modèle de prédiction sous-jacent est une forêt aléatoire.
 
-![Graphiques ICE des locations de vélos prévues en fonction des conditions météorologiques. Les mêmes effets peuvent être observés que dans les diagrammes de dépendance partielle.](../_static/images2/9_1_1_fig_2.png){align=center}
+![Graphiques ICE des locations de vélos prévues en fonction des conditions météorologiques. Les mêmes effets peuvent être observés que dans les diagrammes de dépendance partielle.](../images2/9_1_1_fig_2.png){align=center}
 
 Toutes les courbes semblent suivre le même parcours, il n’y a donc pas d’interactions évidentes. Cela signifie que le PDP est déjà un bon résumé des relations entre les caractéristiques affichées et le nombre prévu de vélos.
 
@@ -39,13 +41,13 @@ où $\mathbf{1}$ est un vecteur de 1 avec le nombre approprié de dimensions (g�
 
 Par exemple, prenons le tracé ICE du cancer du col de l’utérus pour l’âge et centrez les lignes sur l’âge observé le plus jeune :
 
-![Graphique ICE centré pour la probabilité prévue de cancer par âge. Les lignes sont fixées à 0 à 14 ans. Par rapport à 14 ans, les prédictions pour la plupart des femmes restent inchangées jusqu'à l'âge de 45 ans, où la probabilité prédite augmente.](../_static/images2/9_1_1_2_fig_1.png){align=center}
+![Graphique ICE centré pour la probabilité prévue de cancer par âge. Les lignes sont fixées à 0 à 14 ans. Par rapport à 14 ans, les prédictions pour la plupart des femmes restent inchangées jusqu'à l'âge de 45 ans, où la probabilité prédite augmente.](../images2/9_1_1_2_fig_1.png){align=center}
 
 Les tracés ICE centrés facilitent la comparaison des courbes d'instances individuelles. Cela peut être utile si nous ne voulons pas voir le changement absolu d'une valeur prédite, mais la différence dans la prédiction par rapport à un point fixe de la plage de caractéristiques.
 
 Jetons un coup d'œil aux tracés ICE centrés pour la prédiction de la location de vélos :
 
-![Graphiques ICE centrés du nombre prévu de vélos selon les conditions météorologiques. Les lignes montrent la différence de prédiction par rapport à la prédiction avec la valeur de la caractéristique respective à son minimum observé.](../_static/images2/9_1_1_2_fig_2.png){align=center}
+![Graphiques ICE centrés du nombre prévu de vélos selon les conditions météorologiques. Les lignes montrent la différence de prédiction par rapport à la prédiction avec la valeur de la caractéristique respective à son minimum observé.](../images2/9_1_1_2_fig_2.png){align=center}
 
 
 #### 9.1.1.3 - Graphique ICE dérivé

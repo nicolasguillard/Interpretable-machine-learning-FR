@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 5.3 - GLM, GAM et plus
 
 La plus grande force mais aussi la plus grande faiblesse du [modèle de régression linéaire](#limo) est que la prédiction est modélisée comme une somme pondérée des caractéristiques. De plus, le modèle linéaire vient avec de nombreuses autres hypothèses. La mauvaise nouvelle est (bien, ce n'est pas vraiment une nouveauté) que toutes ces hypothèses sont souvent violées dans la réalité : le résultat étant donné les caractéristiques peut avoir une distribution non gaussienne, les caractéristiques peuvent interagir et la relation entre les caractéristiques et le résultat peut être non linéaire. La bonne nouvelle est que la communauté statistique a développé une variété de modifications qui transforment le modèle de régression linéaire d'une simple lame en un couteau suisse.
@@ -16,7 +18,7 @@ Le modèle de régression linéaire suppose que le résultat \( y \) d'une insta
 
 Mais une simple somme pondérée est trop restrictive pour de nombreux problèmes de prédiction du monde réel. Dans ce chapitre, nous allons apprendre trois problèmes du modèle classique de régression linéaire et comment les résoudre. Il existe de nombreux autres problèmes avec des hypothèses possiblement violées, mais nous nous concentrerons sur les trois présentés dans la figure suivante:
 
-![Three assumptions of the linear model (left side): Gaussian distribution of the outcome given the features, additivity (= no interactions) and linear relationship. Reality usually does not adhere to those assumptions (right side): Outcomes might have non-Gaussian distributions, features might interact and the relationship might be nonlinear.](../_static/images2/5_3_charts.png){align=center}
+![Three assumptions of the linear model (left side): Gaussian distribution of the outcome given the features, additivity (= no interactions) and linear relationship. Reality usually does not adhere to those assumptions (right side): Outcomes might have non-Gaussian distributions, features might interact and the relationship might be nonlinear.](../images2/5_3_charts.png){align=center}
 
 Il existe une solution à tous ces problèmes :
 
@@ -71,15 +73,15 @@ J'ai simulé un ensemble de données sur le comportement de consommation de caf�
 
 Regardons la distribution de la variable cible, le nombre de cafés pour un jour donné.
 
-![Simulated distribution of number of daily coffees for 200 days.](../_static/images2/5_3_1_distribution_coffee.png){align=center}
+![Simulated distribution of number of daily coffees for 200 days.](../images2/5_3_1_distribution_coffee.png){align=center}
 
 Sur `r tab[1,2]` des `r n` jours, vous n'avez pas bu de café du tout et le jour le plus extrême, vous avez bu `r tab[nrow(tab),1]` cafés. Utilisons naïvement un modèle linéaire pour prédire le nombre de cafés en utilisant le niveau de sommeil, le niveau de stress et le travail oui/non comme caractéristiques. Qu'est-ce qui peut mal tourner lorsque nous supposons à tort une distribution gaussienne ? Une mauvaise hypothèse peut invalider les estimations, en particulier les intervalles de confiance des poids. Un problème plus évident est que les prédictions ne correspondent pas au domaine "autorisé" du résultat réel, comme le montre la figure suivante.
 
-![Predicted number of coffees dependent on stress, sleep and work. The linear model predicts negative values.](../_static/images2/5_3_1_predicted_numbers.png){align=center}
+![Predicted number of coffees dependent on stress, sleep and work. The linear model predicts negative values.](../images2/5_3_1_predicted_numbers.png){align=center}
 
 Le modèle linéaire n'a pas de sens, car il prédit un nombre négatif de cafés. Ce problème peut être résolu avec les Modèles Linéaires Généralisés (GLMs). Nous pouvons changer la fonction de lien et la distribution supposée. Une possibilité est de conserver la distribution gaussienne et d'utiliser une fonction de lien qui conduit toujours à des prédictions positives telles que le lien logarithmique (l'inverse est la fonction exp) au lieu de la fonction identité. Encore mieux : Nous choisissons une distribution qui correspond au processus de génération des données et une fonction de lien appropriée. Puisque le résultat est un décompte, la distribution de Poisson est un choix naturel, accompagnée du logarithme comme fonction de lien. Dans ce cas, les données ont même été générées avec la distribution de Poisson, donc le GLM de Poisson est le choix parfait. Le GLM de Poisson ajusté conduit à la distribution suivante des valeurs prédites :
 
-![Predicted number of coffees dependent on stress, sleep and work. The GLM with Poisson assumption and log link is an appropriate model for this dataset.](../_static/images2/5_3_1_predicted_numbers_2.png){align=center}
+![Predicted number of coffees dependent on stress, sleep and work. The GLM with Poisson assumption and log link is an appropriate model for this dataset.](../images2/5_3_1_predicted_numbers_2.png){align=center}
 
 Plus aucun nombre négatif de café, cela semble bien meilleur.
 
@@ -95,7 +97,7 @@ $$E(\text{coffee}|\text{str},\text{slp},\text{wrk})=exp(\beta_0+\beta_{\text{str
 
 Puisque tous les poids sont dans la fonction exponentielle, l'interprétation de l'effet n'est pas additive, mais multiplicative, car exp(a + b) est exp(a) multiplié par exp(b). Le dernier élément pour l'interprétation est les poids réels de l'exemple jouet. Le tableau suivant répertorie les poids estimés et exp(poids) avec l'intervalle de confiance à 95 % :
 
-![Table Weights in the Poisson model](../_static/images2/5_3_1_predicted_numbers_2.png){align=center}
+![Table Weights in the Poisson model](../images2/5_3_1_predicted_numbers_2.png){align=center}
 
 Augmenter le niveau de stress d'un point multiplie le nombre de cafés attendu par le facteur `r round(cc["stress", "exp.beta"], 2)`. Augmenter la qualité du sommeil d'un point multiplie le nombre de cafés attendu par le facteur `r round(cc["sleep", "exp.beta"], 2)`. Le nombre prévu de cafés lors d'un jour de travail est en moyenne `r round(cc["workYES", "exp.beta"], 2)` fois le nombre de cafés lors d'un jour de repos. En résumé, plus le stress est grand, moins le sommeil est bon et plus le travail est abondant, plus la consommation de café est élevée.
 
@@ -110,27 +112,27 @@ Comment pouvons-nous amener le modèle linéaire à inclure des interactions ? A
 
 Supposons que nos données ressemble à ceci :
 
-![](../_static/images2/5_3_2_table_1.png){align=center}
+![](../images2/5_3_2_table_1.png){align=center}
 
 La matrice de données utilisée par le modèle linéaire semble légèrement différente. Le tableau suivant montre à quoi ressemblent les données préparées pour le modèle lorsque nous ne spécifions aucune interaction. Normalement, cette transformation est effectuée automatiquement par tout logiciel statistique.
 
-![](../_static/images2/5_3_2_table_2.png){align=center}
+![](../images2/5_3_2_table_2.png){align=center}
 
 La première colonne est le terme d'interception. La deuxième colonne code la caractéristique catégorielle, avec 0 pour la catégorie de référence et 1 pour l'autre. La troisième colonne contient la température.
 
 Si nous souhaitons que le modèle linéaire prenne en compte l'interaction entre la température et la caractéristique de jour ouvrable, nous devons ajouter une colonne pour cette interaction.
 
-![](../_static/images2/5_3_2_table_3.png){align=center}
+![](../images2/5_3_2_table_3.png){align=center}
 
 La nouvelle colonne "workY.temp" capture l'interaction entre les caractéristiques jour ouvrable (work) et température (temp). Cette nouvelle colonne de caractéristique est zéro pour une instance si la caractéristique travail est dans la catégorie de référence ("N" pour non jour ouvrable), sinon elle prend les valeurs de la caractéristique de température des instances. Avec ce type de codage, le modèle linéaire peut apprendre un effet linéaire différent de la température pour les deux types de jours. C'est l'effet d'interaction entre les deux caractéristiques. Sans un terme d'interaction, l'effet combiné d'une caractéristique catégorielle et d'une caractéristique numérique peut être décrit par une ligne qui est déplacée verticalement pour les différentes catégories. Si nous incluons l'interaction, nous permettons à l'effet des caractéristiques numériques (la pente) d'avoir une valeur différente dans chaque catégorie.
 
 L'interaction de deux caractéristiques catégorielles fonctionne de manière similaire. Nous créons des caractéristiques supplémentaires qui représentent des combinaisons de catégories. Voici des données artificielles contenant le jour ouvrable (work) et une caractéristique météorologique catégorielle (wthr) :
 
-![](../_static/images2/5_3_2_table_4.png){align=center}
+![](../images2/5_3_2_table_4.png){align=center}
 
 Ensuite, nous incluons les termes d'interaction :
 
-![](../_static/images2/5_3_2_table_5.png){align=center}
+![](../images2/5_3_2_table_5.png){align=center}
 
 La première colonne sert à estimer l'interception. La deuxième colonne est la caractéristique de travail codée. Les colonnes trois et quatre sont pour la caractéristique météorologique, qui nécessite deux colonnes car vous avez besoin de deux poids pour capturer l'effet pour trois catégories, dont l'une est la catégorie de référence. Le reste des colonnes capture les interactions. Pour chaque catégorie des deux caractéristiques (sauf pour les catégories de référence), nous créons une nouvelle colonne de caractéristique qui est 1 si les deux caractéristiques ont une certaine catégorie, sinon 0.
 
@@ -142,11 +144,11 @@ Il existe des approches pour détecter et ajouter automatiquement des termes d'i
 
 Revenons à la [tâche de prédiction de location de vélos](#bike-data) que nous avons déjà modélisée dans le chapitre sur [le modèle linéaire](#limo). Cette fois, nous considérons également une interaction entre la température et la caractéristique du jour ouvrable. Cela aboutit aux poids estimés et aux intervalles de confiance suivants.
 
-![](../_static/images2/5_3_2_table_example.png){align=center}
+![](../images2/5_3_2_table_example.png){align=center}
 
 L'effet d'interaction supplémentaire est négatif (`r round(lm_summary_print['workingdayWORKING DAY:temp','Estimate'], 1)`) et diffère significativement de zéro, comme le montre l'intervalle de confiance à 95%, qui n'inclut pas zéro. D'ailleurs, les données ne sont pas iid, car les jours proches les uns des autres ne sont pas indépendants les uns des autres. Les intervalles de confiance pourraient être trompeurs, prenez-le donc avec des pincettes. Le terme d'interaction change l'interprétation des poids des caractéristiques impliquées. La température a-t-elle un effet négatif étant donné qu'il s'agit d'un jour ouvrable ? La réponse est non, même si le tableau le suggère à un utilisateur non formé. Nous ne pouvons pas interpréter le poids de l'interaction "workingdayWORKING DAY:temp" isolément, car l'interprétation serait : "Tout en laissant inchangées toutes les autres valeurs des caractéristiques, augmenter l'effet d'interaction de la température pour un jour ouvrable diminue le nombre prévu de vélos." Mais l'effet d'interaction ne s'ajoute qu'à l'effet principal de la température. Supposons qu'il s'agisse d'un jour ouvrable et que nous voulions savoir ce qui se passerait si la température était plus chaude de 1 degré aujourd'hui. Alors nous devons additionner à la fois les poids pour "temp" et "workingdayWORKING DAY:temp" pour déterminer de combien l'estimation augmente.
 
-![The effect (including interaction) of temperature and working day on the predicted number of bikes for a linear model. Effectively, we get two slopes for the temperature, one for each category of the working day feature.](../_static/images2/5_3_2_workingday.png){align=center}
+![The effect (including interaction) of temperature and working day on the predicted number of bikes for a linear model. Effectively, we get two slopes for the temperature, one for each category of the working day feature.](../images2/5_3_2_workingday.png){align=center}
 
 
 ### 5.3.3 - Nonlinear Effects - GAMs {#gam}
@@ -163,7 +165,7 @@ Vous pouvez modéliser des relations non linéaires en utilisant l'une des techn
 
 Avant de détailler chaque méthode, commençons par un exemple qui illustre ces trois techniques. J'ai pris le [jeu de données de location de vélos](#bike-data) et entraîné un modèle linéaire avec uniquement la caractéristique de la température pour prédire le nombre de vélos de location. La figure suivante montre la pente estimée avec : le modèle linéaire standard, un modèle linéaire avec la température transformée (logarithme), un modèle linéaire traitant la température comme une caractéristique catégorielle et utilisant des splines de régression (GAM).
 
-![Predicting the number of rented bicycles using only the temperature feature. A linear model (top left) does not fit the data well. One solution is to transform the feature with e.g. the logarithm (top right), categorize it (bottom left), which is usually a bad decision, or use Generalized Additive Models that can automatically fit a smooth curve for temperature (bottom right).](../_static/images2/5_3_3_temperature_charts.png){align=center}
+![Predicting the number of rented bicycles using only the temperature feature. A linear model (top left) does not fit the data well. One solution is to transform the feature with e.g. the logarithm (top right), categorize it (bottom left), which is usually a bad decision, or use Generalized Additive Models that can automatically fit a smooth curve for temperature (bottom right).](../images2/5_3_3_temperature_charts.png){align=center}
 
 **Transformation de caractéristique**
 
@@ -185,19 +187,19 @@ La grande question est comment apprendre des fonctions non linéaires. La répon
 
 Dans l'exemple où nous prédisons le nombre de vélos avec un GAM en utilisant uniquement la température, la matrice des caractéristiques du modèle ressemble à ceci :
 
-![](../_static/images2/5_3_3_table_1.png){align=center}
+![](../images2/5_3_3_table_1.png){align=center}
 
 Chaque ligne représente une instance individuelle des données (un jour). Chaque colonne de base spline contient la valeur de la fonction de base spline aux valeurs de température particulières. La figure suivante montre à quoi ressemblent ces fonctions de base spline :
 
-![To smoothly model the temperature effect, we use 4 spline basis functions. Each temperature value is mapped to (here) 4 spline basis values. If an instance has a temperature of 30 °C, the value for the first spline basis feature is -1, for the second 0.7, for the third -0.8 and for the 4th 1.7.](../_static/images2/5_3_3_charts.png){align=center}
+![To smoothly model the temperature effect, we use 4 spline basis functions. Each temperature value is mapped to (here) 4 spline basis values. If an instance has a temperature of 30 °C, the value for the first spline basis feature is -1, for the second 0.7, for the third -0.8 and for the 4th 1.7.](../images2/5_3_3_charts.png){align=center}
 
 Le modèle GAM attribue des poids à chaque caractéristique de base de spline de température :
 
-![](../_static/images2/5_3_3_table_2.png){align=center}
+![](../images2/5_3_3_table_2.png){align=center}
 
 Et la courbe réelle, qui résulte de la somme des fonctions de base de spline pondérées avec les poids estimés, ressemble à ceci :
 
-![GAM feature effect of the temperature for predicting the number of rented bikes (temperature used as the only feature).](../_static/images2/5_3_3_temp_chart.png){align=center}
+![GAM feature effect of the temperature for predicting the number of rented bikes (temperature used as the only feature).](../images2/5_3_3_temp_chart.png){align=center}
 
 L'interprétation des effets lissés nécessite une vérification visuelle de la courbe ajustée. Les splines sont généralement centrées autour de la prédiction moyenne, de sorte qu'un point sur la courbe représente la différence par rapport à la prédiction moyenne. Par exemple, à 0 degré Celsius, le nombre prévu de vélos est inférieur de 3000 à la prédiction moyenne.
 

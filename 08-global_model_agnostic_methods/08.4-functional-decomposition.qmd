@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 8.4 - Functional Decomposition
 
 Un modèle d'apprentissage automatique supervisé peut être considéré comme une fonction qui prend un vecteur de caractéristiques de grande dimension en entrée et produit un score de prédiction ou de classification en sortie. La décomposition fonctionnelle est une technique d'interprétation qui déconstruit la fonction de grande dimension et l'exprime comme une somme d'effets de caractéristiques individuelles et d'effets d'interaction pouvant être visualisés. De plus, la décomposition fonctionnelle est un principe fondamental qui sous-tend de nombreuses techniques d’interprétation : elle vous aide à mieux comprendre les autres méthodes d’interprétation.
@@ -12,7 +14,7 @@ $$y = \hat{f}(x_1, x_2) = 2 + e^{x_1} - x_2 + x_1 \cdot x_2$$
 
 Considérez la fonction comme un modèle d'apprentissage automatique. Nous pouvons visualiser la fonction avec un tracé 3D ou une carte thermique avec des courbes de niveau :
 
-![Surface de prédiction d'une fonction à deux caractéristiques $x_1$ et $x_2$](../_static/images2/8_4_figure_1.png){align=center}
+![Surface de prédiction d'une fonction à deux caractéristiques $x_1$ et $x_2$](../images2/8_4_figure_1.png){align=center}
 
 La fonction prend de grandes valeurs lorsque $x_1$ est grand et $x_2$ est petit, et il faut de petites valeurs pour de grandes $x_2$ et petit $x_1$. La fonction de prédiction n’est pas simplement un effet additif entre les deux caractéristiques, mais une interaction entre les deux. La présence d'une interaction est visible sur la figure - l'effet de la modification des valeurs de la fonctionnalité $x_1$ dépend de la valeur de cette fonctionnalité $x_2$ a.
 
@@ -23,7 +25,7 @@ $$\hat{f}(x_1, x_2) = \hat{f}_0 + \hat{f}_1(x_1) + \hat{f}_2(x_2) + \hat{f}_{1,2
 
 Les principaux effets indiquent comment chaque caractéristique affecte la prédiction, indépendamment des valeurs de l'autre caractéristique. L'effet d'interaction indique l'effet conjoint des caractéristiques. L'interception nous indique simplement quelle est la prédiction lorsque tous les effets de caractéristiques sont définis sur zéro. Notez que les composants eux-mêmes sont des fonctions (à l'exception de l'interception) avec une dimensionnalité d'entrée différente.
 
-![Décomposition d'une fonction.](../_static/images2/8_4_figure_2.png){align=center}
+![Décomposition d'une fonction.](../images2/8_4_figure_2.png){align=center}
 
 Pensez-vous que les composants ont du sens étant donné la vraie formule ci-dessus, en ignorant le fait que la valeur d'origine semble un peu aléatoire ? Le $x_1$ la fonctionnalité montre un effet principal exponentiel, et $x_2$ montre un effet linéaire négatif. Le terme d’interaction ressemble un peu à une puce Pringles. En termes moins croustillants et plus mathématiques, il s'agit d'un paraboloïde hyperbolique, comme on pourrait s'y attendre pour $x_1 \cdot x_2$. Alerte dévulgachage : la décomposition est basée sur des tracés d'effets locaux accumulés, dont nous parlerons plus tard dans le chapitre.
 

@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 3.3 - Portée de l'Interprétabilité
 
 Un algorithme entraîne un modèle qui produit les prédictions. Chaque étape peut être évaluée en termes de transparence ou d'interprétabilité.

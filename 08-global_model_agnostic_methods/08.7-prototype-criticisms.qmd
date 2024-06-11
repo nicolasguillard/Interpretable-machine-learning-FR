@@ -2,13 +2,15 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 8.7 - Prototypes et critiques
 
 Un **prototype** est une instance de données représentative de toutes les données. Une **critique** est une instance de données qui n'est pas bien représentée par l'ensemble des prototypes. Le but des critiques est de fournir des informations avec des prototypes, en particulier pour les points de données que les prototypes ne représentent pas bien. Les prototypes et les critiques peuvent être utilisés indépendamment d’un modèle d’apprentissage automatique pour décrire les données, mais ils peuvent également être utilisés pour créer un modèle interprétable ou pour rendre interprétable un modèle de boîte noire.
 
 Dans ce chapitre, j'utilise l'expression "point de données" pour faire référence à une instance unique, afin de souligner l'interprétation selon laquelle une instance est également un point dans un système de coordonnées où chaque entité est une dimension. La figure suivante montre une distribution de données simulée, avec certaines instances choisies comme prototypes et d'autres comme critiques. Les petits points sont les données, les grands points les critiques et les grands carrés les prototypes. Les prototypes sont sélectionnés (manuellement) pour couvrir les centres de distribution des données et les critiques sont des points dans un cluster sans prototype. Les prototypes et les critiques sont toujours des instances réelles issues des données.
 
-![Prototypes et critiques pour une distribution de données à deux fonctionnalités x1 et x2.](../_static/images2/8_7_fig_1.png){align=center}
+![Prototypes et critiques pour une distribution de données à deux fonctionnalités x1 et x2.](../images2/8_7_fig_1.png){align=center}
 
 J'ai sélectionné les prototypes manuellement, ce qui ne s'adapte pas bien et conduit probablement à de mauvais résultats. Il existe de nombreuses approches pour trouver des prototypes dans les données. L'un d'eux est k-medoids, un algorithme de clustering lié à l'algorithme k-means. Tout algorithme de clustering qui renvoie des points de données réels en tant que centres de cluster serait éligible à la sélection de prototypes. Mais la plupart de ces méthodes ne trouvent que des prototypes, mais aucune critique. Ce chapitre présente le critique MMD de Kim et al. (2016)[^critique], une approche qui combine prototypes et critiques dans un cadre unique.
 
@@ -35,7 +37,7 @@ $k$ est une fonction noyau qui mesure la similarité de deux points, mais nous e
 
 Le graphique suivant illustre la mesure MMD2. Le premier graphique montre les points de données avec deux caractéristiques, l'estimation de la densité des données étant affichée sur un arrière-plan ombré. Chacune des autres parcelles montre différentes sélections de prototypes, ainsi que la mesure MMD2 dans les titres des parcelles. Les prototypes sont les gros points et leur répartition est représentée par des courbes de niveau. La sélection des prototypes qui couvrent le mieux les données dans ces scénarios (en bas à gauche) présente la valeur d'écart la plus faible.
 
-![The squared maximum mean discrepancy measure (MMD2) for a dataset with two features and different selections of prototypes.](../_static/images2/8_7_1_fig_1.png){align=center}
+![The squared maximum mean discrepancy measure (MMD2) for a dataset with two features and different selections of prototypes.](../images2/8_7_1_fig_1.png){align=center}
 
 Un choix pour le noyau est le noyau de fonction de base radiale :
 $$k(x,x^\prime) = exp\left(-\gamma\|x-x^\prime\|^2\right)$$
@@ -58,7 +60,7 @@ Pour deux ensembles de données (avec les mêmes caractéristiques), la fonction
 
 Pour vous donner plus d'intuition, réutilisons les prototypes du tracé au préalable avec le MMD2 le plus bas et affichons la fonction témoin pour quelques points sélectionnés manuellement. Les étiquettes du tracé suivant montrent la valeur de la fonction témoin pour différents points marqués sous forme de triangles. Seul le point central a une valeur absolue élevée et constitue donc un bon candidat pour une critique.
 
-![Évaluations de la fonction témoin en différents points.](../_static/images2/8_7_1_fig_2.png){align=center}
+![Évaluations de la fonction témoin en différents points.](../images2/8_7_1_fig_2.png){align=center}
 
 La fonction témoin nous permet de rechercher explicitement des instances de données qui ne sont pas bien représentées par les prototypes. Les critiques sont des points à haute valeur absolue dans la fonction de témoin. Comme pour les prototypes, les critiques sont également trouvées grâce à des recherches gourmandes. Mais au lieu de réduire le MMD2 global, nous recherchons des points qui maximisent une fonction de coût incluant la fonction témoin et un terme régularisateur. Le terme supplémentaire dans la fonction d'optimisation impose la diversité des points, ce qui est nécessaire pour que les points proviennent de différents clusters.
 
@@ -92,7 +94,7 @@ L'exemple suivant de critique MMD utilise un ensemble de données de chiffres ma
 
 En regardant les prototypes réels, vous remarquerez peut-être que le nombre d'images par chiffre est différent. En effet, un nombre fixe de prototypes ont été recherchés dans l'ensemble de données et non avec un nombre fixe par classe. Comme prévu, les prototypes montrent différentes manières d'écrire les chiffres.
 
-![Prototypes pour un ensemble de données de chiffres manuscrits.](../_static/images/handwritten-prototypes.png){align=center}
+![Prototypes pour un ensemble de données de chiffres manuscrits.](../images/handwritten-prototypes.png){align=center}
 
 
 ### 8.7.3 - Avantages

@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 8.6 - Substitut global
 
 Un modèle de substitution global est un modèle interprétable qui est entraîné pour se rapprocher des prédictions d'un modèle de boîte noire. Nous pouvons tirer des conclusions sur le modèle de la boîte noire en interprétant le modèle de substitution. Résoudre l’interprétabilité du machine learning en utilisant davantage de machine learning !
@@ -49,13 +51,13 @@ Pour démontrer les modèles de substitution, nous considérons un exemple de r�
 
 Tout d’abord, nous formons une machine à vecteurs de support pour prédire le [nombre quotidien de vélos loués](/04-datasets/04.1-datasets.qmd) en fonction des informations météorologiques et du calendrier. La machine à vecteurs de support n'est pas très interprétable, nous formons donc un substitut avec un arbre de décision CART comme modèle interprétable pour approximer le comportement de la machine à vecteurs de support.
 
-![Les noeuds terminaux d'un arbre de substitution qui se rapproche des prédictions d'une machine à vecteurs de support entraînée sur l'ensemble de données de location de vélos. Les distributions dans les nœuds montrent que l'arbre de substitution prédit un nombre plus élevé de vélos loués lorsque la température est supérieure à 13 degrés Celsius et lorsque le jour est plus tardif sur la période de 2 ans (point de coupure à 435 jours).](../_static/images2/8_6_2_fig_1.png){align=center}
+![Les noeuds terminaux d'un arbre de substitution qui se rapproche des prédictions d'une machine à vecteurs de support entraînée sur l'ensemble de données de location de vélos. Les distributions dans les nœuds montrent que l'arbre de substitution prédit un nombre plus élevé de vélos loués lorsque la température est supérieure à 13 degrés Celsius et lorsque le jour est plus tardif sur la période de 2 ans (point de coupure à 435 jours).](../images2/8_6_2_fig_1.png){align=center}
 
 Le modèle de substitution a un R au carré (variance expliquée) de 0,77, ce qui signifie qu'il se rapproche assez bien du comportement sous-jacent de la boîte noire, mais pas parfaitement. Si l’ajustement était parfait, nous pourrions jeter la machine à vecteurs de support et utiliser l’arbre à la place.
 
 Dans notre deuxième exemple, nous prédisons la probabilité de [cancer du col de l'utérus](/04-datasets/04.3-datasets.qmd) avec une forêt aléatoire. Encore une fois, nous formons un arbre de décision avec l'ensemble de données d'origine, mais avec la prédiction de la forêt aléatoire comme résultat, au lieu des classes réelles (saines ou cancer) à partir des données.
 
-![Les nœuds terminaux d'un arbre de substitution qui se rapproche des prédictions d'une forêt aléatoire formée sur l'ensemble de données sur le cancer du col de l'utérus. Les décomptes dans les nœuds montrent la fréquence des classifications des modèles de boîte noire dans les nœuds.).](../_static/images2/8_6_2_fig_2.png){align=center}
+![Les nœuds terminaux d'un arbre de substitution qui se rapproche des prédictions d'une forêt aléatoire formée sur l'ensemble de données sur le cancer du col de l'utérus. Les décomptes dans les nœuds montrent la fréquence des classifications des modèles de boîte noire dans les nœuds.).](../images2/8_6_2_fig_2.png){align=center}
 
 Le modèle de substitution a un R au carré (variance expliquée) de 0,19, ce qui signifie qu'il ne se rapproche pas bien de la forêt aléatoire et que nous ne devons pas surinterpréter l'arbre lorsque nous tirons des conclusions sur le modèle complexe.
 

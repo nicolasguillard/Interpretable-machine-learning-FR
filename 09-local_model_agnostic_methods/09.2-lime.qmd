@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 9.2 - Substitut local (LIME)
 
 Les modèles de substitution locaux sont des modèles interprétables utilisés pour expliquer les prédictions individuelles des modèles d'apprentissage automatique en boîte noire. Explications locales interprétables et indépendantes du modèle (LIME) 50 est un article dans lequel les auteurs proposent une implémentation concrète de modèles de substitution locaux. Les modèles de substitution sont formés pour se rapprocher des prédictions du modèle de boîte noire sous-jacent. Au lieu de former un modèle de substitution global, LIME se concentre sur la formation de modèles de substitution locaux pour expliquer les prédictions individuelles.
@@ -33,11 +35,11 @@ Les données tabulaires sont des données présentées sous forme de tableaux, c
 
 Il est préférable d'expliquer visuellement comment fonctionnent l'échantillonnage et la formation de modèles locaux :
 
-![Algorithme LIME pour les données tabulaires. A) Prédictions de forêt aléatoires compte tenu des fonctionnalités x1 et x2. Classes prédites : 1 (sombre) ou 0 (clair). B) Instance d'intérêt (gros point) et données échantillonnées à partir d'une distribution normale (petits points). C) Attribuez un poids plus élevé aux points proches de l’instance d’intérêt. D) Les signes de la grille montrent les classifications du modèle appris localement à partir des échantillons pondérés. La ligne blanche marque la limite de décision (P(class=1) = 0,5).](../_static/images2/9_2_1_fig_1.png){align=center}
+![Algorithme LIME pour les données tabulaires. A) Prédictions de forêt aléatoires compte tenu des fonctionnalités x1 et x2. Classes prédites : 1 (sombre) ou 0 (clair). B) Instance d'intérêt (gros point) et données échantillonnées à partir d'une distribution normale (petits points). C) Attribuez un poids plus élevé aux points proches de l’instance d’intérêt. D) Les signes de la grille montrent les classifications du modèle appris localement à partir des échantillons pondérés. La ligne blanche marque la limite de décision (P(class=1) = 0,5).](../images2/9_2_1_fig_1.png){align=center}
 
 Comme toujours, le diable se cache dans les détails. Définir un voisinage significatif autour d’un point est difficile. LIME utilise actuellement un noyau de lissage exponentiel pour définir le voisinage. Un noyau de lissage est une fonction qui prend deux instances de données et renvoie une mesure de proximité. La largeur du noyau détermine la taille du voisinage : une petite largeur du noyau signifie qu'une instance doit être très proche pour influencer le modèle local, une largeur de noyau plus grande signifie que les instances plus éloignées influencent également le modèle. Si vous regardez [l'implémentation Python de LIME (fichier lime/lime_tabular.py)](https://github.com/marcotcr/lime/tree/ce2db6f20f47c3330beb107bb17fd25840ca4606), vous verrez qu'elle utilise un noyau de lissage exponentiel (sur les données normalisées) et que la largeur du noyau est de 0,75 fois la racine carrée du nombre de colonnes des données d'entraînement. . Cela ressemble à une innocente ligne de code, mais c'est comme un éléphant assis dans votre salon à côté de la bonne porcelaine que vous avez reçue de vos grands-parents. Le gros problème est que nous n’avons pas de bon moyen de trouver le meilleur noyau ou la meilleure largeur. Et d’où vient le 0,75 ? Dans certains scénarios, vous pouvez facilement inverser votre explication en modifiant la largeur du noyau, comme le montre la figure suivante :
 
-![Explication de la prédiction de l'instance x = 1.6. Les prédictions du modèle boîte noire en fonction d'une seule caractéristique sont représentées par une ligne épaisse et la distribution des données est représentée par des tapis. Trois modèles de substitution locaux avec différentes largeurs de noyau sont calculés. Le modèle de régression linéaire résultant dépend de la largeur du noyau : la caractéristique a-t-elle un effet négatif, positif ou nul pour x = 1,6 ?](../_static/images2/9_2_1_fig_2.png){align=center}
+![Explication de la prédiction de l'instance x = 1.6. Les prédictions du modèle boîte noire en fonction d'une seule caractéristique sont représentées par une ligne épaisse et la distribution des données est représentée par des tapis. Trois modèles de substitution locaux avec différentes largeurs de noyau sont calculés. Le modèle de régression linéaire résultant dépend de la largeur du noyau : la caractéristique a-t-elle un effet négatif, positif ou nul pour x = 1,6 ?](../images2/9_2_1_fig_2.png){align=center}
 
 L'exemple montre une seule fonctionnalité. La situation empire dans les espaces de fonctionnalités de grande dimension. Il est également très difficile de savoir si la mesure de la distance doit traiter toutes les caractéristiques de la même manière. Une unité de distance pour la fonctionnalité x1 est-elle identique à une unité pour la fonctionnalité x2 ? Les mesures de distance sont assez arbitraires et les distances dans différentes dimensions (c'est-à-dire caractéristiques) peuvent ne pas être comparables du tout.
 
@@ -50,7 +52,7 @@ Nous formons d’abord une forêt aléatoire de 100 arbres à la tâche de class
 
 Les explications sont créées avec 2 fonctionnalités. Les résultats des modèles linéaires locaux clairsemés formés pour deux instances avec des classes prédites différentes :
 
-![Explications LIME pour deux instances de l'ensemble de données de location de vélos. Des températures plus chaudes et de bonnes conditions météorologiques ont un effet positif sur les prévisions. L'axe des X montre l'effet de la caractéristique : le poids multiplié par la valeur réelle de la caractéristique.](../_static/images2/9_2_1_1_fig_1.png){align=center}
+![Explications LIME pour deux instances de l'ensemble de données de location de vélos. Des températures plus chaudes et de bonnes conditions météorologiques ont un effet positif sur les prévisions. L'axe des X montre l'effet de la caractéristique : le poids multiplié par la valeur réelle de la caractéristique.](../images2/9_2_1_1_fig_1.png){align=center}
 
 La figure montre clairement qu’il est plus facile d’interpréter les caractéristiques catégorielles que les caractéristiques numériques. Une solution consiste à classer les caractéristiques numériques dans des catégories.
 
@@ -66,17 +68,17 @@ Dans cet exemple, nous classons [les commentaires YouTube](/04-datasets/04.2-dat
 
 Le modèle de boîte noire est un arbre de décision approfondi formé sur la matrice de mots du document. Chaque commentaire correspond à un document (= une ligne) et chaque colonne correspond au nombre d'occurrences d'un mot donné. Les arbres de décision courts sont faciles à comprendre, mais dans ce cas, l’arbre est très profond. À la place de cet arbre, il aurait également pu y avoir un réseau neuronal récurrent ou une machine à vecteurs de support entraînée aux incorporations de mots (vecteurs abstraits). Regardons les deux commentaires de cet ensemble de données et les classes correspondantes (1 pour spam, 0 pour commentaire normal) :
 
-![](../_static/images2/9_2_2_1_fig_1.png){align=center}
+![](../images2/9_2_2_1_fig_1.png){align=center}
 
 L'étape suivante consiste à créer des variantes des ensembles de données utilisés dans un modèle local. Par exemple, quelques variantes d'un des commentaires :
 
-![](../_static/images2/9_2_2_1_fig_2.png){align=center}
+![](../images2/9_2_2_1_fig_2.png){align=center}
 
 Chaque colonne correspond à un mot de la phrase. Chaque ligne est une variation, 1 signifie que le mot fait partie de cette variation et 0 signifie que le mot a été supprimé. La phrase correspondante pour l’une des variantes est «`Christmas Song visit my ;)` ». La colonne « prob » indique la probabilité prévue de spam pour chacune des variantes de phrase. La colonne « poids » indique la proximité de la variation par rapport à la phrase originale, calculée comme 1 moins la proportion de mots supprimés. Par exemple, si 1 mot sur 7 a été supprimé, la proximité est de 1 - 1/7 = 0,86.
 
 Voici les deux phrases (une spam, une non spam) avec leurs poids locaux estimés trouvés par l'algorithme LIME :
 
-![](../_static/images2/9_2_2_1_fig_3.png){align=center}
+![](../images2/9_2_2_1_fig_3.png){align=center}
 
 Le mot « canal » indique une forte probabilité de spam. Pour le commentaire non-spam, aucun poids non nul n'a été estimé, car quel que soit le mot supprimé, la classe prédite reste la même.
 
@@ -92,7 +94,7 @@ LIME pour les images fonctionne différemment de LIME pour les données tabulair
 
 Dans cet exemple, nous examinons une classification effectuée par le réseau neuronal Inception V3. L'image utilisée montre du pain que j'ai cuit et qui se trouve dans un bol. Puisque nous pouvons avoir plusieurs étiquettes prédites par image (triées par probabilité), nous pouvons expliquer les principales étiquettes. La première prédiction est « Bagel » avec une probabilité de $77%$, suivie de « Fraise » avec une probabilité de $4%$. Les images suivantes montrent pour « Bagel » et « Strawberry » les explications LIME. Les explications peuvent être affichées directement sur les échantillons d'images. Le vert signifie que cette partie de l'image augmente la probabilité de l'étiquette et le rouge signifie une diminution.
 
-![](../_static/images/lime-images-package-example-1.png){align=center}
+![](../images/lime-images-package-example-1.png){align=center}
 
 La prédiction et l’explication pour « Bagel » sont très raisonnables, même si la prédiction est fausse – ce ne sont clairement pas des bagels puisque le trou au milieu est manquant.
 

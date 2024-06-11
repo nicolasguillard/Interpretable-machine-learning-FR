@@ -5,6 +5,8 @@ format:
         toc: false
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 4.1 - Location de vélo (Régression)
 
 Ce jeu de données contient les comptages quotidiens de vélos loués par la société de location de vélos [Capital-Bikeshare](https://www.capitalbikeshare.com/) à Washington D.C., ainsi que des informations météorologiques et saisonnières. 

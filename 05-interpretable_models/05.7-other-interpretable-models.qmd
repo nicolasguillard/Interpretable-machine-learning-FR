@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 5.7 - Autres modèles interprétables
 
 La liste des modèles interprétables ne cesse de s’allonger et est de taille inconnue. Il comprend des modèles simples tels que des modèles linéaires, des arbres de décision et des Bayes naïfs, mais aussi des modèles plus complexes qui combinent ou modifient des modèles d'apprentissage automatique non interprétables pour les rendre plus interprétables. En particulier, les publications sur ce dernier type de modèles sont actuellement produites à une fréquence élevée et il est difficile de suivre les évolutions. Le livre ne présente que le classificateur Naive Bayes et les k-voisins les plus proches dans ce chapitre.

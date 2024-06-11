@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 3.6 - Explications conviviales pour l'être humain
 
 Creusons plus profondément et découvrons ce que nous, humains, considérons comme de "bonnes" explications et quelles sont les implications pour l'apprentissage automatique interprétable. La recherche en sciences humaines peut nous aider à le découvrir. Miller (2017)[^Miller2017] a mené une vaste enquête sur les publications concernant les explications, et ce chapitre s'appuie sur son résumé.

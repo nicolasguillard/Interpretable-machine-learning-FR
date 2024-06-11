@@ -1,6 +1,8 @@
 ---
-lang: fr
+
 ---
+
+{{< include ../_in_progress.qmd >}}
 
 ## 2.1 - Quelques histoires {#sec-short_stories}
 
@@ -12,7 +14,7 @@ Le format est inspiré par les "Tech Tales" de Jack Clark dans sa [Newsletter Im
 ### 2.1.1 - La foudre ne frappe jamais deux fois
 **2030: Un laboratoire médical en Suisse**
 
-![hospital](../_static/images/hospital.png){width=400px align=center}
+![hospital](../images/hospital.png){width=400px align=center}
 
 "Il n'y a certainement pas pire façon de mourir !" résuma Tom, essayant de trouver quelque chose de positif dans la tragédie.
 Il retira la pompe de la perfusion.
@@ -110,7 +112,7 @@ Lena lowered her head again and continued the analysis.
 ### 2.1.2 - Perte de confiance
 **2050: Une station de métro à Singapour**
 
-![access-denied](../_static/images/access-denied.jpg){width=400px align=center}
+![access-denied](../images/access-denied.jpg){width=400px align=center}
 
 Elle se précipita vers la station de métro Bishan. Ses pensées étaient déjà au travail. Les tests pour la nouvelle architecture neuronale devraient être terminés maintenant. Elle dirigeait la refonte du "Système de Prédiction de l'Affinité Fiscale pour les Entités Individuelles" du gouvernement, qui prédit si une personne cachera de l'argent au bureau des impôts. Son équipe a conçu une pièce d'ingénierie élégante. Si réussi, le système servirait non seulement l'administration fiscale, mais alimenterait également d'autres systèmes tels que le système d'alerte antiterroriste et le registre commercial. Un jour, le gouvernement pourrait même intégrer les prédictions dans le Score de Confiance Civique. Le Score de Confiance Civique estime la fiabilité d'une personne. Cette estimation affecte chaque aspect de votre vie quotidienne, comme obtenir un prêt ou le temps d'attente pour un nouveau passeport. Alors qu'elle descendait l'escalator, elle imaginait à quoi pourrait ressembler l'intégration du système de son équipe dans le Système de Score de Confiance Civique.
 
@@ -219,7 +221,7 @@ Her tax affinity system was eventually integrated into the Civic Trust Score Sys
 ### 2.1.3 - Les trombones de Fermi
 **Année 612 ACM (Après Colonisation de Mars): Un musée sur Mars**
 
-![burnt-earth](../_static/images/burnt-earth.jpg){width=400px align=center}
+![burnt-earth](../images/burnt-earth.jpg){width=400px align=center}
 
 "L'histoire, c'est ennuyeux," murmura Xola à son amie. Xola, une fille aux cheveux bleus, chassait paresseusement l'un des drones projecteurs bourdonnant dans la salle avec sa main gauche. "L'histoire est importante," dit le professeur d'une voix contrariée en regardant les filles. Xola rougit. Elle ne s'attendait pas à ce que son professeur l'entende.
 

@@ -5,6 +5,8 @@ format:
         toc: false
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 # 8 - Méthodes globales indépendantes du modèle
 
 Les méthodes globales décrivent le comportement moyen d'un modèle d'apprentissage automatique. La contrepartie des méthodes globales sont [les méthodes locales](/09-local_model_agnostic_methods/index.qmd). Les méthodes globales sont souvent exprimées sous forme de valeurs attendues basées sur la distribution des données. Par exemple, le [tracé de dépendance partielle](/08-global_model_agnostic_methods/08.1-pdp.qmd), un tracé d'effet de caractéristique, est la prédiction attendue lorsque toutes les autres caractéristiques sont marginalisées. Puisque les méthodes d’interprétation globale décrivent un comportement moyen, elles sont particulièrement utiles lorsque le modélisateur souhaite comprendre les mécanismes généraux des données ou déboguer un modèle.

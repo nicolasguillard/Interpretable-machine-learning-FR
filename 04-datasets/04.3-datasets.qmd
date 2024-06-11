@@ -5,6 +5,8 @@ format:
         toc: false
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 4.3 - Facteurs de Risque du Cancer du Col de l'Uterus (Classification)
 
 L'ensemble de données sur le cancer du col de l'utérus contient des indicateurs et des facteurs de risque pour prédire si une femme va développer un cancer du col de l'utérus. Les caractéristiques comprennent des données démographiques (telles que l'âge), le mode de vie et les antécédents médicaux. Les données peuvent être téléchargées depuis le dépôt [UCI Machine Learning repository](https://archive.ics.uci.edu/ml/datasets/Cervical+cancer+%28Risk+Factors%29) et sont décrites par Fernandes, Cardoso, et Fernandes (2017)[^Fernandes].

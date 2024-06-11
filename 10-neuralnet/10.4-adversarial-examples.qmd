@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 10.4 - Exemples adverses {sec-adversarial_examples}
 
 <!-- HTML only - Not in EN book-->
@@ -43,7 +45,7 @@ Les exemples adverses sont comme des illusions d'optique, mais pour les machines
 
 Szegedy et al. (2013)[^szegedy] ont utilisé une approche d'optimisation basée sur le gradient dans leur travail "Propriétés Intrigantes des Réseaux Neuronaux" pour trouver des exemples adverses pour les réseaux neuronaux profonds.
 
-![Adversarial examples for AlexNet by Szegedy et al. (2013). All images in the left column are correctly classified. The middle column shows the (magnified) error added to the images to produce the images in the right column all categorized (incorrectly) as "Ostrich". "Intriguing properties of neural networks", Figure 5 by Szegedy et al. CC-BY 3.0.](../_static/images/adversarial-ostrich.jpg){align=center}
+![Adversarial examples for AlexNet by Szegedy et al. (2013). All images in the left column are correctly classified. The middle column shows the (magnified) error added to the images to produce the images in the right column all categorized (incorrectly) as "Ostrich". "Intriguing properties of neural networks", Figure 5 by Szegedy et al. CC-BY 3.0.](../images/adversarial-ostrich.jpg){align=center}
 
 Ces exemples adverses ont été générés en minimisant la fonction suivante par rapport à $r$ :
 
@@ -88,7 +90,7 @@ Mais que se passerait-il si vous ne pouviez changer qu'un seul pixel ?
 Pourriez-vous tromper un modèle d'apprentissage automatique ?
 Su et al. (2019)[^1pixel] ont montré qu'il est effectivement possible de tromper des classificateurs d'images en changeant un seul pixel.
 
-![By intentionally changing a single pixel a neural network trained on ImageNet can be deceived to predict the wrong class instead of the original class.](../_static/images/adversarial-1pixel.png){align=center}
+![By intentionally changing a single pixel a neural network trained on ImageNet can be deceived to predict the wrong class instead of the original class.](../images/adversarial-1pixel.png){align=center}
 
 Semblable aux contrefactuels, l'attaque à un pixel cherche un exemple modifié $x^\prime$ qui se rapproche de l'image originale $x$, mais change la prédiction pour un résultat adverse.
 Cependant, la définition de la proximité diffère : seul un seul pixel peut changer.
@@ -116,7 +118,7 @@ Une de mes méthodes préférées amène les exemples adverses dans la réalité
 Brown et al. (2017)[^toaster] ont conçu une étiquette imprimable qui peut être collée à côté d'objets pour les faire ressembler à des grille-pains pour un classificateur d'images. 
 Un travail brillant !
 
-![A sticker that makes a VGG16 classifier trained on ImageNet categorize an image of a banana as a toaster. Work by Brown et al. (2017).](../_static/images/adversarial-toaster.png){align=center}
+![A sticker that makes a VGG16 classifier trained on ImageNet categorize an image of a banana as a toaster. Work by Brown et al. (2017).](../images/adversarial-toaster.png){align=center}
 
 Cette méthode diffère des méthodes présentées jusqu'à présent pour les exemples adverses, puisque la restriction impliquant que l'image adverse doit être très proche de l'image originale est supprimée. 
 Au lieu de cela, la méthode remplace complètement une partie de l'image par un patch qui peut prendre n'importe quelle forme. 
@@ -131,7 +133,7 @@ Athalye et al. (2017)[^turtle] ont imprimé en 3D une tortue conçue pour ressem
 Oui, vous avez bien lu.
 Un objet physique qui ressemble à une tortue pour les humains ressemble à un fusil pour l'ordinateur !
 
-![Athalye et al. (2017) created a 3D-printed that is recognized as a rifle by TensorFlow’s standard pre-trained InceptionV3 classifier.](../_static/images/adversarial-turtle.png){align=center}
+![Athalye et al. (2017) created a 3D-printed that is recognized as a rifle by TensorFlow’s standard pre-trained InceptionV3 classifier.](../images/adversarial-turtle.png){align=center}
 
 Les auteurs ont trouvé un moyen de créer un exemple adverse en 3D pour un classificateur 2D qui est adverse sur des transformations, telles que toutes les possibilités de faire tourner la tortue, de zoomer, etc. 
 D'autres approches telles que la méthode du gradient rapide ne fonctionnent plus lorsque l'image est tournée ou que l'angle de vue change. 

@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 9.3 - Explications contrefactuelles
 
 *Auteurs : Susanne Dandl et Christoph Molnar*
@@ -10,7 +12,7 @@ Une explication contrefactuelle décrit une situation causale sous la forme : «
 
 Dans l’apprentissage automatique interprétable, des explications contrefactuelles peuvent être utilisées pour expliquer les prédictions d’instances individuelles. L'« événement » est le résultat prédit d'une instance, les « causes » sont les valeurs de caractéristiques particulières de cette instance qui ont été entrées dans le modèle et « ont provoqué » une certaine prédiction. Affichée sous forme de graphique, la relation entre les entrées et la prédiction est très simple : les valeurs des caractéristiques provoquent la prédiction.
 
-![Les relations causales entre les entrées d'un modèle d'apprentissage automatique et les prédictions, lorsque le modèle est simplement vu comme une boîte noire. Les entrées provoquent la prédiction (ne reflétant pas nécessairement la relation causale réelle des données).](../_static/images/graph.jpg){align=center}
+![Les relations causales entre les entrées d'un modèle d'apprentissage automatique et les prédictions, lorsque le modèle est simplement vu comme une boîte noire. Les entrées provoquent la prédiction (ne reflétant pas nécessairement la relation causale réelle des données).](../images/graph.jpg){align=center}
 
 Même si en réalité la relation entre les entrées et le résultat à prédire n’est pas causale, nous pouvons considérer les entrées d’un modèle comme la cause de la prédiction.
 
@@ -117,7 +119,7 @@ Comment peut-on faire ça? Nous utilisons l’ algorithme génétique de tri non
 
 L'algorithme se compose de quatre étapes qui sont répétées jusqu'à ce qu'un critère d'arrêt soit satisfait, par exemple un nombre maximum d'itérations/générations. La figure suivante visualise les quatre étapes d'une génération.
 
-![Visualisation d'une génération de l'algorithme NSGA-II.](../_static/images/cfexp-nsgaII.jpg){align=center}
+![Visualisation d'une génération de l'algorithme NSGA-II.](../images/cfexp-nsgaII.jpg){align=center}
 
 Dans la première génération, un groupe de candidats contrefactuels est initialisé en modifiant aléatoirement certaines des caractéristiques par rapport à notre instance x à expliquer. En reprenant l'exemple de crédit ci-dessus, un contrefactuel pourrait suggérer d'augmenter le revenu de 30 000 € tandis qu'un autre propose de n'avoir aucun défaut au cours des cinq dernières années et une réduction de l'âge de dix ans. Toutes les autres valeurs de caractéristiques sont égales aux valeurs de x. Chaque candidat est ensuite évalué à l'aide des quatre fonctions objectives ci-dessus. Parmi eux, nous sélectionnons au hasard certains candidats, les candidats les plus en forme étant plus susceptibles d'être sélectionnés. Les candidats sont recombinés par paires pour produire des enfants qui leur ressemblent en faisant la moyenne de leurs valeurs de caractéristiques numériques ou en croisant leurs caractéristiques catégorielles. De plus, nous modifions légèrement les valeurs des fonctionnalités des enfants pour explorer tout l'espace des fonctionnalités.
 

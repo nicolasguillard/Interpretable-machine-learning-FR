@@ -6,6 +6,8 @@ format:
         toc: false
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 # 3 - Interprétabilité {#sec-interpretability}
 
 Il est difficile de définir mathématiquement l'interprétabilité. Une définition non mathématique de l'interprétabilité que j'apprécie, proposée par Miller (2017)[^Miller2017], est la suivante : **L'interprétabilité est le degré selon lequel un humain peut comprendre la cause d'une décision**.

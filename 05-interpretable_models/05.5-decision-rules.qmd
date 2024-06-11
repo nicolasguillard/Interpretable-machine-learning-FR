@@ -2,6 +2,8 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 5.5 - Règles de décision
 
 Une règle de décision est une simple instruction SI-ALORS composée d’une condition (également appelée antécédent) et d’une prédiction. Par exemple : SI il pleut aujourd'hui ET si c'est avril (condition), ALORS il pleuvra demain (prédiction). Une seule règle de décision ou une combinaison de plusieurs règles peuvent être utilisées pour faire des prédictions.
@@ -70,11 +72,11 @@ Un modèle OneR est un arbre de décision avec une seule division. La répartiti
 
 Regardons un exemple de la façon dont la meilleure fonctionnalité est choisie par OneR. Le tableau suivant présente un ensemble de données artificielles sur les maisons avec des informations sur leur valeur, leur emplacement, leur taille et si les animaux sont autorisés. Nous souhaitons apprendre un modèle simple pour prédire la valeur d’une maison.
 
-![](../_static/images2/5_5_1_table_1.png){align=center}
+![](../images2/5_5_1_table_1.png){align=center}
 
 OneR crée les tableaux croisés entre chaque fonctionnalité et le résultat :
 
-![](../_static/images2/5_5_1_table_2.png){align=center}
+![](../images2/5_5_1_table_2.png){align=center}
 
 Pour chaque fonctionnalité, nous parcourons le tableau ligne par ligne : chaque valeur de fonctionnalité est la partie SI d'une règle ; la classe la plus courante pour les instances avec cette valeur de caractéristique est la prédiction, la partie ALORS de la règle. Par exemple, la fonction de taille avec les niveaux `basse`, `moyenne` et `elevee` donne trois règles. Pour chaque fonctionnalité, nous calculons le taux d'erreur total des règles générées, qui est la somme des erreurs. La fonctionnalité de localisation a les valeurs possibles `mauvaise` et `bonne`. La valeur la plus fréquente pour les maisons situées dans de mauvais emplacements est `basse` et lorsque nous l'utilisons comme prédiction, nous faisons deux erreurs, car deux maisons ont une valeur `moyenne`. La valeur prédite des maisons bien situées est égale à `elevee` et encore une fois, nous commettons deux erreurs, car deux maisons ont une valeur `moyenne`. L'erreur que nous faisons en utilisant la fonction de localisation est de 4/10, pour la fonction de taille, elle est de 3/10 et pour la fonction d'animal de compagnie, elle est de 4/10. La fonctionnalité de taille produit les règles avec l'erreur la plus faible et sera utilisée pour le modèle OneR final :
 
@@ -90,17 +92,17 @@ Les égalités sont un autre problème, c'est-à-dire lorsque deux caractéristi
 
 Essayons OneR avec des données réelles. Nous utilisons la [tâche de classification du cancer du col de l'utérus](/04-datasets/04.3-datasets.qmd) pour tester l'algorithme OneR. Toutes les caractéristiques d'entrée continue ont été discrétisées en leurs 5 quantiles. Les règles suivantes sont créées :
 
-![](../_static/images2/5_5_1_table_3.png){align=center}
+![](../images2/5_5_1_table_3.png){align=center}
 
 La fonctionnalité âge a été choisie par OneR comme la meilleure fonctionnalité prédictive. Puisque le cancer est rare, pour chaque règle, la classe majoritaire et donc l'étiquette prédite sont toujours en bonne santé, ce qui est plutôt inutile. Cela n’a pas de sens d’utiliser la prédiction d’étiquette dans ce cas déséquilibré. Le tableau croisé entre les intervalles « Âge » et Cancer/En bonne santé ainsi que le pourcentage de femmes atteintes de cancer est plus informatif :
 
-![](../_static/images2/5_5_1_table_4.png){align=center}
+![](../images2/5_5_1_table_4.png){align=center}
 
 Mais avant de commencer à interpréter quoi que ce soit : étant donné que la prédiction pour chaque fonctionnalité et chaque valeur est saine, le taux d'erreur total est le même pour toutes les fonctionnalités. Les liens dans l'erreur totale sont, par défaut, résolus en utilisant la première fonctionnalité parmi celles avec les taux d'erreur les plus bas (ici, toutes les fonctionnalités ont 55/858), qui se trouve être la fonctionnalité Âge.
 
 OneR ne prend pas en charge les tâches de régression. Mais nous pouvons transformer une tâche de régression en tâche de classification en découpant le résultat continu en intervalles. Nous utilisons cette astuce pour prédire le nombre de [vélos loués](/04-datasets/04.1-datasets.qmd) avec OneR en découpant le nombre de vélos en quatre quartiles (0-25%, 25-50%, 50-75% et 75-100%). Le tableau suivant montre la fonctionnalité sélectionnée après l'ajustement du modèle OneR :
 
-![](../_static/images2/5_5_1_table_5.png){align=center}
+![](../images2/5_5_1_table_5.png){align=center}
 
 La fonctionnalité sélectionnée est le mois. La fonctionnalité mensuelle a (surprise !) 12 niveaux de fonctionnalités, ce qui est plus que la plupart des autres fonctionnalités. Il existe donc un risque de surapprentissage. Du côté le plus optimiste : la fonction mensuelle peut gérer la tendance saisonnière (par exemple moins de vélos loués en hiver) et les prévisions semblent raisonnables.
 
@@ -123,7 +125,7 @@ Supposons que nous disposions déjà d’un algorithme capable de créer une rè
     - Apprenez une autre règle sur les données restantes.
 - Renvoyez la liste de décisions.
 
-![L'algorithme de couverture fonctionne en couvrant séquentiellement l'espace des fonctionnalités avec des règles uniques et en supprimant les points de données déjà couverts par ces règles. À des fins de visualisation, les fonctionnalités x1 et x2 sont continues, mais la plupart des algorithmes d'apprentissage de règles nécessitent des fonctionnalités catégorielles.](../_static/images2/5_5_2_figure_1.png){align=center}
+![L'algorithme de couverture fonctionne en couvrant séquentiellement l'espace des fonctionnalités avec des règles uniques et en supprimant les points de données déjà couverts par ces règles. À des fins de visualisation, les fonctionnalités x1 et x2 sont continues, mais la plupart des algorithmes d'apprentissage de règles nécessitent des fonctionnalités catégorielles.](../images2/5_5_2_figure_1.png){align=center}
 
 Par exemple : nous avons une tâche et un ensemble de données pour prédire les valeurs des maisons en fonction de leur taille, de leur emplacement et si les animaux sont autorisés. Nous apprenons la première règle, qui s’avère être : Si `size = big`et `location = good`, alors `value = high`. Ensuite, nous supprimons de l’ensemble de données toutes les grandes maisons bien situées. Avec les données restantes, nous apprenons la règle suivante. Peut-être : si `location = good`, alors `value = medium`. Notez que cette règle est apprise sur des données sans grandes maisons bien situées, ne laissant que des maisons moyennes et petites bien situées.
 
@@ -137,7 +139,7 @@ Comment apprend-on une seule règle ? L'algorithme OneR serait inutile ici, car 
 
 La figure suivante illustre la recherche de poutres dans un arbre :
 
-![Apprendre une règle en recherchant un chemin dans un arbre de décision. Un arbre de décision est développé pour prédire la cible d'intérêt. Nous commençons au nœud racine, suivons goulûment et itérativement le chemin qui produit localement le sous-ensemble le plus pur (par exemple la plus haute précision) et ajoutons toutes les valeurs divisées à la condition de règle. On obtient : Si `location = good` et `size = big`, alors value=high.](../_static/images2/5_5_2_figure_2.png){align=center}
+![Apprendre une règle en recherchant un chemin dans un arbre de décision. Un arbre de décision est développé pour prédire la cible d'intérêt. Nous commençons au nœud racine, suivons goulûment et itérativement le chemin qui produit localement le sous-ensemble le plus pur (par exemple la plus haute précision) et ajoutons toutes les valeurs divisées à la condition de règle. On obtient : Si `location = good` et `size = big`, alors value=high.](../images2/5_5_2_figure_2.png){align=center}
 
 L’apprentissage d’une seule règle est un problème de recherche, où l’espace de recherche est l’espace de toutes les règles possibles. Le but de la recherche est de trouver la meilleure règle selon certains critères. Il existe de nombreuses stratégies de recherche différentes : recherche par ascension, recherche par faisceau, recherche exhaustive, recherche par le meilleur premier, recherche ordonnée, recherche stochastique, recherche descendante, recherche ascendante, …
 
@@ -151,7 +153,7 @@ L'algorithme RIPPER ne trouve aucune règle dans la tâche de classification du 
 
 Lorsque nous utilisons RIPPER sur la tâche de régression pour prédire [le nombre de vélos](/04-datasets/04.1-datasets.qmd), certaines règles sont trouvées. Puisque RIPPER ne fonctionne que pour la classification, le décompte des vélos doit être transformé en un résultat catégorique. J'y suis parvenu en réduisant le nombre de vélos en quartiles. Par exemple (4548, 5956) est l'intervalle couvrant le nombre de vélos prévu entre 4548 et 5956. Le tableau suivant montre la liste de décision des règles apprises.
 
-![](../_static/images2/5_5_2_table_1.png){align=center}
+![](../images2/5_5_2_table_1.png){align=center}
 
 L'interprétation est simple : si les conditions sont réunies, nous prédisons l'intervalle sur la droite pour le nombre de vélos. La dernière règle est la règle par défaut qui s'applique lorsqu'aucune des autres règles ne s'applique à une instance. Pour prédire une nouvelle instance, commencez par le haut de la liste et vérifiez si une règle s'applique. Lorsqu'une condition correspond, le côté droit de la règle correspond à la prédiction pour cette instance. La règle par défaut garantit qu'il y a toujours une prédiction.
 
@@ -242,19 +244,19 @@ Voilà pour la théorie, voyons maintenant la méthode BRL en action. Les exempl
 
 Nous obtenons les règles suivantes :
 
-![](../_static/images2/5_5_3_table_2.png){align=center}
+![](../images2/5_5_3_table_2.png){align=center}
 
 Notez que nous obtenons des règles raisonnables, puisque la prédiction sur la partie ALORS n'est pas le résultat de la classe, mais la probabilité prédite de cancer.
 
 Les conditions ont été sélectionnées à partir de modèles pré-exploités avec l'algorithme FP-Growth. Le tableau suivant affiche l'ensemble des conditions parmi lesquelles l'algorithme SBRL peut choisir pour créer une liste de décisions. Le nombre maximum de valeurs de fonctionnalités dans une condition que j'autorisais en tant qu'utilisateur était de deux. Voici un échantillon de dix modèles :
 
-![](../_static/images2/5_5_3_table_3.png){align=center}
+![](../images2/5_5_3_table_3.png){align=center}
 
 Ensuite, nous appliquons l'algorithme SBRL à [la tâche de prédiction de location de vélos](/04-datasets/04.1-datasets.qmd). Cela ne fonctionne que si le problème de régression consistant à prédire le nombre de vélos est converti en une tâche de classification binaire. J'ai arbitrairement créé une tâche de classification en créant une étiquette qui vaut 1 si le nombre de vélos dépasse 4000 vélos par jour, sinon 0.
 
 La liste suivante a été apprise par SBRL :
 
-![](../_static/images2/5_5_3_table_4.png){align=center}
+![](../images2/5_5_3_table_4.png){align=center}
 
 Prévoyons la probabilité que le nombre de vélos dépasse 4 000 par jour en 2012 avec une température de 17 degrés Celsius. La première règle ne s'applique pas, car elle ne s'applique qu'aux jours de 2011. La deuxième règle s'applique, car le jour est en 2012 et 17 degrés se situent dans l'intervalle $[7.35 , 19.9)$. Notre prédiction concernant la probabilité que plus de 4 000 vélos soient loués est de 88%.
 

@@ -1,10 +1,11 @@
 ---
-lang: fr
 format:
     html:
         toc: false
         link-external-newwindow: true
 ---
+
+{{< include ../_in_progress.qmd >}}
 
 ## 2.3 - Terminologie {#sec-terminology}
 
@@ -14,17 +15,17 @@ Un **Algorithme** est un ensemble de règles qu'une machine suit pour atteindre 
 
 **L'apprentissage automatique** (_Machine learning_) est un ensemble de méthodes qui permettent aux ordinateurs d'apprendre à partir de données pour faire et améliorer des prédictions (par exemple, le cancer, les ventes hebdomadaires, le défaut de crédit). L'apprentissage automatique représente un changement de paradigme par rapport à la "programmation normale" où toutes les instructions doivent être explicitement données à l'ordinateur, vers une "programmation indirecte" qui se fait en fournissant des données.
 
-![programing-vs-ml](../_static/images/programing-ml.png){width=400px align=center}
+![programing-vs-ml](../images/programing-ml.png){width=400px align=center}
 
 Un **Apprenant** ou **Algorithme d'apprentissage automatique** est un programme utilisé pour apprendre un modèle d'apprentissage automatique à partir de données. Un autre terme utilisé est "inducteur" (par exemple, "inducteur d'arbres").
 
 Un **Modèle d'apprentissage automatique** est le programme appris qui associe des entrées à des prédictions. Cela peut être un ensemble de poids pour un modèle linéaire ou pour un réseau neuronal. D'autres termes pour le mot plutôt non spécifique "modèle" sont "prédicteur" ou, selon la tâche, "classificateur" ou "modèle de régression". Dans les formules, le modèle d'apprentissage automatique formé est appelé $\hat{f}$ ou $\hat{f}(x)$.
 
-![learner-definition](../_static/images/learner.png){width=400px align=center}
+![learner-definition](../images/learner.png){width=400px align=center}
 
 Un **Modèle "boîte noire"** est un système qui ne révèle pas ses mécanismes internes. Dans l'apprentissage automatique, "boîte noire" décrit les modèles qui ne peuvent pas être compris en regardant leurs paramètres (par exemple, un réseau neuronal). L'opposé d'une boîte noire est parfois appelé **Boîte Blanche**, et est désigné dans ce livre comme [modèle interprétable](#sec-simple). Les [méthodes agnostiques au modèle](#sec-agnostic) pour l'interprétabilité traitent les modèles d'apprentissage automatique comme des boîtes noires, même s'ils ne le sont pas.
 
-![black-box](../_static/images/iml.png){width=400px align=center}
+![black-box](../images/iml.png){width=400px align=center}
 
 **L'apprentissage automatique interprétable** fait référence aux méthodes et modèles qui rendent le comportement et les prédictions des systèmes d'apprentissage automatique compréhensibles pour les humains.
 

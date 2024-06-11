@@ -2,13 +2,15 @@
 lang: fr
 ---
 
+{{< include ../_in_progress.qmd >}}
+
 ## 5.4 - Arbre de décision
 
 Les modèles de régression linéaire et de régression logistique échouent dans des situations où la relation entre les caractéristiques et le résultat n'est pas linéaire ou lorsque les caractéristiques interagissent les unes avec les autres. Il est temps de briller pour l'arbre de décision ! Les modèles basés sur les arbres divisent les données à plusieurs reprises en fonction de certaines valeurs de seuil dans les caractéristiques. En divisant, différents sous-ensembles de l'ensemble de données sont créés, chaque instance appartenant à un sous-ensemble. Les sous-ensembles finaux sont appelés noeuds terminaux ou feuilles, et les sous-ensembles intermédiaires sont appelés noeuds internes ou noeuds de division. Pour prédire le résultat dans chaque noeud feuille, on utilise la moyenne des résultats des données d'entraînement dans ce noeud. Les arbres peuvent être utilisés pour la classification et la régression.
 
 Il existe plusieurs algorithmes qui peuvent faire croître un arbre. Ils diffèrent dans la structure possible de l'arbre (par exemple, le nombre de divisions par noeud), les critères pour trouver les divisions, quand arrêter les divisions et comment estimer les modèles simples au sein des noeuds feuilles. L'algorithme de classification et de régression par arbres (CART) est probablement l'algorithme le plus populaire pour l'induction d'arbres. Nous nous concentrerons sur CART, mais l'interprétation est similaire pour la plupart des autres types d'arbres. Je recommande le livre 'Les éléments de l'apprentissage statistique' (Friedman, Hastie et Tibshirani 2009) [^Hastie] pour une introduction plus détaillée à CART.
 
-![Arbre de décision avec données artificielles. Les instances avec une valeur supérieure à 3 pour la fonctionnalité x1 se retrouvent dans le noeud 5. Toutes les autres instances sont affectées au noeud 3 ou au noeud 4, selon que les valeurs de la fonctionnalité x2 dépassent 1.](../_static/images2/5_4_tree.png){align=center}
+![Arbre de décision avec données artificielles. Les instances avec une valeur supérieure à 3 pour la fonctionnalité x1 se retrouvent dans le noeud 5. Toutes les autres instances sont affectées au noeud 3 ou au noeud 4, selon que les valeurs de la fonctionnalité x2 dépassent 1.](../images2/5_4_tree.png){align=center}
 
 La formule suivante décrit la relation entre la sortie $\hat{y}$ et les caractéristiques $x$.
 
@@ -57,7 +59,7 @@ La prédiction d'une instance individuelle est la moyenne du résultat cible plu
 
 Examinons à nouveau les [données sur la location de vélos](/04-datasets/04.1-datasets.qmd). Nous voulons prédire le nombre de vélos loués un certain jour avec un arbre de décision. L’arbre appris ressemble à ceci :
 
-![Arbre de régression ajusté sur les données de location de vélos. La profondeur maximale autorisée pour l'arbre a été fixée à 2. La fonction de tendance (jours depuis 2011) et la température (temp) ont été sélectionnées pour les divisions. Les boîtes à moustaches montrent la distribution du nombre de vélos dans le nœud terminal.](../_static/images2/5_4_2_example.png){align=center}
+![Arbre de régression ajusté sur les données de location de vélos. La profondeur maximale autorisée pour l'arbre a été fixée à 2. La fonction de tendance (jours depuis 2011) et la température (temp) ont été sélectionnées pour les divisions. Les boîtes à moustaches montrent la distribution du nombre de vélos dans le nœud terminal.](../images2/5_4_2_example.png){align=center}
 
 La première division et l'une des deuxièmes divisions ont été réalisées avec la fonction de tendance, qui compte les jours depuis le début de la collecte de données et couvre la tendance selon laquelle le service de location de vélos est devenu plus populaire au fil du temps. Pour les jours précédant le 105ème jour, le nombre prévu de vélos est d'environ 1800, entre le 106ème et le 430ème jour, il est d'environ 3900. Pour les jours après le 430ème jour, la prévision est soit de 4600 (si la température est inférieure à 12 degrés), soit de 6600. (si la température est supérieure à 12 degrés).
 
@@ -65,7 +67,7 @@ L'importance de la fonctionnalité nous indique dans quelle mesure une fonctionn
 
 L'arbre visualisé montre que la tendance de la température et du temps a été utilisée pour les divisions, mais ne quantifie pas quelle caractéristique était la plus importante. La mesure de l’importance des caractéristiques montre que la tendance temporelle est bien plus importante que la température.
 
-![Importance des caractéristiques mesurées par l'amélioration moyenne de la pureté du noeud.](../_static/images2/5_4_2_importance.png){align=center}
+![Importance des caractéristiques mesurées par l'amélioration moyenne de la pureté du noeud.](../images2/5_4_2_importance.png){align=center}
 
 
 ### 5.4.3 - Avantages
