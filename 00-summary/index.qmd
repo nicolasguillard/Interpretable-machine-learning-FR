@@ -19,7 +19,7 @@ L'apprentissage automatique représente un grand potentiel pour améliorer les p
 
 Après avoir exploré les concepts d'interprétabilité, vous découvrirez des **modèles simples et interprétables** tels que les arbres de décision, les règles de décision et la régression linéaire. Le livre met l'accent sur les méthodes agnostiques aux modèles pour interpréter **les boîtes noires que sont ces modèles**, tels que l'importance des caractéristiques et les effets locaux accumulés, et pour expliquer les prédictions individuelles avec les valeurs de Shapley et LIME. De plus, ce livre présente des méthodes spécifiques aux réseaux de neurones profonds.
 
-Toutes les méthodes d'interprétation sont expliquées en profondeur et discutées de manière critique. Comment fonctionnent-elles sous le capot ? Quelles sont leurs forces et leurs faiblesses ? Comment leurs résultats peuvent-ils être interprétés ? Ce livre vous permettra de sélectionner et d'appliquer correctement la méthode d'interprétation la plus adaptée à votre projet d'apprentissage automatique. La lecture du livre est recommandée aux praticiens de l'apprentissage automatique, aux _experts en mégadonnées_, aux statisticiens et à toute autre personne intéressée à rendre des modèles d'apprentissage automatique interprétables.
+Toutes les méthodes d'interprétation sont expliquées en profondeur et discutées de manière critique. Comment fonctionnent-elles sous le capot ? Quelles sont leurs forces et leurs faiblesses ? Comment leurs résultats peuvent-ils être interprétés ? Ce livre vous permettra de sélectionner et d'appliquer correctement la méthode d'interprétation la plus adaptée à votre projet d'apprentissage automatique. La lecture du livre est recommandée aux praticiens de l'apprentissage automatique, aux experts en mégadonnées, aux statisticiens et à toute autre personne intéressée à rendre des modèles d'apprentissage automatique interprétables.
 
 Vous pouvez acheter les versions PDF ou e-book (epub, mobi) *en langue anglaise* [sur leanpub.com](https://leanpub.com/interpretable-machine-learning).
 
@@ -34,12 +34,14 @@ Couverture réalisée par [\@YvonneDoinel](https://twitter.com/YvonneDoinel)
 
 ![licence BY-NC-SA](../images/by-nc-sa.png)
 
-Consultez également [Modeling Mindsets](https://bookgoodies.com/a/B0BMGSF52B), son second livre.
+Consultez également [*Modeling Mindsets*](https://bookgoodies.com/a/B0BMGSF52B), son second livre.
 
-Ce livre est publié sous la licence [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+Ce livre est publié sous la licence [*Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License*](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 
 ::: {.callout-note title="Note du traducteur" icon=false}
 **Au sujet du traducteur (assisté de ChatGPT-4 et Google translate) :** [Nicolas Guillard](https://www.linkedin.com/in/nicolasguillard/). De formation initiale d'ingénieur en informatique, en passant par les sciences de l'information géographique et l'analyse e-marketing, il est maintenant ingénieur en Intelligence Artificielle.
-Dernière traduction réalisée le **06/10/2024**.
+Dernière traduction réalisée le {{<meta date-modified>}}.
+
+Dans la mesure du possible, la majorité du contenu (dont les illustrations, sauf la couverture du livre en version anglaise) a été traduit. Toutefois, la plupart des références et leurs titres respectifs ont été laissés en anglais.
 :::
