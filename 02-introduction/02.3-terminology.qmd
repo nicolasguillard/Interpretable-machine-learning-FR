@@ -2,45 +2,47 @@
 format:
     html:
         toc: false
-        link-external-newwindow: true
+original: https://christophm.github.io/interpretable-ml-book/terminology.html
 ---
 
-{{< include ../_in_progress.qmd >}}
+<!-- {{< include ../_in_progress.qmd >}} -->
+{{< include ../_original.qmd >}}
 
-## 2.3 - Terminologie {#sec-terminology}
+## 2.3 - Terminologie
 
 Pour éviter la confusion due à l'ambiguïté, voici quelques définitions des termes utilisés dans ce livre :
 
-Un **Algorithme** est un ensemble de règles qu'une machine suit pour atteindre un objectif particulier[^algorithm]. Un algorithme peut être considéré comme une recette qui définit les entrées, la sortie et toutes les étapes nécessaires pour passer des entrées à la sortie. Les recettes de cuisine sont des algorithmes où les ingrédients sont les entrées, la nourriture cuisinée est la sortie, et les étapes de préparation et de cuisson sont les instructions de l'algorithme.
+Un **algorithme** est un ensemble de règles qu'une machine suit pour atteindre un objectif particulier[^algorithm]. Un algorithme peut être considéré comme une recette qui définit les entrées, la sortie et toutes les étapes nécessaires pour passer des entrées à la sortie. Les recettes de cuisine sont des algorithmes où les ingrédients sont les entrées, la nourriture cuisinée est la sortie, et les étapes de préparation et de cuisson sont les instructions de l'algorithme.
 
-**L'apprentissage automatique** (_Machine learning_) est un ensemble de méthodes qui permettent aux ordinateurs d'apprendre à partir de données pour faire et améliorer des prédictions (par exemple, le cancer, les ventes hebdomadaires, le défaut de crédit). L'apprentissage automatique représente un changement de paradigme par rapport à la "programmation normale" où toutes les instructions doivent être explicitement données à l'ordinateur, vers une "programmation indirecte" qui se fait en fournissant des données.
+L'**apprentissage automatique** (_Machine learning_) est un ensemble de méthodes qui permettent aux ordinateurs d'apprendre à partir de données pour effectuer et améliorer des prédictions (par exemple, le cancer, les ventes hebdomadaires, le défaut de crédit). L'apprentissage automatique représente un changement de paradigme par rapport à la "programmation normale" pour laquelle toutes les instructions doivent être explicitement fournies à l'ordinateur, dirigeant vers une "programmation indirecte" qui se fait en fournissant des données.
 
-![programing-vs-ml](../images/programing-ml.png){width=400px align=center}
+![Programmation contre Apprentissage automatique](../images_fr/programing-ml.png){width=600px align=center}
 
-Un **Apprenant** ou **Algorithme d'apprentissage automatique** est un programme utilisé pour apprendre un modèle d'apprentissage automatique à partir de données. Un autre terme utilisé est "inducteur" (par exemple, "inducteur d'arbres").
+Un **apprenant** ou **algorithme d'apprentissage automatique** est un programme utilisé pour apprendre un modèle d'apprentissage automatique à partir de données. Un autre terme utilisé est "inducteur" (par exemple, "inducteur d'arbres").
 
-Un **Modèle d'apprentissage automatique** est le programme appris qui associe des entrées à des prédictions. Cela peut être un ensemble de poids pour un modèle linéaire ou pour un réseau neuronal. D'autres termes pour le mot plutôt non spécifique "modèle" sont "prédicteur" ou, selon la tâche, "classificateur" ou "modèle de régression". Dans les formules, le modèle d'apprentissage automatique formé est appelé $\hat{f}$ ou $\hat{f}(x)$.
+Un **modèle d'apprentissage automatique** est le programme appris qui associe des entrées à des prédictions. Cela correspond à un ensemble de poids pour un modèle linéaire ou pour un réseau neuronal. D'autres termes pour le mot assez imprécis "modèle" sont "prédicteur" ou, selon la tâche, "classificateur" ou "modèle de régression". Dans les formules mathématiques, le modèle d'apprentissage automatique formé est représenté par $\hat{f}$ ou $\hat{f}(x)$.
 
-![learner-definition](../images/learner.png){width=400px align=center}
+![Schéma de l'apprenant](../images_fr/learner.png){width=400px align=center}
 
-Un **Modèle "boîte noire"** est un système qui ne révèle pas ses mécanismes internes. Dans l'apprentissage automatique, "boîte noire" décrit les modèles qui ne peuvent pas être compris en regardant leurs paramètres (par exemple, un réseau neuronal). L'opposé d'une boîte noire est parfois appelé **Boîte Blanche**, et est désigné dans ce livre comme [modèle interprétable](#sec-simple). Les [méthodes agnostiques au modèle](#sec-agnostic) pour l'interprétabilité traitent les modèles d'apprentissage automatique comme des boîtes noires, même s'ils ne le sont pas.
+Un **modèle "boîte noire"** est un système qui ne révèle pas ses mécanismes internes. Dans l'apprentissage automatique, "boîte noire" décrit les modèles qui ne peuvent pas être compris en regardant leurs paramètres (par exemple, un réseau neuronal). L'opposé d'une boîte noire est une parfois appelé **boîte blanche**, et ce terme désigne dans ce livre un [modèle interprétable](/05-interpretable_models/index.qmd). Les [méthodes agnostiques au modèle](/06-model_agnostic_methods/index.qmd) pour l'interprétabilité traitent les modèles d'apprentissage automatique comme des "boîtes noires", même s'ils ne le sont pas.
 
-![black-box](../images/iml.png){width=400px align=center}
+![Boîte noire](../images_fr/iml.png){width=600px align=center}
 
-**L'apprentissage automatique interprétable** fait référence aux méthodes et modèles qui rendent le comportement et les prédictions des systèmes d'apprentissage automatique compréhensibles pour les humains.
+L'**apprentissage automatique interprétable** fait référence aux méthodes et modèles qui rendent le comportement et les prédictions des systèmes d'apprentissage automatique compréhensibles pour les humains.
 
-Un **ensemble de données** est un tableau contenant les données à partir desquelles la machine apprend. L'ensemble de données contient les caractéristiques et la cible à prédire. Lorsqu'il est utilisé pour induire un modèle, l'ensemble de données est appelé données d'entraînement.
+Un **ensemble de données** est un tableau contenant les données à partir desquelles la machine apprend. L'ensemble de données contient les caractéristiques et la cible à prédire. Lorsqu'il est utilisé pour induire un modèle, l'ensemble de données est appelé jeu de données d'entraînement.
 
-Une **Instance** est une ligne dans l'ensemble de données. D'autres noms pour 'instance' sont : point (de données), exemple, observation. Une instance se compose des valeurs des caractéristiques $x^{(i)}$ et, s'il est connu, du résultat cible $y_i$.
+<!-- <a name="instance"> -->
+Une **instance** est une ligne dans l'ensemble de données. D'autres noms pour "instance" sont : point (de données), exemple, observation. Une instance se compose des valeurs des caractéristiques $x^{(i)}$ et, s'il est connu, du résultat cible $y_i$.
 
-Les **Caractéristiques** sont les entrées utilisées pour la prédiction ou la classification. Une caractéristique est une colonne dans l'ensemble de données. Tout au long du livre, il est supposé que les caractéristiques sont interprétables, ce qui signifie qu'il est facile de comprendre ce qu'elles signifient, comme la température d'un jour donné ou la taille d'une personne. L'interprétabilité des caractéristiques est une grande supposition. Mais si les caractéristiques d'entrée sont difficiles à comprendre, il est encore plus difficile de comprendre ce que fait le modèle. La matrice avec toutes les caractéristiques est appelée $X$ et $x^{(i)}$ pour une seule instance. Le vecteur d'une seule caractéristique pour toutes les instances est $x_j$ et la valeur pour la caractéristique $j$ et l'instance $i$ est $x^{(i)}_j$.
+Les **caractéristiques** sont les entrées utilisées pour la prédiction ou la classification. Une caractéristique est une colonne dans l'ensemble de données. Tout au long du livre, il est supposé que les caractéristiques sont interprétables, ce qui signifie qu'il est facile de comprendre ce qu'elles signifient, comme la température d'un jour donné ou la taille d'une personne. L'interprétabilité des caractéristiques est une supposition importante. Mais si les caractéristiques d'entrée peuvent être difficiles à comprendre, il est encore plus difficile de comprendre ce que fait le modèle. La matrice contenant toutes les caractéristiques est appelée $X$, et $x^{(i)}$ le vecteur représentant l'instance $i$. Le vecteur d'une seule caractéristique sur toutes les instances est $x_j$, et la valeur de la caractéristique $j$ de l'instance $i$ est $x^{(i)}_j$.
 
-La **Cible** est l'information que la machine apprend à prédire. Dans les formules mathématiques, la cible est généralement appelée $y$ ou $y_i$ pour une seule instance.
+La **cible** est l'information que la machine apprend à prédire. Dans les formules mathématiques, la cible est généralement représentée par $y$, ou $y_i$ pour l'instance $i$.
 
-Une **Tâche d'apprentissage automatique** est la combinaison d'un ensemble de données avec des caractéristiques et une cible. Selon le type de la cible, la tâche peut être, par exemple, la classification, la régression, l'analyse de survie, le regroupement ou la détection d'anomalies.
+Une **tâche d'apprentissage automatique** est la combinaison d'un ensemble de données comprenant des caractéristiques et une cible. Selon le type de la cible, la tâche peut être, par exemple, la classification, la régression, l'analyse de survie, le regroupement ou la détection d'anomalies.
 
-La **Prédiction** est ce que le modèle d'apprentissage automatique "devine" quelle devrait être la valeur cible en fonction des caractéristiques données. Dans ce livre, la prédiction du modèle est notée $\hat{f}(x^{(i)})$ ou $\hat{y}$.
+La **prédiction** est ce que le modèle d'apprentissage automatique "estime" comme devant être la valeur cible en fonction des caractéristiques données. Dans ce livre, la prédiction du modèle est notée $\hat{f}(x^{(i)})$, $\hat{y}$ ou $\hat{y}_i$.
 
 <!-- REFERENCES -->
 
-[^algorithm]: "Definition of Algorithm."  [https://www.merriam-webster.com/dictionary/algorithm](https://www.merriam-webster.com/dictionary/algorithm). (2017).
+[^algorithm]: "Definition of Algorithm."  [https://www.merriam-webster.com/dictionary/algorithm](https://www.merriam-webster.com/dictionary/algorithm) (2017).
