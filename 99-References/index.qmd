@@ -1,6 +1,6 @@
 ---
 order: 99
-title: References
+title: Références
 format:
     html:
         toc: false
@@ -11,5 +11,12 @@ original: https://christophm.github.io/interpretable-ml-book/references.html
 {{< include ../_original.qmd >}}
 
 <!-- Section 2.0 -->
-Friedman, Jerome, Trevor Hastie, and Robert Tibshirani. "The elements of statistical learning". hastie.su.domains/ElemStatLearn (2009).
+Dans [2 Introduction](/02-introduction/index.qmd)
+
+- Friedman, Jerome, Trevor Hastie, and Robert Tibshirani. "The elements of statistical learning". [hastie.su.domains/ElemStatLearn](https://hastie.su.domains/ElemStatLearn/) (2009).
+
+<!-- Section 2.3 -->
+Dans [2.3 - Terminologie](/02-introduction/02.3-terminology.qmd)
+
+- "Definition of Algorithm."  [https://www.merriam-webster.com/dictionary/algorithm](https://www.merriam-webster.com/dictionary/algorithm) (2017).
 

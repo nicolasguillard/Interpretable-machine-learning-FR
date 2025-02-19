@@ -59,4 +59,6 @@ et bibtex
   url        = {https:nicolasguillard.github.io/interpretable-ml-book-fr/}
 }
 ```
+
+Vous pouvez contacter le traducteur à cette adresse : nicolas.guillard.ai(AT)gmail.com
 :::

@@ -9,10 +9,11 @@ format:
 ---
 
 > Traduction du livre en ligne [https://christophm.github.io/interpretable-ml-book/index.html](https://christophm.github.io/interpretable-ml-book/index.html)
+> Dernière mise à jour de la version originale : 31/07/2024
 
 ![Couverture](./images/cutout.png){width=400px align="center"}
 
-L'apprentissage automatique représente un grand potentiel pour améliorer les produits, les processus et la recherche. Mais les **ordinateurs n'expliquent généralement pas leurs prédictions**, ce qui est un obstacle à l'adoption de l'apprentissage automatique. Ce livre traite de ce qui rend les modèles d'apprentissage automatique et leurs prédictions interprétables.
+L'apprentissage automatique représente un grand potentiel pour améliorer les produits, les processus et la recherche. Mais les **ordinateurs n'expliquent généralement pas leurs prédictions**, ce qui est un obstacle à l'adoption de l'apprentissage automatique. Ce livre traite de ce qui rend les modèles d'apprentissage                     et leurs prédictions interprétables.
 
 Après avoir exploré les concepts d'interprétabilité, vous découvrirez des **modèles simples et interprétables** tels que les arbres de décision, les règles de décision et la régression linéaire. Le livre met l'accent sur les méthodes agnostiques aux modèles pour interpréter **les boîtes noires que sont ces modèles**, tels que l'importance des caractéristiques et les effets locaux accumulés, et pour expliquer les prédictions individuelles avec les valeurs de Shapley et LIME. De plus, le livre présente des méthodes spécifiques aux réseaux de neurones profonds.
 
@@ -23,9 +24,9 @@ Vous pouvez acheter les versions PDF ou e-book (epub, mobi) [sur leanpub.com](ht
 Vous pouvez acheter la version imprimée [sur Amazon](https://www.amazon.fr/dp/B09TMWHVB4).
 
 **Au sujet de l'auteur:** Il s'appelle Christoph Molnar, il est statisticien et spécialiste en apprentissage machine.
-My goal is to make machine learning interpretable.
+Son but est de rendre l'apprentissage machine interprétable.
 
-Suivez-le sur X(ex-Twitter)! [\@ChristophMolnar](https://twitter.com/ChristophMolnar)
+Suivez l'auteur sur X(ex-Twitter)! [\@ChristophMolnar](https://twitter.com/ChristophMolnar)
 
 Couverture de [\@YvonneDoinel](https://twitter.com/YvonneDoinel)
 

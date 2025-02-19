@@ -49,7 +49,7 @@ Elle leva finalement la tête et le regarda. Il continuait de observer quelque c
 ### 2.1.2 - Perte de confiance
 **2050 : Une station de métro à Singapour**
 
-![Accès interdit](../images/access-denied.jpg){width=400px align=center}
+![Accès refusé](../images/access-denied.jpg){width=400px align=center}
 
 Elle se précipita vers la station de métro Bishan. Ses pensées étaient déjà au travail. Les tests pour la nouvelle architecture neuronale devraient être terminés maintenant. Elle dirigeait la refonte du "Système de Prédiction de l'Affinité Fiscale pour les Entités Individuelles" du gouvernement, qui prédit si une personne cachera de l'argent au bureau des impôts. Son équipe a conçu une pièce d'ingénierie élégante. S'il est un succès, le système servirait non seulement à l'administration fiscale, mais il alimenterait également d'autres systèmes tels que le système d'alerte antiterroriste et le registre commercial. Un jour, le gouvernement pourrait même intégrer les prédictions dans le Score de Confiance Civique. Le Score de Confiance Civique estime la fiabilité d'une personne. Cette estimation affecte chaque aspect de votre vie quotidienne, comme obtenir un prêt ou le délai d'attente pour un nouveau passeport. Alors qu'elle descendait l'escalator, elle imaginait à quoi pourrait ressembler l'intégration du système de son équipe dans le Système de Score de Confiance Civique.
 

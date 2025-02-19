@@ -221,7 +221,7 @@ La section suivante explique l'intuition et les mathématiques derrière les fon
 
 L'idée clé derrière les fonctions d'influence est de surpondérer la perte d'une instance d'entraînement par un petit pas infinitésimal $\epsilon$, ce qui entraîne de nouveaux paramètres du modèle :
 
-$$\hat{\theta}_{\epsilon,z}=\arg\min_{\theta{}\in\Theta}(1-\epsilon)\frac{1}{n}\sum_{i=1}^n{}L(z_i,\theta)+\epsilon{}L(z,\theta)$$
+$$\hat{\theta}_{\epsilon,z}=\arg\min_{\theta{}\in\Theta}\frac{1}{n}\sum_{i=1}^n{}L(z_i,\theta)+\epsilon{}L(z,\theta)$$
 
 où $\theta$ est le vecteur de paramètres du modèle et $\hat{\theta}_{\epsilon,z}$ est le vecteur de paramètres après la surpondération de $z$ par un très petit nombre $\epsilon$.
 $L$ est la fonction de perte avec laquelle le modèle a été entraîné, $z_i$ est les données d'entraînement et $z$ est l'instance d'entraînement que nous voulons surpondérer pour simuler sa suppression.

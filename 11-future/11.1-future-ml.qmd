@@ -32,7 +32,7 @@ Basé sur le principe « Tout ce qui peut être automatisé le sera », je concl
 - Diagnostic des maladies
 - Traduction. Pour ce livre, j'ai utilisé un service de traduction appelé ([DeepL](https://www.deepl.com/translator)) alimenté par des réseaux de neurones profonds pour améliorer mes phrases en les traduisant de l'anglais vers l'allemand et de nouveau vers l'anglais...
 
-La percée de l’apprentissage automatique n’est pas seulement réalisée grâce à de meilleurs ordinateurs/plus de données/de meilleurs logiciels, mais aussi :
+La percée de l’apprentissage automatique n’est pas seulement réalisée grâce à de meilleurs ordinateurs/plus de données/de meilleurs logiciels, mais aussi car :
 
 **Les outils d’interprétabilité catalysent l’adoption de l’apprentissage automatique.**
 

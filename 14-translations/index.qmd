@@ -10,7 +10,7 @@ original: https://christophm.github.io/interpretable-ml-book/translations.html
 
 ### Vous souhaitez traduire le livre ?
 
-Ce livre est sous licence internationale [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/). Cela signifie que vous êtes autorisé à le traduire et à le mettre en ligne. Vous devez me mentionner comme auteur original et vous n'êtes pas autorisé à vendre le livre.
+Ce livre est sous licence internationale [*Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License*](http://creativecommons.org/licenses/by-nc-sa/4.0/). Cela signifie que vous êtes autorisé à le traduire et à le mettre en ligne. Vous devez me mentionner comme auteur original et vous n'êtes pas autorisé à vendre le livre.
 
 Si vous souhaitez traduire le livre, vous pouvez écrire un message et je peux lier votre traduction ici. Mon adresse est [christoph.molnar.ai@gmail.com](mailto:christoph.molnar.ai@gmail.com).
 
@@ -29,7 +29,7 @@ Si vous souhaitez traduire le livre, vous pouvez écrire un message et je peux l
 
 #### Français
 
-- Traduction (in progress) par Nicolas Guillard.
+- Traduction (en cours) par Nicolas Guillard.
 
 #### Japonais
 
