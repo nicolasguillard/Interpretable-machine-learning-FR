@@ -15,10 +15,6 @@ Une autre est : **L'interprétabilité est le degré selon lequel un humain peut
 
 L'apprentissage automatique interprétable est un terme général utile qui englobe "l'extraction de connaissances pertinentes d'un modèle d'apprentissage automatique concernant les relations contenues dans les données ou apprises par le modèle"[^Murdoch2019].
 
+
 <!-- REFERENCES -->
-
-[^Miller2017]: Miller, Tim. "Explanation in artificial intelligence: Insights from the social sciences." arXiv Preprint arXiv:1706.07269. (2017).
-
-[^Kim2016]: Kim, Been, Rajiv Khanna, and Oluwasanmi O. Koyejo. "Examples are not enough, learn to criticize! Criticism for interpretability." Advances in Neural Information Processing Systems (2016).
-
-[^Murdoch2019]: Murdoch, W. J., Singh, C., Kumbier, K., Abbasi-Asl, R., & Yu, B.  "Definitions, methods, and applications in interpretable machine learning." Proceedings of the National Academy of Sciences, 116(44), 22071-22080. (2019).
+{{< include ../References/_references.qmd >}}

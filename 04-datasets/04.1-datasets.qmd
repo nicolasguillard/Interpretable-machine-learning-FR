@@ -42,4 +42,6 @@ Vous pouvez trouver le script R de traitement dans le [dépôt GitHub du livre](
 Version python + FR
 :::
 
-[^Fanaee]: Fanaee-T, Hadi, and Joao Gama. "Event labeling combining ensemble detectors and background knowledge." Progress in Artificial Intelligence. Springer Berlin Heidelberg, 1–15. https://doi.org/10.1007/s13748-013-0040-3. (2013).
+
+<!-- REFERENCES -->
+{{< include ../References/_references.qmd >}}

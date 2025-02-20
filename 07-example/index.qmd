@@ -32,8 +32,6 @@ Les méthodes d’interprétation suivantes sont toutes basées sur des exemples
 - [Les instances influentes](/10-neuralnet/10.5-influential-instances.qmd) sont les points de données d'entraînement qui ont eu le plus d'influence sur les paramètres d'un modèle de prédiction ou sur les prédictions elles-mêmes. L'identification et l'analyse des instances influentes permettent de détecter les problèmes avec les données, de déboguer le modèle et de mieux comprendre le comportement du modèle.
 - [Modèle k-plus proches voisins](/05-interpretable_models/05.7-other-interpretable-models.qmd) : Un modèle d'apprentissage automatique (interprétable) basé sur des exemples.
 
+
 <!-- REFERENCES -->
-
-[^cbr]: Aamodt, Agnar, and Enric Plaza. "Case-based reasoning: Foundational issues, methodological variations, and system approaches." AI communications 7.1 (1994): 39-59.
-
-[^critique]: Kim, Been, Rajiv Khanna, and Oluwasanmi O. Koyejo. "Examples are not enough, learn to criticize! Criticism for interpretability." Advances in Neural Information Processing Systems (2016).
+{{< include ../References/_references.qmd >}}

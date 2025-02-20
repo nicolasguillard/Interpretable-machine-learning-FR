@@ -209,8 +209,5 @@ Ai-je mentionné que [les tracés de dépendance partielle](/08-global_model_agn
 Les tracés ALE sont implémentés dans R dans le [package ALEPlot R](https://cran.r-project.org/web/packages/ALEPlot/index.html) par l'inventeur lui-même et une fois dans le [package iml](https://cran.r-project.org/web/packages/iml/index.html). ALE dispose également d'au moins deux implémentations Python avec le [package ALEPython](https://github.com/blent-ai/ALEPython) et dans [Alibi](https://docs.seldon.io/projects/alibi/en/stable/index.html).
 
 
-<!--  REFERENCES -->
-
-[^ale]: Apley, Daniel W., and Jingyu Zhu. "Visualizing the effects of predictor variables in black box supervised learning models." Journal of the Royal Statistical Society: Series B (Statistical Methodology) 82.4 (2020): 1059-1086.
-
-[^unintuitive-ale]: Grömping, Ulrike. "Model-Agnostic Effects Plots for Interpreting Machine Learning Models." Reports in Mathematics, Physics and Chemistry: Department II, Beuth University of Applied Sciences Berlin. Report 1/2020 (2020)
+<!-- REFERENCES -->
+{{< include ../References/_references.qmd >}}

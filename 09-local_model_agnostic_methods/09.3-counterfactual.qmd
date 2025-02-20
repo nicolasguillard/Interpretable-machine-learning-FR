@@ -22,7 +22,7 @@ Il existe des méthodes d'explication contrefactuelles indépendantes du modèle
 
 Avant d'expliquer comment créer des contrefactuels, j'aimerais discuter de quelques cas d'utilisation des contrefactuels et de ce à quoi ressemble une bonne explication contrefactuelle.
 
-Dans ce premier exemple, Peter demande un prêt et est rejeté par le logiciel bancaire (propulsé par l'apprentissage automatique). Il se demande pourquoi sa demande a été rejetée et comment il pourrait améliorer ses chances d'obtenir un prêt. La question du « pourquoi » peut être formulée de manière contrefactuelle : quel est le plus petit changement dans les caractéristiques (revenu, nombre de cartes de crédit, âge, …) qui ferait passer la prédiction de rejetée à approuvée ? Une réponse possible pourrait être : si Pierre gagnait 10 000 de plus par an, il obtiendrait le prêt. Ou si Peter avait moins de cartes de crédit et n’avait pas fait défaut sur un prêt il y a cinq ans, il obtiendrait le prêt. Peter ne connaîtra jamais les raisons du refus, car la banque n'a aucun intérêt à la transparence, mais c'est une autre histoire.
+Dans ce premier exemple, Peter demande un prêt et est rejeté par le logiciel bancaire (reposant par l'apprentissage automatique). Il se demande pourquoi sa demande a été rejetée et comment il pourrait améliorer ses chances d'obtenir un prêt. La question du « pourquoi » peut être formulée de manière contrefactuelle : quel est le plus petit changement dans les caractéristiques (revenu, nombre de cartes de crédit, âge, …) qui ferait passer la prédiction de rejetée à approuvée ? Une réponse possible pourrait être : si Pierre gagnait 10 000 de plus par an, il obtiendrait le prêt. Ou si Peter avait moins de cartes de crédit et n’avait pas fait défaut sur un prêt il y a cinq ans, il obtiendrait le prêt. Peter ne connaîtra jamais les raisons du refus, car la banque n'a aucun intérêt à la transparence, mais c'est une autre histoire.
 
 Dans notre deuxième exemple, nous souhaitons expliquer un modèle qui prédit un résultat continu avec des explications contrefactuelles. Anna souhaite louer son appartement, mais elle ne sait pas exactement combien facturer. Elle décide donc de former un modèle d'apprentissage automatique pour prédire le loyer. Bien sûr, comme Anna est une data scientist, c'est ainsi qu'elle résout ses problèmes. Après avoir entré tous les détails concernant la taille, l'emplacement, si les animaux sont autorisés, etc., le mannequin lui dit qu'elle peut facturer 900 EUR. Elle s'attendait à 1 000 EUR ou plus, mais elle fait confiance à son modèle et décide de jouer avec les valeurs caractéristiques de l'appartement pour voir comment elle peut améliorer la valeur de l'appartement. Elle découvre que l'appartement pourrait être loué pour plus de 1 000 euros s'il était plus grand de $15 m^2$. Une connaissance intéressante, mais non exploitable, car elle ne peut pas agrandir son appartement. Enfin, en modifiant uniquement les valeurs des caractéristiques sous son contrôle (cuisine intégrée oui/non, animaux admis oui/non, type de sol, etc.), elle découvre que si elle autorise les animaux et installe des fenêtres avec une meilleure isolation, elle peut facturer 1000 EUR. Anna a intuitivement travaillé avec des hypothèses contrefactuelles pour changer le résultat.
 
@@ -198,19 +198,4 @@ Ancres de Ribeiro et al. (2018)[^anchors] sont à l'opposé des contrefactuels, 
 
 
 <!-- REFERENCES -->
-
-[^anchors]: Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. "Anchors: High-precision model-agnostic explanations." AAAI Conference on Artificial Intelligence (2018).
-
-[^spheres]: Laugel, Thibault, Marie-Jeanne Lesot, Christophe Marsala, Xavier Renard, and Marcin Detyniecki. "Inverse classification for comparison-based interpretability in machine learning." arXiv preprint arXiv:1712.08443 (2017).
-
-[^wachter]: Wachter, Sandra, Brent Mittelstadt, and Chris Russell. "Counterfactual explanations without opening the black box: Automated decisions and the GDPR." (2017).
-
-[^vanlooveren]: Van Looveren, Arnaud, and Janis Klaise. "Interpretable counterfactual explanations guided by prototypes."  arXiv preprint arXiv:1907.02584 (2019).
-
-[^dandl]: Dandl, Susanne, Christoph Molnar, Martin Binder, Bernd Bischl. "Multi-objective counterfactual explanations". In: Bäck T. et al. (eds) Parallel Problem Solving from Nature – PPSN XVI. PPSN 2020. Lecture Notes in Computer Science, vol 12269. Springer, Cham (2020).
-
-[^karimi]: Karimi, Amir-Hossein, Gilles Barthe, Borja Balle and Isabel Valera. “Model-agnostic counterfactual explanations for consequential decisions.” AISTATS (2020).
-
-[^deb]: Deb, Kalyanmoy, Amrit Pratap, Sameer Agarwal and T. Meyarivan, "A fast and elitist multiobjective genetic algorithm: NSGA-II," in IEEE Transactions on Evolutionary Computation, vol. 6, no. 2, pp. 182-197, (2002).
-
-[^Mothilal]: Mothilal, Ramaravind K., Amit Sharma, and Chenhao Tan. "Explaining machine learning classifiers through diverse counterfactual explanations." Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency. (2020).
+{{< include ../References/_references.qmd >}}

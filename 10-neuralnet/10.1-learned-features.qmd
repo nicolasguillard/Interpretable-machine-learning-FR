@@ -202,16 +202,6 @@ Il existe une implémentation open-source de la visualisation de caractéristiqu
 
 La dissection de réseau dispose d'un excellent [site web associé à ce projet](http://netdissect.csail.mit.edu/). En plus de la publication, il héberge du matériel supplémentaire tel que du code, des données et des visualisations de masques d'activation.
 
+
 <!-- REFERENCES -->
-
-[^distill-fv]: Olah, Chris, Alexander Mordvintsev, and Ludwig Schubert. "Feature visualization." Distill 2, no. 11 (2017): e7.
-
-[^distill-blocks]: Olah, Chris, Arvind Satyanarayan, Ian Johnson, Shan Carter, Ludwig Schubert, Katherine Ye, and Alexander Mordvintsev. "The building blocks of interpretability." Distill 3, no. 3 (2018): e10.
-
-[^plugandplay]: Nguyen, Anh, Jeff Clune, Yoshua Bengio, Alexey Dosovitskiy, and Jason Yosinski. "Plug & play generative networks: Conditional iterative generation of images in latent space." In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 4467-4477. 2017.
-
-[^synthesize]: Nguyen, Anh, Alexey Dosovitskiy, Jason Yosinski, Thomas Brox, and Jeff Clune. "Synthesizing the preferred inputs for neurons in neural networks via deep generator networks." Advances in neural information processing systems 29 (2016): 3387-3395.
-
-[^viz-rnn]: Karpathy, Andrej, Justin Johnson, and Li Fei-Fei. "Visualizing and understanding recurrent networks." arXiv preprint arXiv:1506.02078 (2015).
-
-[^dissect]: Bau, David, Bolei Zhou, Aditya Khosla, Aude Oliva, and Antonio Torralba. "Network dissection: Quantifying interpretability of deep visual representations." In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 6541-6549 (2017).
+{{< include ../References/_references.qmd >}}

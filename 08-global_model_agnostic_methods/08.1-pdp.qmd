@@ -95,10 +95,5 @@ Il existe un certain nombre de packages R qui implémentent des PDP. J'ai utilis
 
 Les alternatives aux PDP présentées dans ce livre sont [les tracés ALE](/08-global_model_agnostic_methods/08.2-ale.qmd) et les courbes [ICE](/09-local_model_agnostic_methods/09.1-ice.qmd).
 
-<!--  REFERENCES -->
-
-[^Friedman2001]: Friedman, Jerome H. "Greedy function approximation: A gradient boosting machine." Annals of statistics (2001): 1189-1232.
-
-[^pdpCausal]: Zhao, Qingyuan, and Trevor Hastie. "Causal interpretations of black-box models." Journal of Business & Economic Statistics, to appear. (2017).
-
-[^pdp-importance]: Greenwell, Brandon M., Bradley C. Boehmke, and Andrew J. McCarthy. "A simple and effective model-based variable importance measure." arXiv preprint arXiv:1805.04755 (2018).
+<!-- REFERENCES -->
+{{< include ../References/_references.qmd >}}

@@ -44,5 +44,4 @@ Une **tâche d'apprentissage automatique** est la combinaison d'un ensemble de d
 La **prédiction** est ce que le modèle d'apprentissage automatique "estime" comme devant être la valeur cible en fonction des caractéristiques données. Dans ce livre, la prédiction du modèle est notée $\hat{f}(x^{(i)})$, $\hat{y}$ ou $\hat{y}_i$.
 
 <!-- REFERENCES -->
-
-[^algorithm]: "Definition of Algorithm."  [https://www.merriam-webster.com/dictionary/algorithm](https://www.merriam-webster.com/dictionary/algorithm) (2017).
+{{< include ../References/_references.qmd >}}

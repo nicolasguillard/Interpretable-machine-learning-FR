@@ -25,6 +25,6 @@ Nous pouvons certainement utiliser des [méthodes agnostiques au modèle](/06-mo
 * De plus, la plupart des autres méthodes de ce livre sont destinées à l'interprétation de modèles pour des données tabulaires. 
 Les données de type image et de type texte nécessitent des méthodes différentes.
 
-<!-- REFERENCES -->
 
-[^imagenet]: Olga Russakovsky and Jia Deng (equal contribution), Hao Su, Jonathan Krause, Sanjeev Satheesh, Sean Ma, Zhiheng Huang, Andrej Karpathy, Aditya Khosla, Michael Bernstein, Alexander C. Berg and Li Fei-Fei. "ImageNet large scale visual recognition challenge". IJCV (2015).
+<!-- REFERENCES -->
+{{< include ../References/_references.qmd >}}

@@ -156,7 +156,4 @@ Le premier est la référence des auteurs de l'algorithme d'ancrage et le second
 
 
 <!-- REFERENCES -->
-
-[^Ribeiro2018Anchors]: Marco Tulio Ribeiro, Sameer Singh and Carlos Guestrin. "Anchors: high-precision model-agnostic explanations". AAAI Conference on Artificial Intelligence (AAAI), 2018
-
-[^KLLUCB]: Emilie Kaufmann and Shivaram Kalyanakrishnan. “Information complexity in bandit subset selection”. Proceedings of Machine Learning Research (2013).
+{{< include ../References/_references.qmd >}}

@@ -83,7 +83,4 @@ Les tracés ICE sont implémentés dans les packages R `iml` (utilisés pour ces
 
 
 <!-- REFERENCES -->
-
-[^ICEbox]: Goldstein, Alex, Adam Kapelner, Justin Bleich, and Maintainer Adam Kapelner. "Package ‘ICEbox’." (2017).
-
-[^Goldstein2017]: Goldstein, Alex, Adam Kapelner, Justin Bleich, and Emil Pitkin. "Peeking inside the black box: Visualizing statistical learning with plots of individual conditional expectation." journal of Computational and Graphical Statistics 24, no. 1 (2015): 44-65.
+{{< include ../References/_references.qmd >}}

@@ -37,4 +37,6 @@ Si vous voulez jouer avec les données, vous pouvez trouver le [fichier RData](h
 Version python + FR
 :::
 
-[^Alberto]: Alberto, Túlio C, Johannes V Lochter, and Tiago A Almeida. "Tubespam: comment spam filtering on YouTube." In Machine Learning and Applications (Icmla), Ieee 14th International Conference on, 138–43. IEEE. (2015).
+
+<!-- REFERENCES -->
+{{< include ../References/_references.qmd >}}

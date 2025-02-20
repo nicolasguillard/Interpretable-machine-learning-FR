@@ -104,5 +104,4 @@ La version en Python des exemples de ce chapitre sont accessibles [ici]().
 :::
 
 <!-- REFERENCES -->
-
-[^Hastie]: Friedman, Jerome, Trevor Hastie, and Robert Tibshirani. "The elements of statistical learning". hastie.su.domains/ElemStatLearn (2009).
+{{< include ../References/_references.qmd >}}

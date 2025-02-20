@@ -29,6 +29,6 @@ Vous pouvez soit lire le livre du début à la fin, soit passer directement aux 
 
 J'espère que vous apprécierez la lecture de ce livre!
 
-<!-- REFERENCES -->
 
-[^Hastie]: Friedman, Jerome, Trevor Hastie, and Robert Tibshirani. "The elements of statistical learning". [hastie.su.domains/ElemStatLearn](https://hastie.su.domains/ElemStatLearn/). hastie.su.domains/ElemStatLearn (2009).
+<!-- REFERENCES -->
+{{< include ../References/_references.qmd >}}

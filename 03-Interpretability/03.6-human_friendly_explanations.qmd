@@ -92,12 +92,6 @@ Une cause qui peut expliquer de nombreux événements est très générale et po
 ***Ce que cela signifie pour l'apprentissage automatique interprétable*** :
 La généralité peut facilement être mesurée par le support de la caractéristique, qui est le nombre d'instances auxquelles l'explication s'applique divisé par le nombre total d'instances.
 
+
 <!-- REFERENCES -->
-
-[^Miller2017]: Miller, Tim. "Explanation in artificial intelligence: Insights from the social sciences." arXiv Preprint arXiv:1706.07269. (2017).
-
-[^lipton2]: Lipton, Peter. "Contrastive explanation." Royal Institute of Philosophy Supplements 27 (1990): 247-266.
-
-[^Kahnemann]: Kahneman, Daniel, and Amos Tversky. "The simulation heuristic." Stanford Univ CA Dept of Psychology. (1981).
-
-[^Strumbelj2011]: Štrumbelj, Erik, and Igor Kononenko. "A general method for visualizing and explaining black-box regression models." In International Conference on Adaptive and Natural Computing Algorithms, 21–30. Springer. (2011).
+{{< include ../References/_references.qmd >}}

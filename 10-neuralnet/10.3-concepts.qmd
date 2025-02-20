@@ -147,16 +147,6 @@ CW est fortement inspiré par la transformation de blanchiment, et nous vous rec
 La librairie officielle de [TCAV](https://pypi.org/project/tcav/) respose sur Tensorflow, mais il existe d'autres versions disponibles en ligne.
 Les carnets Jupyter, faciles d'emploi, sont également accessibles sur ce [dépôt GitHUb](https://github.com/tensorflow/tcav/tree/master).
 
+
 <!-- REFERENCES -->
-
-[^tcav]: Kim, Been, Martin Wattenberg, Justin Gilmer, Carrie Cai, James Wexler, and Fernanda Viegas. "Interpretability beyond feature attribution: Quantitative testing with concept activation vectors (tcav)." In International conference on machine learning, pp. 2668-2677. PMLR (2018).
-
-[^probe]: Alain, Guillaume, and Yoshua Bengio. "Understanding intermediate layers using linear classifier probes." arXiv preprint arXiv:1610.01644 (2016).
-
-[^inception]: Szegedy, Christian, Vincent Vanhoucke, Sergey Ioffe, Jon Shlens, and Zbigniew Wojna. "Rethinking the inception architecture for computer vision." In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 2818-2826 (2016).
-
-[^ace]: Ghorbani, Amirata, James Wexler, James Zou and Been Kim. "Towards automatic concept-based explanations." Advances in Neural Information Processing Systems 32 (2019).
-
-[^cbm]: Koh, Pang Wei, Thao Nguyen, Yew Siang Tang, Stephen Mussmann, Emma Pierson, Been Kim, and Percy Liang. "Concept bottleneck models." In International Conference on Machine Learning, pp. 5338-5348. PMLR (2020).
-
-[^cw]: Chen, Zhi, Yijie Bei, and Cynthia Rudin. "Concept whitening for interpretable image recognition." Nature Machine Intelligence 2, no. 12 (2020): 772-782.
+{{< include ../References/_references.qmd >}}

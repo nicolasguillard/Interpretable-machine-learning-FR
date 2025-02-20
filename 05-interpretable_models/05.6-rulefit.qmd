@@ -172,7 +172,4 @@ Le [package imodels](https://github.com/csinva/imodels) contient également des 
 
 
 <!-- REFERENCES -->
-
-[^Friedman2008]: Friedman, Jerome H, and Bogdan E Popescu. "Predictive learning via rule ensembles." The Annals of Applied Statistics. JSTOR, 916–54. (2008).
-
-[^Fokkema]: Fokkema, Marjolein, and Benjamin Christoffersen.  "Pre: Prediction rule ensembles". https://CRAN.R-project.org/package=pre (2017).
+{{< include ../References/_references.qmd >}}

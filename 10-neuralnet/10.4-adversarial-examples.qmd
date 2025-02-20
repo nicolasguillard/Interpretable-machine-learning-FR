@@ -241,18 +241,6 @@ De nouvelles méthodes d'attaques contre les modèles d'apprentissage automatiqu
 Des attaques plus puissantes sont développées pour éviter les dernières défenses et ainsi de suite, ad infinitum. 
 Avec ce chapitre, j'espère vous avoir sensibilisé au problème des exemples adverses et que seulement en étudiant de manière proactive les modèles d'apprentissage automatique nous serons capables de découvrir et de remédier à leurs faiblesses.
 
+
 <!-- REFERENCES -->
-
-[^szegedy]: Szegedy, Christian, Wojciech Zaremba, Ilya Sutskever, Joan Bruna, Dumitru Erhan, Ian Goodfellow, and Rob Fergus. "Intriguing properties of neural networks." arXiv preprint arXiv:1312.6199 (2013).
-
-[^adversarial]: Biggio, Battista, and Fabio Roli. "Wild Patterns: Ten years after the rise of adversarial machine learning." Pattern Recognition 84 (2018): 317-331.
-
-[^turtle]: Athalye, Anish, and Ilya Sutskever. "Synthesizing robust adversarial examples." arXiv preprint arXiv:1707.07397 (2017).
-
-[^goodfellow]: Goodfellow, Ian J., Jonathon Shlens, and Christian Szegedy. "Explaining and harnessing adversarial examples." arXiv preprint arXiv:1412.6572  (2014).
-
-[^1pixel]: Su, Jiawei, Danilo Vasconcellos Vargas, and Kouichi Sakurai. "One pixel attack for fooling deep neural networks." IEEE Transactions on Evolutionary Computation (2019).
-
-[^toaster]: Brown, Tom B., Dandelion Mané, Aurko Roy, Martín Abadi, and Justin Gilmer. "Adversarial patch." arXiv preprint arXiv:1712.09665 (2017).
-
-[^papernot]: Papernot, Nicolas, et al. "Practical black-box attacks against machine learning." Proceedings of the 2017 ACM on Asia Conference on Computer and Communications Security. ACM (2017).
+{{< include ../References/_references.qmd >}}

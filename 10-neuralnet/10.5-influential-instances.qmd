@@ -394,10 +394,6 @@ Le code est axé sur la bibliothèque Tensorflow, donc vous ne pouvez pas l'util
 Et depuis ?
 :::
 
+
 <!-- REFERENCES -->
-
-[^cook]: Cook, R. Dennis. "Detection of influential observation in linear regression." Technometrics 19.1 (1977): 15-18.
-
-[^koh]: Koh, Pang Wei, and Percy Liang. "Understanding black-box predictions via influence functions." arXiv preprint arXiv:1703.04730 (2017).
-
-[^group-influential]: Koh, Pang Wei, Kai-Siang Ang, Hubert HK Teo, and Percy Liang. "On the accuracy of influence functions for measuring group effects." arXiv preprint arXiv:1905.13289 (2019).
+{{< include ../References/_references.qmd >}}

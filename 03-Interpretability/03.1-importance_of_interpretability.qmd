@@ -62,10 +62,6 @@ L'interprétabilité n'est pas nécessaire lorsque le **problème est bien étud
 
 L'interprétabilité pourrait permettre à des personnes ou à des programmes de **manipuler le système**. Les problèmes avec les utilisateurs qui trompent un système résultent d'un décalage entre les objectifs du créateur et de l'utilisateur d'un modèle. Le scoring de crédit est un tel système parce que les banques veulent s'assurer que les prêts ne sont accordés qu'aux demandeurs susceptibles de les rembourser, et les demandeurs visent à obtenir le prêt même si la banque ne souhaite pas leur accorder. Ce décalage entre les objectifs introduit des incitations pour les demandeurs à manipuler le système pour augmenter leurs chances d'obtenir un prêt. Si un demandeur sait que le fait d'avoir plus de deux cartes de crédit affecte négativement son score, il rend simplement sa troisième carte de crédit pour améliorer son score, et organise une nouvelle carte après l'approbation du prêt. Bien que son score se soit amélioré, la probabilité réelle de rembourser le prêt est restée inchangée. Le système ne peut être manipulé que si les entrées sont des substituts d'une caractéristique causale, mais ne causent pas réellement le résultat. Dans la mesure du possible, les caractéristiques substituts devraient être évitées car elles rendent les modèles manipulables. Par exemple, Google a développé un système appelé Google Flu Trends pour prédire les épidémies de grippe. Le système corrélait les recherches Google avec les épidémies de grippe - et il a mal performé. La distribution des requêtes de recherche a changé et Google Flu Trends a manqué de nombreuses épidémies de grippe. Les recherches Google ne causent pas la grippe. Lorsque les gens recherchent des symptômes comme "fièvre", c'est simplement une corrélation avec les épidémies de grippe réelles. Idéalement, les modèles n'utiliseraient que des caractéristiques causales car elles ne seraient pas manipulables.
 
+
 <!-- REFERENCES -->
-
-[^Doshi2017]: Doshi-Velez, Finale, and Been Kim. "Towards a rigorous science of interpretable machine learning," no. Ml: 1–13. http://arxiv.org/abs/1702.08608 (2017).
-
-[^Miller2017]: Miller, Tim. "Explanation in artificial intelligence: Insights from the social sciences." arXiv Preprint arXiv:1706.07269. (2017).
-
-[^Heider]: Heider, Fritz, and Marianne Simmel. "An experimental study of apparent behavior." The American Journal of Psychology 57 (2). JSTOR: 243–59. (1944).
+{{< include ../References/_references.qmd >}}

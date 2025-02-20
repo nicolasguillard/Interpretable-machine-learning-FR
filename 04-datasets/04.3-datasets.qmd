@@ -37,4 +37,6 @@ Pour reproduire les exemples de ce livre avec cet ensemble de données, retrouve
 Version python + FR
 :::
 
-[^Fernandes]: Fernandes, Kelwin, Jaime S Cardoso, and Jessica Fernandes. "Transfer learning with partial observability applied to cervical cancer screening." In Iberian Conference on Pattern Recognition and Image Analysis, 243–50. Springer. (2017).
+
+<!-- REFERENCES -->
+{{< include ../References/_references.qmd >}}

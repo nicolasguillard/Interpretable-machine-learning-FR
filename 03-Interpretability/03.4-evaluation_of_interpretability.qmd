@@ -37,6 +37,6 @@ Il serait logique d'ajouter la contrainte que la performance prédictive de l'ar
 Le chapitre suivant se concentre sur l'évaluation des explications pour des prédictions individuelles au niveau fonctionnel.
 Quelles sont les propriétés pertinentes des explications que nous considérerions pour leur évaluation ?
 
-<!-- REFERENCES -->
 
-[^Doshi2017]: Doshi-Velez, Finale, and Been Kim. "Towards a rigorous science of interpretable machine learning," no. Ml: 1–13. http://arxiv.org/abs/1702.08608 (2017).
+<!-- REFERENCES -->
+{{< include ../References/_references.qmd >}}

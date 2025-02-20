@@ -32,6 +32,6 @@ Nous examinons de plus près les propriétés des méthodes d'explication et des
 - **Nouveauté** : L'explication reflète-t-elle si une instance de données à expliquer provient d'une région "nouvelle" éloignée de la distribution des données d'entraînement ? Dans de tels cas, le modèle peut être inexact et l'explication peut être inutile. Le concept de nouveauté est lié au concept de certitude. Plus la nouveauté est élevée, plus il est probable que le modèle aura une faible certitude en raison du manque de données.
 - **Représentativité** : Combien d'instances une explication couvre-t-elle ? Les explications peuvent couvrir l'ensemble du modèle (par exemple, l'interprétation des poids dans un modèle de régression linéaire) ou ne représenter qu'une prédiction individuelle (par exemple, [Valeurs de Shapley](/09-local_model_agnostic_methods/09.5-shapley.qmd)).
 
-<!-- REFERENCES -->
 
-[^human-ml]: Robnik-Sikonja, Marko, and Marko Bohanec. "Perturbation-based explanations of prediction models." Human and Machine Learning. Springer, Cham. 159-175. (2018).
+<!-- REFERENCES -->
+{{< include ../References/_references.qmd >}}

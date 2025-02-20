@@ -38,6 +38,6 @@ Vous pouvez vous concentrer sur une seule instance et examiner ce que le modèle
 
 Les prédictions du modèle pour plusieurs instances peuvent être expliquées soit avec des méthodes d'interprétation globale du modèle (à un niveau modulaire), soit avec des explications d'instances individuelles. Les méthodes globales peuvent être appliquées en prenant le groupe d'instances, en les traitant comme si le groupe était l'ensemble de données complet, et en utilisant les méthodes globales avec ce sous-ensemble. Les méthodes d'explication individuelle peuvent être utilisées sur chaque instance puis listées ou agrégées pour l'ensemble du groupe.
 
-<!-- REFERENCES -->
 
-[^Lipton2016]: Lipton, Zachary C. "The mythos of model interpretability." arXiv preprint arXiv:1606.03490, (2016).
+<!-- REFERENCES -->
+{{< include ../References/_references.qmd >}}

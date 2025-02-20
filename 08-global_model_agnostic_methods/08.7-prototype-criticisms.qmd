@@ -135,7 +135,4 @@ L'alternative la plus simple à la recherche de prototypes est celle [des k-méd
 
 
 <!-- REFERENCES -->
-
-[^medoids]: Kaufman, Leonard, and Peter Rousseeuw. "Clustering by means of medoids". North-Holland (1987).
-
-[^critique]: Kim, Been, Rajiv Khanna, and Oluwasanmi O. Koyejo. "Examples are not enough, learn to criticize! Criticism for interpretability." Advances in Neural Information Processing Systems (2016).
+{{< include ../References/_references.qmd >}}
