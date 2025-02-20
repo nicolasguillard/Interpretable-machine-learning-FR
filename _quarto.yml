@@ -7,6 +7,7 @@ project:
     - "!index_default.qmd"
     - "!_in_progress.qmd"
     - "!_original.qmd"
+  output-dir: "/Users/me/Dropbox (Compte personnel)/Perso NG/Sciences/_AI/__Portfolio/nicolasguillard.github.io/interpretable-ml-book-fr"
 
 website:
   title: "Apprentissage automatique interprétable"
