@@ -14,7 +14,7 @@ Pour éviter la confusion due à l'ambiguïté, voici quelques définitions des 
 
 Un **algorithme** est un ensemble de règles qu'une machine suit pour atteindre un objectif particulier[^algorithm]. Un algorithme peut être considéré comme une recette qui définit les entrées, la sortie et toutes les étapes nécessaires pour passer des entrées à la sortie. Les recettes de cuisine sont des algorithmes où les ingrédients sont les entrées, la nourriture cuisinée est la sortie, et les étapes de préparation et de cuisson sont les instructions de l'algorithme.
 
-L'**apprentissage automatique** (_Machine learning_) est un ensemble de méthodes qui permettent aux ordinateurs d'apprendre à partir de données pour effectuer et améliorer des prédictions (par exemple, le cancer, les ventes hebdomadaires, le défaut de crédit). L'apprentissage automatique représente un changement de paradigme par rapport à la "programmation normale" pour laquelle toutes les instructions doivent être explicitement fournies à l'ordinateur, dirigeant vers une "programmation indirecte" qui se fait en fournissant des données.
+L'**apprentissage automatique** (_Machine learning_) est un ensemble de méthodes qui permettent aux ordinateurs d'apprendre à partir de données pour effectuer et améliorer des prédictions (par exemple, le cancer, les ventes hebdomadaires, le défaut de crédit). L'apprentissage automatique représente un changement de paradigme par rapport à la "programmation normale" pour laquelle toutes les instructions doivent être explicitement fournies à l'ordinateur, vers une "programmation indirecte" qui se fait en fournissant des données.
 
 ![Programmation contre Apprentissage automatique](../images_fr/programing-ml.png){width=600px align=center}
 
@@ -24,7 +24,7 @@ Un **modèle d'apprentissage automatique** est le programme appris qui associe d
 
 ![Schéma de l'apprenant](../images_fr/learner.png){width=400px align=center}
 
-Un **modèle "boîte noire"** est un système qui ne révèle pas ses mécanismes internes. Dans l'apprentissage automatique, "boîte noire" décrit les modèles qui ne peuvent pas être compris en regardant leurs paramètres (par exemple, un réseau neuronal). L'opposé d'une boîte noire est une parfois appelé **boîte blanche**, et ce terme désigne dans ce livre un [modèle interprétable](/05-interpretable_models/index.qmd). Les [méthodes agnostiques au modèle](/06-model_agnostic_methods/index.qmd) pour l'interprétabilité traitent les modèles d'apprentissage automatique comme des "boîtes noires", même s'ils ne le sont pas.
+Un **modèle "boîte noire"** est un système qui ne révèle pas ses mécanismes internes. Dans l'apprentissage automatique, "boîte noire" décrit les modèles qui ne peuvent pas être compris en regardant leurs paramètres (par exemple, un réseau neuronal). L'opposé d'une boîte noire est parfois appelé **"boîte blanche"**, et ce terme désigne dans ce livre un [modèle interprétable](/05-interpretable_models/index.qmd). Les [méthodes agnostiques au modèle](/06-model_agnostic_methods/index.qmd) pour l'interprétabilité traitent les modèles d'apprentissage automatique comme des "boîtes noires", même s'ils ne le sont pas.
 
 ![Boîte noire](../images_fr/iml.png){width=600px align=center}
 

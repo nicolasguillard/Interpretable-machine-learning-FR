@@ -16,7 +16,7 @@ website:
     contents: auto
   page-navigation: true
   back-to-top-navigation: true
-  page-footer: "Copyright 2018-2024, Christoph Molnar <br> Traduction 2024 : Nicolas Guillard"
+  page-footer: "Copyright 2018-2025, Christoph Molnar <br> Traduction 2024-2025 : Nicolas Guillard"
   cookie-consent: false
   
 format:
@@ -24,7 +24,7 @@ format:
     metadata:
       licence: CC BY-NC-SA
     css: styles.css
-    date-modified: 09/13/2024
+    date-modified: 02/19/2025
     fig-align: center
     fig-cap-location: bottom
     lang: fr-FR
