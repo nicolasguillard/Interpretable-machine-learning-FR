@@ -1,0 +1,38 @@
+---
+order: 90
+title: Conventions
+format:
+    html:
+        toc: false
+        date-modified: 02/23/2025
+---
+
+{{< include ../_in_progress.qmd >}}
+
+## Conventions de notation mathématique
+
++:--------------------:+:----------------------------------------+
+| $\hat{f}$            | modèle d'apprentissage automatique      |
+|                      |                                         |
+| $\hat{f}(x)$         | modèle d'apprentissage automatique      |
+|                      |                                         |
+| $\hat{f}(x^{(i)})$   | prédiction                              |
+|                      |                                         |
+| $x^{(i)}$            | $i$-*ème* instance d'un jeu de données  |
++----------------------+-----------------------------------------+
+
+
+- $\hat{f}$ : modèle d'apprentissage automatique
+- $\hat{f}(x)$ : modèle d'apprentissage automatique
+- $\hat{f}(x^{(i)})$ : prédiction
+- $x^{(i)}$ : $i$-*ème* instance d'un jeu de données
+- $X$ : matrice contenant toutes les caractéristiques
+- $x^{(i)}_j$ : la valeur de la caractéristique $j$ de l'instance $i$
+- $y$ : cible d'une instance dans un jeu de données
+- $y_i$ : cible liée à la $i$-*ème* instance
+- $\hat{y}$ : prédiction
+- $\hat{y}_i$ : prédiction
+
+::: {.callout-note title="Note du traducteur" icon=false}
+Cette section est rajoutée par le traducteur.
+:::

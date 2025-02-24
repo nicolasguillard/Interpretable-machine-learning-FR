@@ -1,5 +1,4 @@
 /.quarto/
-
 .env
 logs/
 __pycache__/
