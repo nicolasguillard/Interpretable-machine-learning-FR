@@ -299,4 +299,4 @@ Je n'essaierai même pas de lister toutes les alternatives pour apprendre des en
 
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}

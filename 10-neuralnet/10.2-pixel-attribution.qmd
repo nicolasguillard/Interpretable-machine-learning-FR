@@ -230,4 +230,4 @@ Il existe plusieurs implémentations logicielles de méthodes d'attribution de p
 
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}

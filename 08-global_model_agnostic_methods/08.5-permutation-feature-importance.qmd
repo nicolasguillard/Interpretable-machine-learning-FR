@@ -116,4 +116,4 @@ Le `iml` package R a été utilisé pour les exemples. Les packages R `DALEX` et
 
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}

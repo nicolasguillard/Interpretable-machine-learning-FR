@@ -3,10 +3,10 @@ order: 2
 format:
     html:
         toc: false
+        date-modified: 02/23/2025
 original: https://christophm.github.io/interpretable-ml-book/intro.html
 ---
 
-<!--{{< include ../_in_progress.qmd >}}-->
 {{< include ../_original.qmd >}}
 
 # 2 - Introduction
@@ -31,4 +31,4 @@ J'espère que vous apprécierez la lecture de ce livre!
 
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}

@@ -1,8 +1,10 @@
 ---
+format:
+    html:
+        date-modified: 02/20/2025
 original: https://christophm.github.io/interpretable-ml-book/storytime.html
 ---
 
-<!-- {{< include ../_in_progress.qmd >}} -->
 {{< include ../_original.qmd >}}
 
 ## 2.1 - Quelques histoires {#sec-short_stories}
@@ -77,22 +79,20 @@ Son système d'affinité fiscale a finalement été intégré dans le Système d
 
 
 ### 2.1.3 - Les trombones de Fermi
-**Année 612 ACM (Après Colonisation de Mars) : Un musée sur Mars**
+**Année 612 ACM (Après la Colonisation de Mars) : Un musée sur Mars**
 
 ![Terre brûlée](../images/burnt-earth.jpg){width=400px align=center}
 
 -- "L'histoire, c'est ennuyeux," murmura Xola à son amie. Xola, une fille aux cheveux bleus, chassait paresseusement l'un des drones projecteurs bourdonnant dans la salle avec sa main gauche.<br>
 -- "L'histoire est importante," dit le professeur d'une voix contrariée en regardant les filles.<br>
-Xola rougit. Elle ne s'attendait pas à ce que son professeur l'entende.
-
+Xola rougit. Elle ne s'attendait pas à ce que son professeur l'entende.<br>
 -- "Xola, qu'as-tu appris ?" demanda le professeur.<br>
 -- "Que les anciens ont épuisé toutes les ressources de la planète Terrienne et alors sont morts ?" demanda-t-elle prudemment.<br>
 -- "Non. Ils ont rendu le climat chaud et ce n'étaient pas les gens, c'étaient les ordinateurs et les machines. Et c'est la planète Terre, pas la planète Terrienne",  ajouta une autre fille nommée Lin.<br>
 Xola acquiesça. Avec un soupçon de fierté, le professeur sourit et acquiesça.
 -- "Vous avez toutes les deux raison. Savez-vous pourquoi cela s'est passé?"<br>
 -- "Parce que les gens étaient à courte vue et avides ?" demanda Xola.<br>
--- "Les gens ne pouvaient pas arrêter leurs machines !" s'exclama Lin.
-
+-- "Les gens ne pouvaient pas arrêter leurs machines !" s'exclama Lin.<br>
 -- "Encore une fois, vous avez toutes les deux raison," décida le professeur, "mais c'est bien plus compliqué que cela. La plupart des gens à l'époque n'étaient pas conscients de ce qui se passait. Certains ont vu les changements drastiques, mais ne pouvaient pas les inverser. Le morceau le plus célèbre de cette période est un poème d'un auteur anonyme. Il capture le mieux ce qui s'est passé à cette époque. Écoutez bien !"
 
 Le professeur débuta le poème. Une douzaine de petits drones se reposionnèrent devant les enfants et projetèrent la vidéo directement dans leurs yeux. Elle montrait une personne en costume debout dans une forêt constituée seulement de souches d'arbres. Il commença à parler :
@@ -111,11 +111,11 @@ Le professeur débuta le poème. Une douzaine de petits drones se reposionnèren
 
 *Quand toutes les récompenses sont collectées,*
 
-*et les effets secondaires négligés ;*
+*Et les effets secondaires négligés ;*
 
 *Quand toutes les pièces sont minées,*
 
-*et que la nature est laissée pour compte;*
+*Et que la nature est laissée pour compte;*
 
 *Nous serons en difficulté,*
 
@@ -146,4 +146,4 @@ Le professeur débuta le poème. Une douzaine de petits drones se reposionnèren
 *Embrassant l'entropie.*
 
 -- "Un sombre souvenir", dit le professeur pour briser le silence dans la salle. "Il sera téléchargé dans votre bibliothèque. Votre devoir est de le mémoriser jusqu'à la semaine prochaine."<br>
-Xola soupira. Elle réussit à attraper l'un des petits drones. Le drone était chaud à cause du CPU et des moteurs. Xola aimait la façon dont il réchauffait ses mains.
+Xola soupira. Elle réussit à attraper l'un des petits drones. Le drone était chaud à cause du CPU et des moteurs. Xola aimait la façon dont il lui réchauffait ses mains.

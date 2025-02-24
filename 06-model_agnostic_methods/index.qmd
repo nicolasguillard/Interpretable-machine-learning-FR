@@ -44,4 +44,4 @@ Les méthodes d'interprétation indépendantes du modèle peuvent être distingu
 
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}

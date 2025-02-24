@@ -3,10 +3,10 @@ order: 0
 format:
     html:
         toc: false
+        date-modified: 02/19/2025
 original: https://christophm.github.io/interpretable-ml-book/index.html
 ---
 
-<!-- {{< include ../_in_progress.qmd >}} -->
 {{< include ../_original.qmd >}}
 
 # Résumé

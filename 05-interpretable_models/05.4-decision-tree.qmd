@@ -104,4 +104,4 @@ La version en Python des exemples de ce chapitre sont accessibles [ici]().
 :::
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}

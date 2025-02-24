@@ -194,4 +194,4 @@ L'approche de décomposition fonctionnelle est **plus appropriée pour analyser 
 
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}

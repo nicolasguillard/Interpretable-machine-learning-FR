@@ -3,10 +3,10 @@ order: 1
 format:
     html:
         toc: false
+        date-modified: 02/19/2025
 original: https://christophm.github.io/interpretable-ml-book/preface-by-the-author.html
 ---
 
-<!-- {{< include ../_in_progress.qmd >}} -->
 {{< include ../_original.qmd >}}
 
 # 1 - Préface de l'auteur

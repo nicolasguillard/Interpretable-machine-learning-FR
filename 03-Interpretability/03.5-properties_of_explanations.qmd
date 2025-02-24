@@ -34,4 +34,4 @@ Nous examinons de plus près les propriétés des méthodes d'explication et des
 
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}

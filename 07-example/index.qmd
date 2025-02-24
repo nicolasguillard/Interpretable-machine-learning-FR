@@ -34,4 +34,4 @@ Les méthodes d’interprétation suivantes sont toutes basées sur des exemples
 
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}

@@ -135,4 +135,4 @@ L'alternative la plus simple à la recherche de prototypes est celle [des k-méd
 
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}

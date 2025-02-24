@@ -233,4 +233,4 @@ Une autre approche est appelée breakDown, qui est implémentée dans le `breakD
 
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}

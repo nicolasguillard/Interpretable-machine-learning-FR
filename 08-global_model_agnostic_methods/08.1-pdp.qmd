@@ -96,4 +96,4 @@ Il existe un certain nombre de packages R qui implémentent des PDP. J'ai utilis
 Les alternatives aux PDP présentées dans ce livre sont [les tracés ALE](/08-global_model_agnostic_methods/08.2-ale.qmd) et les courbes [ICE](/09-local_model_agnostic_methods/09.1-ice.qmd).
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}

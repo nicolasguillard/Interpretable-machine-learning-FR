@@ -243,4 +243,4 @@ Avec ce chapitre, j'espère vous avoir sensibilisé au problème des exemples ad
 
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}

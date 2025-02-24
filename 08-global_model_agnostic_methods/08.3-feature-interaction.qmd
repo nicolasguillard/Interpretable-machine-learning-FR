@@ -139,4 +139,4 @@ Interaction de fonctionnalités basée sur une dépendance partielle par Greenwe
 
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}

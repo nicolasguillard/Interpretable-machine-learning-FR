@@ -94,4 +94,4 @@ La généralité peut facilement être mesurée par le support de la caractéris
 
 
 <!-- REFERENCES -->
-{{< include ../References/_references.qmd >}}
+{{< include ../99-References/_references.qmd >}}
